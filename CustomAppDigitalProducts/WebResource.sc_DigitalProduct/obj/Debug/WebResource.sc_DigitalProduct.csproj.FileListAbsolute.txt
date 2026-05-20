@@ -1,0 +1,6 @@
+C:\KePersonale\CustomAppDigitalProducts2026\CustomAppDigitalProducts\WebResource.sc_DigitalProduct\bin\Debug\WebResource.sc_DigitalProduct.dll
+C:\KePersonale\CustomAppDigitalProducts2026\CustomAppDigitalProducts\WebResource.sc_DigitalProduct\bin\Debug\WebResource.sc_DigitalProduct.pdb
+C:\KePersonale\CustomAppDigitalProducts2026\CustomAppDigitalProducts\WebResource.sc_DigitalProduct\obj\Debug\WebResource.sc_DigitalProduct.csproj.AssemblyReference.cache
+C:\KePersonale\CustomAppDigitalProducts2026\CustomAppDigitalProducts\WebResource.sc_DigitalProduct\obj\Debug\WebResource.sc_DigitalProduct.csproj.CoreCompileInputs.cache
+C:\KePersonale\CustomAppDigitalProducts2026\CustomAppDigitalProducts\WebResource.sc_DigitalProduct\obj\Debug\WebResource.sc_DigitalProduct.dll
+C:\KePersonale\CustomAppDigitalProducts2026\CustomAppDigitalProducts\WebResource.sc_DigitalProduct\obj\Debug\WebResource.sc_DigitalProduct.pdb
