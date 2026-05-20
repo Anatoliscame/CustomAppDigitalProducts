@@ -1,9 +1,11 @@
 ﻿
 Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
-VisualStudioVersion = 17.14.37012.4 d17.14
+VisualStudioVersion = 17.14.37012.4
 MinimumVisualStudioVersion = 10.0.40219.1
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.sc_DigitalProduct", "Plugin.sc_DigitalProduct\Plugin.sc_DigitalProduct.csproj", "{5ECB1052-57C0-4CB7-A728-49808D278CE4}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Plugin.sc_DigitalProductTest", "Plugin.sc_DigitalProductTest\Plugin.sc_DigitalProductTest.csproj", "{E8275C25-055D-4EF4-9C9E-FDD15A00B253}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
@@ -15,6 +17,10 @@ Global
 		{5ECB1052-57C0-4CB7-A728-49808D278CE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
 		{5ECB1052-57C0-4CB7-A728-49808D278CE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
 		{5ECB1052-57C0-4CB7-A728-49808D278CE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{E8275C25-055D-4EF4-9C9E-FDD15A00B253}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{E8275C25-055D-4EF4-9C9E-FDD15A00B253}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{E8275C25-055D-4EF4-9C9E-FDD15A00B253}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{E8275C25-055D-4EF4-9C9E-FDD15A00B253}.Release|Any CPU.Build.0 = Release|Any CPU
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

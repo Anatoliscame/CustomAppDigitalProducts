@@ -100,6 +100,10 @@
   <ItemGroup>
     <Compile Include="BusinessLogicPlugins\OnCreateUpdateDigitalProductLogic.cs" />
     <Compile Include="BusinessLogicPlugins\OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic.cs" />
+    <Compile Include="BusinessLogicPlugins\OnPostUpdateProductDetailsSyncDigitalProductLogic.cs" />
+    <Compile Include="BusinessLogicPlugins\OnPostUpdatePurchaseFinalizeKeysLogic.cs" />
+    <Compile Include="BusinessLogicPlugins\OnPreDeletePurchaseReleaseKeysLogic.cs" />
+    <Compile Include="BusinessLogicPlugins\OnPreUpdateDigitalProductVerifyColumnsLogic.cs" />
     <Compile Include="CorePlugins\Utilities.cs" />
     <Compile Include="Entities\DigitalProduct.cs" />
     <Compile Include="Entities\KeyDigitalProduct.cs" />
@@ -115,6 +119,10 @@
     <Compile Include="Model\Request\CountryInfo.cs" />
     <Compile Include="OnCreateUpdateDigitalProduct.cs" />
     <Compile Include="OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase.cs" />
+    <Compile Include="OnPostUpdateProductDetailsSyncDigitalProduct.cs" />
+    <Compile Include="OnPostUpdatePurchaseFinalizeKeys.cs" />
+    <Compile Include="OnPreDeletePurchaseReleaseKeys.cs" />
+    <Compile Include="OnPreUpdateDigitalProductVerifyColumns.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
   <ItemGroup />
