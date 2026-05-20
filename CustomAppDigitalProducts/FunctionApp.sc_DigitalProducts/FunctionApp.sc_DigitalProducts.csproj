@@ -21,7 +21,6 @@
 
   <ItemGroup>
     <Folder Include="BusinessLogic\" />
-    <Folder Include="Entities\" />
     <Folder Include="Interfaces\" />
     <Folder Include="Model\Request\" />
   </ItemGroup>
