@@ -20,8 +20,6 @@
   </ItemGroup>
 
   <ItemGroup>
-    <Folder Include="BusinessLogic\" />
-    <Folder Include="Interfaces\" />
     <Folder Include="Model\Request\" />
   </ItemGroup>
 

@@ -3,8 +3,36 @@
   "WorkspaceRootPath": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\interfaces\\ireleaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\interfaces\\ireleaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\entities\\purchaseorderlineexpansion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\entities\\purchaseorderlineexpansion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
+      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8275C25-055D-4EF4-9C9E-FDD15A00B253}|Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproducttest\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
+      "RelativeMoniker": "D:0:0:{E8275C25-055D-4EF4-9C9E-FDD15A00B253}|Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj|solutionrelative:plugin.sc_digitalproducttest\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{E8275C25-055D-4EF4-9C9E-FDD15A00B253}|Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproducttest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{E8275C25-055D-4EF4-9C9E-FDD15A00B253}|Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj|solutionrelative:plugin.sc_digitalproducttest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\entities\\purchaseorderline.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -25,22 +53,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\entities\\digitalproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\entities\\digitalproduct.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E8275C25-055D-4EF4-9C9E-FDD15A00B253}|Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproducttest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{E8275C25-055D-4EF4-9C9E-FDD15A00B253}|Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj|solutionrelative:plugin.sc_digitalproducttest\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}",
-      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\local.settings.json||{90A6B3A7-C1A3-4009-A288-E2FF89E96FA0}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproduct\\businesslogicplugins\\onpredeletepurchasereleasekeyslogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -93,10 +105,6 @@
     {
       "AbsoluteMoniker": "D:0:0:{53877083-4ED8-446C-B19E-8C1D5AB39CD7}|WebResource.sc_DigitalProduct\\WebResource.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\webresource.sc_digitalproduct\\webresource\\javascript\\power pages\\digitalproductnewform.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{53877083-4ED8-446C-B19E-8C1D5AB39CD7}|WebResource.sc_DigitalProduct\\WebResource.sc_DigitalProduct.csproj|solutionrelative:webresource.sc_digitalproduct\\webresource\\javascript\\power pages\\digitalproductnewform.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{E8275C25-055D-4EF4-9C9E-FDD15A00B253}|Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproducttest\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
-      "RelativeMoniker": "D:0:0:{E8275C25-055D-4EF4-9C9E-FDD15A00B253}|Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj|solutionrelative:plugin.sc_digitalproducttest\\app.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{E8275C25-055D-4EF4-9C9E-FDD15A00B253}|Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproducttest\\packages.config||{FA3CD31E-987B-443A-9B81-186104E8DAC1}",
@@ -162,11 +170,37 @@
       "DocumentGroups": [
         {
           "DockedHeight": 286,
-          "SelectedChildIndex": 0,
+          "SelectedChildIndex": 8,
           "Children": [
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
+              "Title": "IReleaseExpiredCartKeysTimerBL.cs",
+              "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Interfaces\\IReleaseExpiredCartKeysTimerBL.cs",
+              "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\Interfaces\\IReleaseExpiredCartKeysTimerBL.cs",
+              "ToolTip": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Interfaces\\IReleaseExpiredCartKeysTimerBL.cs",
+              "RelativeToolTip": "FunctionApp.sc_DigitalProducts\\Interfaces\\IReleaseExpiredCartKeysTimerBL.cs",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T18:42:55.387Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 2,
+              "Title": "ReleaseExpiredCartKeysTimerBL.cs",
+              "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
+              "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
+              "ToolTip": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
+              "RelativeToolTip": "FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
+              "ViewState": "AgIAAAQAAAAAAAAAAAAAABMAAAAJAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2026-05-20T18:40:15.78Z",
+              "EditorCaption": ""
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 3,
               "Title": "PurchaseOrderLineExpansion.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Entities\\PurchaseOrderLineExpansion.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\Entities\\PurchaseOrderLineExpansion.cs",
@@ -179,7 +213,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 8,
               "Title": "PurchaseOrderLine.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Entities\\PurchaseOrderLine.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\Entities\\PurchaseOrderLine.cs",
@@ -192,7 +226,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 9,
               "Title": "Purchase.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Entities\\Purchase.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\Entities\\Purchase.cs",
@@ -205,7 +239,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 10,
               "Title": "ProductDetails.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Entities\\ProductDetails.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\Entities\\ProductDetails.cs",
@@ -218,7 +252,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 11,
               "Title": "KeyDigitalProduct.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Entities\\KeyDigitalProduct.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\Entities\\KeyDigitalProduct.cs",
@@ -231,7 +265,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 12,
               "Title": "DigitalProduct.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Entities\\DigitalProduct.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\Entities\\DigitalProduct.cs",
@@ -244,46 +278,46 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "ReleaseExpiredCartKeysTimer.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
               "ToolTip": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
               "RelativeToolTip": "FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
-              "ViewState": "AgIAAA8AAAAAAAAAAAAAAC0AAAANAAAAAAAAAA==",
+              "ViewState": "AgIAACoAAAAAAAAAAAAAACMAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-20T18:28:27.77Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 4,
               "Title": "local.settings.json",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\local.settings.json",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\local.settings.json",
               "ToolTip": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\local.settings.json",
               "RelativeToolTip": "FunctionApp.sc_DigitalProducts\\local.settings.json",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAYAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAUAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.001642|",
               "WhenOpened": "2026-05-20T18:27:34.425Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 5,
               "Title": "Program.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Program.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\Program.cs",
               "ToolTip": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\Program.cs",
               "RelativeToolTip": "FunctionApp.sc_DigitalProducts\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-20T18:23:18.177Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 10,
+              "DocumentIndex": 13,
               "Title": "OnPreDeletePurchaseReleaseKeysLogic.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPreDeletePurchaseReleaseKeysLogic.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPreDeletePurchaseReleaseKeysLogic.cs",
@@ -296,7 +330,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 15,
+              "DocumentIndex": 18,
               "Title": "app.config",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\app.config",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\app.config",
@@ -309,7 +343,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 17,
+              "DocumentIndex": 20,
               "Title": "OnPreUpdateDigitalProductVerifyColumns.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\OnPreUpdateDigitalProductVerifyColumns.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\OnPreUpdateDigitalProductVerifyColumns.cs",
@@ -322,7 +356,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 12,
+              "DocumentIndex": 15,
               "Title": "OnPreDeletePurchaseReleaseKeys.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\OnPreDeletePurchaseReleaseKeys.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\OnPreDeletePurchaseReleaseKeys.cs",
@@ -335,7 +369,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 19,
+              "DocumentIndex": 22,
               "Title": "mainDigitalProduct.js",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\WebResource.sc_DigitalProduct\\webresource\\Javascript\\Form\\mainDigitalProduct.js",
               "RelativeDocumentMoniker": "WebResource.sc_DigitalProduct\\webresource\\Javascript\\Form\\mainDigitalProduct.js",
@@ -348,7 +382,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 20,
+              "DocumentIndex": 23,
               "Title": "digitalproduct.js",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\WebResource.sc_DigitalProduct\\webresource\\Javascript\\Ribbon\\digitalproduct.js",
               "RelativeDocumentMoniker": "WebResource.sc_DigitalProduct\\webresource\\Javascript\\Ribbon\\digitalproduct.js",
@@ -361,7 +395,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 21,
+              "DocumentIndex": 24,
               "Title": "DigitalProductEditForm.js",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\WebResource.sc_DigitalProduct\\webresource\\Javascript\\Power Pages\\DigitalProductEditForm.js",
               "RelativeDocumentMoniker": "WebResource.sc_DigitalProduct\\webresource\\Javascript\\Power Pages\\DigitalProductEditForm.js",
@@ -374,7 +408,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 22,
+              "DocumentIndex": 25,
               "Title": "DigitalProductNewForm.js",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\WebResource.sc_DigitalProduct\\webresource\\Javascript\\Power Pages\\DigitalProductNewForm.js",
               "RelativeDocumentMoniker": "WebResource.sc_DigitalProduct\\webresource\\Javascript\\Power Pages\\DigitalProductNewForm.js",
@@ -387,7 +421,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 24,
+              "DocumentIndex": 26,
               "Title": "packages.config",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProductTest\\packages.config",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProductTest\\packages.config",
@@ -400,7 +434,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 23,
+              "DocumentIndex": 6,
               "Title": "App.config",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProductTest\\App.config",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProductTest\\App.config",
@@ -413,7 +447,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 25,
+              "DocumentIndex": 27,
               "Title": "Plugin.sc_DigitalProductTest",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProductTest\\Plugin.sc_DigitalProductTest.csproj",
@@ -425,7 +459,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 26,
+              "DocumentIndex": 28,
               "Title": "OnPostUpdatePurchaseFinalizeKeysWrapper.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProductTest\\wrapper\\OnPostUpdatePurchaseFinalizeKeysWrapper.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProductTest\\wrapper\\OnPostUpdatePurchaseFinalizeKeysWrapper.cs",
@@ -451,7 +485,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 16,
+              "DocumentIndex": 19,
               "Title": "OnPostUpdatePurchaseFinalizeKeys.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\OnPostUpdatePurchaseFinalizeKeys.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\OnPostUpdatePurchaseFinalizeKeys.cs",
@@ -464,7 +498,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 29,
+              "DocumentIndex": 31,
               "Title": "OnPostUpdateProductDetailsSyncDigitalProductLogic.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostUpdateProductDetailsSyncDigitalProductLogic.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostUpdateProductDetailsSyncDigitalProductLogic.cs",
@@ -477,7 +511,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 18,
+              "DocumentIndex": 21,
               "Title": "OnPostUpdateProductDetailsSyncDigitalProduct.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\OnPostUpdateProductDetailsSyncDigitalProduct.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\OnPostUpdateProductDetailsSyncDigitalProduct.cs",
@@ -490,7 +524,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 31,
+              "DocumentIndex": 33,
               "Title": "Plugin.sc_DigitalProduct",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj",
@@ -502,7 +536,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 32,
+              "DocumentIndex": 34,
               "Title": "OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic.cs",
@@ -515,7 +549,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 30,
+              "DocumentIndex": 32,
               "Title": "OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase.cs",
@@ -528,7 +562,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 14,
+              "DocumentIndex": 17,
               "Title": "PurchaseOrderlineHelper.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\Helper\\PurchaseOrderlineHelper.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\Helper\\PurchaseOrderlineHelper.cs",
@@ -541,7 +575,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 27,
+              "DocumentIndex": 29,
               "Title": "PurchaseHelper.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\Helper\\PurchaseHelper.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\Helper\\PurchaseHelper.cs",
@@ -554,7 +588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 34,
+              "DocumentIndex": 36,
               "Title": "KeyDigitalProductHelper.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\Helper\\KeyDigitalProductHelper.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\Helper\\KeyDigitalProductHelper.cs",
@@ -567,7 +601,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 35,
+              "DocumentIndex": 37,
               "Title": "DigitalProductHelper.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\Helper\\DigitalProductHelper.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\Helper\\DigitalProductHelper.cs",
@@ -580,7 +614,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 36,
+              "DocumentIndex": 38,
               "Title": "DigitalProduct.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\Entities\\DigitalProduct.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\Entities\\DigitalProduct.cs",
@@ -593,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 28,
+              "DocumentIndex": 30,
               "Title": "CountryInfo.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\Model\\Request\\CountryInfo.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\Model\\Request\\CountryInfo.cs",
@@ -606,7 +640,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 33,
+              "DocumentIndex": 35,
               "Title": "Utilities.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\CorePlugins\\Utilities.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\CorePlugins\\Utilities.cs",
@@ -619,7 +653,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 11,
+              "DocumentIndex": 14,
               "Title": "OnCreateUpdateDigitalProductLogic.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnCreateUpdateDigitalProductLogic.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnCreateUpdateDigitalProductLogic.cs",
@@ -632,7 +666,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 13,
+              "DocumentIndex": 16,
               "Title": "OnCreateUpdateDigitalProduct.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\OnCreateUpdateDigitalProduct.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\OnCreateUpdateDigitalProduct.cs",
