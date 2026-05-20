@@ -1,6 +1,5 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Plugin.sc_DigitalProduct.BusinessLogicPlugins;
-using Plugin.sc_DigitalProduct.CorePlugins;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -9,9 +8,8 @@ using System.Threading.Tasks;
 
 namespace Plugin.sc_DigitalProduct
 {
-    public class OnCreateUpdateDigitalProduct : IPlugin
+    public class OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase : IPlugin
     {
-        // Add
         public void Execute(IServiceProvider serviceProvider)
         {
             try
@@ -21,39 +19,29 @@ namespace Plugin.sc_DigitalProduct
                 var service = factory.CreateOrganizationService(context.UserId);
                 var trace = (ITracingService)serviceProvider.GetService(typeof(ITracingService));
 
-                OnCreateUpdateDigitalProductLogic bl = new OnCreateUpdateDigitalProductLogic();
+                OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic bl = new OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic();
 
-                trace.Trace("Start Plugin OnCreateUpdateDigitalProduct");
-
+                trace.Trace("Start Plugin OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase");
                 context = (IPluginExecutionContext)serviceProvider.GetService(typeof(IPluginExecutionContext));
                 if (trace == null)
                     throw new InvalidPluginExecutionException("Failed to retrieve the tracing service.");
 
-                if (context.Depth > 1)
+                var target = new Entity();
+
+                if (context.MessageName.ToLower() == "create") 
                 {
-                    trace.Trace("Plugin interrotto per evitare loop.");
-                    return;
+                    target = (Entity)context.InputParameters["Target"];
+                    bl.ExecuteLogic(service, target, trace);
+
+                    trace?.Trace("End Plugin OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase");
                 }
 
-                Entity prodottoDigitale =
-                            (context.MessageName.ToLower() == "create") ? (Entity)context.InputParameters["Target"] :
-                            (context.MessageName.ToLower() == "update") ? Utilities.MergeEntities(context.PreEntityImages["sc_digitalproduct_pre"], (Entity)context.InputParameters["Target"]) : null;
-
-                if (prodottoDigitale != null)
-                {
-                    bl.ExecuteLogic(service, prodottoDigitale, context.MessageName, trace);
-                }
-                else
-                {
-                    trace?.Trace("prodottoDigitale is null");
-                }
-                trace?.Trace("End Plugin OnCreateUpdateDigitalProduct");
             }
             catch (Exception e)
             {
                 throw new InvalidPluginExecutionException(e.Message);
             }
-
         }
     }
 }
+

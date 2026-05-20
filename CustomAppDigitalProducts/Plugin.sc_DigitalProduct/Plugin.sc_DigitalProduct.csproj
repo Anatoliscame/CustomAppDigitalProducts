@@ -30,6 +30,12 @@
     <ErrorReport>prompt</ErrorReport>
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
+  <PropertyGroup>
+    <SignAssembly>true</SignAssembly>
+  </PropertyGroup>
+  <PropertyGroup>
+    <AssemblyOriginatorKeyFile>Plugin.sc_DigitalProduct.pfx</AssemblyOriginatorKeyFile>
+  </PropertyGroup>
   <ItemGroup>
     <Reference Include="Microsoft.Bcl.AsyncInterfaces, Version=8.0.0.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
       <HintPath>..\packages\Microsoft.Bcl.AsyncInterfaces.8.0.0\lib\net462\Microsoft.Bcl.AsyncInterfaces.dll</HintPath>
@@ -93,18 +99,29 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicPlugins\OnCreateUpdateDigitalProductLogic.cs" />
+    <Compile Include="BusinessLogicPlugins\OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic.cs" />
     <Compile Include="CorePlugins\Utilities.cs" />
+    <Compile Include="Entities\DigitalProduct.cs" />
+    <Compile Include="Entities\KeyDigitalProduct.cs" />
+    <Compile Include="Entities\ProductDetails.cs" />
+    <Compile Include="Entities\Purchase.cs" />
+    <Compile Include="Entities\PurchaseOrderLine.cs" />
+    <Compile Include="Entities\PurchaseOrderLineExpansion.cs" />
+    <Compile Include="Helper\DigitalProductHelper.cs" />
+    <Compile Include="Helper\KeyDigitalProductHelper.cs" />
+    <Compile Include="Helper\ProductDetailsHelper.cs" />
+    <Compile Include="Helper\PurchaseHelper.cs" />
+    <Compile Include="Helper\PurchaseOrderlineHelper.cs" />
     <Compile Include="Model\Request\CountryInfo.cs" />
     <Compile Include="OnCreateUpdateDigitalProduct.cs" />
+    <Compile Include="OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Entities\" />
-    <Folder Include="Helper\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <None Include="app.config" />
     <None Include="packages.config" />
+    <None Include="Plugin.sc_DigitalProduct.pfx" />
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>
