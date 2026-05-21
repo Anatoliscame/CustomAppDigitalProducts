@@ -13,6 +13,17 @@ namespace Plugin.sc_DigitalProduct.Helper
     {
         public PurchaseHelper() { }
 
+        public void UpdatePurchaseInactived(IOrganizationService service, Entity target)
+        {
+            Entity updatePurchase = new Entity(Purchase.LogicalName)
+            {
+                Id = target.Id
+            };
+            updatePurchase[Purchase.StatusReason] = new OptionSetValue(2); // Inactive
+            updatePurchase[Purchase.Status] = new OptionSetValue(1); // Inactive
+            service.Update(updatePurchase);
+        }
+
         public EntityCollection GetAcquisto(IOrganizationService service, Entity targetNew)
         {
             QueryExpression acquistiQ = new QueryExpression(Purchase.LogicalName);
@@ -29,6 +40,7 @@ namespace Plugin.sc_DigitalProduct.Helper
             nuovoAcquisto[Purchase.StatusPurchase] = new OptionSetValue(KestatusAcquistoValue); // Stato "In Attesa" (Assumendo che il valore sia 100000000)
             nuovoAcquisto[Purchase.Code] = generatedCode;
             nuovoAcquisto[Purchase.Total] = totaleRiga;
+            nuovoAcquisto[Purchase.ExpirationDate] = DateTime.UtcNow;
             Guid acquistoId = service.Create(nuovoAcquisto);
             return acquistoId;
         }
@@ -67,7 +79,47 @@ namespace Plugin.sc_DigitalProduct.Helper
             {
                 return new List<Entity>();
             }
-            return result.Entities.ToList();
+            return result.Entities.ToList(); 
+        }
+
+        public void CreatePurchaseHistory(IOrganizationService service, Entity target, Guid updatePurchase, Guid accountPurchase, EntityReference assigneeRef, DateTime? expirationDate, int statusPurchaseOldValue, int statusPurchaseNewValue, ITracingService trace)
+        {
+            Entity tradePurchaseHistoryCreate = new Entity(PurchaseHistory.LogicalName);
+            //tradePurchaseHistoryCreate[PurchaseHistory.Name] = target.GetAttributeValue<string>(Purchase.Name) + " - " + target.GetAttributeValue<string>(Purchase.Code);
+            tradePurchaseHistoryCreate[PurchaseHistory.Name] = target.GetAttributeValue<string>(Purchase.Code);
+            tradePurchaseHistoryCreate[PurchaseHistory.PurchaseId] = new EntityReference(Purchase.LogicalName, target.Id);
+            tradePurchaseHistoryCreate[PurchaseHistory.AccountClient] = new EntityReference("account", accountPurchase);
+            tradePurchaseHistoryCreate[PurchaseHistory.OldStatusPurchase] = new OptionSetValue(statusPurchaseOldValue);
+            tradePurchaseHistoryCreate[PurchaseHistory.NewStatusPurchase] = new OptionSetValue(statusPurchaseNewValue);
+            tradePurchaseHistoryCreate[PurchaseHistory.StatusSetBy] = new EntityReference("systemuser", updatePurchase);
+            //tradePurchaseHistoryCreate[PurchaseHistory.ExpirationDate] = expirationDate.Value;// il fuso orario locale
+            SetUserOrTeam(service, tradePurchaseHistoryCreate, assigneeRef, trace);
+            service.Create(tradePurchaseHistoryCreate);
+            trace.Trace($"PurchaseHistory has been create");
+            return;
+        }
+
+        
+        public void SetUserOrTeam(IOrganizationService service, Entity tradePurchaseHistoryCreate, EntityReference assigneeRef, ITracingService trace)
+        {
+            if (assigneeRef == null)
+            {
+                trace.Trace("assigneeRef (OwnerId) non presente o nullo.");
+                // Va creare lo stesso record tradePurchaseHistory, anche se senza il campo assigneeRef non e' valorizzato
+            }
+            else
+            {
+                if (assigneeRef.LogicalName == "systemuser")
+                {
+                    tradePurchaseHistoryCreate[PurchaseHistory.AssigneeUser] = new EntityReference("systemuser", assigneeRef.Id);
+                    trace.Trace($"Owner è un utente: {assigneeRef.Id}");
+                }
+                else if (assigneeRef.LogicalName == "team")
+                {
+                    tradePurchaseHistoryCreate[PurchaseHistory.AssigneeTeam] = new EntityReference("team", assigneeRef.Id);
+                    trace.Trace($"Owner è un team: {assigneeRef.Id}");
+                }
+            }
         }
     }
 }

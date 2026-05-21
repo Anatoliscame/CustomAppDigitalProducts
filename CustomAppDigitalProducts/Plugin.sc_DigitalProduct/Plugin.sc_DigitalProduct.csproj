@@ -99,6 +99,7 @@
   </ItemGroup>
   <ItemGroup>
     <Compile Include="BusinessLogicPlugins\OnCreateUpdateDigitalProductLogic.cs" />
+    <Compile Include="BusinessLogicPlugins\OnCreateUpdateStatusPurchaseRegisterPurchaseHistoryLogic.cs" />
     <Compile Include="BusinessLogicPlugins\OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic.cs" />
     <Compile Include="BusinessLogicPlugins\OnPostUpdateProductDetailsSyncDigitalProductLogic.cs" />
     <Compile Include="BusinessLogicPlugins\OnPostUpdatePurchaseFinalizeKeysLogic.cs" />
@@ -109,6 +110,7 @@
     <Compile Include="Entities\KeyDigitalProduct.cs" />
     <Compile Include="Entities\ProductDetails.cs" />
     <Compile Include="Entities\Purchase.cs" />
+    <Compile Include="Entities\PurchaseHistory.cs" />
     <Compile Include="Entities\PurchaseOrderLine.cs" />
     <Compile Include="Entities\PurchaseOrderLineExpansion.cs" />
     <Compile Include="Helper\DigitalProductHelper.cs" />
@@ -118,6 +120,7 @@
     <Compile Include="Helper\PurchaseOrderlineHelper.cs" />
     <Compile Include="Model\Request\CountryInfo.cs" />
     <Compile Include="OnCreateUpdateDigitalProduct.cs" />
+    <Compile Include="OnCreateUpdateStatusPurchaseRegisterPurchaseHistory.cs" />
     <Compile Include="OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase.cs" />
     <Compile Include="OnPostUpdateProductDetailsSyncDigitalProduct.cs" />
     <Compile Include="OnPostUpdatePurchaseFinalizeKeys.cs" />

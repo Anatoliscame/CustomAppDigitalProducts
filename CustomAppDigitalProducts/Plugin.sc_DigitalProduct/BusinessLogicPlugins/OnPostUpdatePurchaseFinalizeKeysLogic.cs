@@ -16,6 +16,13 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
             trace?.Trace("Purchase (message Create, Update and Delete) is successfully.");
             if (targetPost != null)
             {
+                int? typeStatusPurchase = targetPost.Contains(Purchase.StatusPurchase)
+                    ? targetPost.GetAttributeValue<OptionSetValue>(Purchase.StatusPurchase)?.Value
+                    : null;
+                if (typeStatusPurchase == null)
+                {
+                    throw new InvalidPluginExecutionException("Non puo essere null Stato Purchase.");
+                }
                 int? optionSetValue = ((OptionSetValue)targetPost.Attributes[Purchase.StatusPurchase]).Value;
 
                 switch (optionSetValue)
@@ -24,10 +31,10 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                         ExecuteAcquistoUpdate(service, targetPost, trace);
                         break;
                     case 126400001: //In_attesa
-                        throw new ApplicationException("il valore di stato ordine selezionato 'Completato', acquisto non puo essere eliminato");
+                        //throw new ApplicationException("il valore di stato ordine selezionato 'Completato', acquisto non puo essere eliminato");
 
                     case 126400002: //Annulato
-                        throw new ApplicationException("'Annulato' non consentito");
+                        //throw new ApplicationException("'Annulato' non consentito");
 
                     default:
                         return;

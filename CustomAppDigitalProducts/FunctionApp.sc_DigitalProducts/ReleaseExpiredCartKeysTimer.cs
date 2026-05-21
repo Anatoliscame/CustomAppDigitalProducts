@@ -1,8 +1,9 @@
-using System;
+using FunctionApp.sc_DigitalProducts.BusinessLogic;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Microsoft.PowerPlatform.Dataverse.Client;
 using Microsoft.Xrm.Sdk;
+using System;
 
 namespace FunctionApp.sc_DigitalProducts;
 
@@ -26,6 +27,8 @@ public class ReleaseExpiredCartKeysTimer
         }
 
         ServiceClient serviceClient = null;
+
+        var damManager = new ReleaseExpiredCartKeysTimerBL(_logger);
 
         try
         {
