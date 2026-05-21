@@ -27,5 +27,6 @@ namespace Plugin.sc_DigitalProduct.Entities
         public const string CancelReason = "sc_cancelreason";
         public const string IsExpired = "sc_isexpired";
         public const string ExpirationDate = "sc_expirationdate"; //Data di scadenza
+   
     } 
 } 
