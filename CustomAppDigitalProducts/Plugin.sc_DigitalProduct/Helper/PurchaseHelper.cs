@@ -29,6 +29,7 @@ namespace Plugin.sc_DigitalProduct.Helper
             nuovoAcquisto[Purchase.StatusPurchase] = new OptionSetValue(KestatusAcquistoValue); // Stato "In Attesa" (Assumendo che il valore sia 100000000)
             nuovoAcquisto[Purchase.Code] = generatedCode;
             nuovoAcquisto[Purchase.Total] = totaleRiga;
+            nuovoAcquisto[Purchase.ExpirationDate] = DateTime.UtcNow;
             Guid acquistoId = service.Create(nuovoAcquisto);
             return acquistoId;
         }

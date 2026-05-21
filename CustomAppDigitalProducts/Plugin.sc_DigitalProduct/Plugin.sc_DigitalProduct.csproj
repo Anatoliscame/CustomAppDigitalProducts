@@ -109,6 +109,7 @@
     <Compile Include="Entities\KeyDigitalProduct.cs" />
     <Compile Include="Entities\ProductDetails.cs" />
     <Compile Include="Entities\Purchase.cs" />
+    <Compile Include="Entities\PurchaseHistory.cs" />
     <Compile Include="Entities\PurchaseOrderLine.cs" />
     <Compile Include="Entities\PurchaseOrderLineExpansion.cs" />
     <Compile Include="Helper\DigitalProductHelper.cs" />
