@@ -1,5 +1,6 @@
 ﻿using Microsoft.Xrm.Sdk;
 using Microsoft.Xrm.Sdk.Query;
+using Newtonsoft.Json.Linq;
 using Plugin.sc_DigitalProduct.CorePlugins;
 using Plugin.sc_DigitalProduct.Entities;
 using Plugin.sc_DigitalProduct.Helper;
@@ -38,6 +39,8 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
             {
                 throw new InvalidPluginExecutionException("Non esiste un prodotto digitale attivo relazionato con Product Details.");
             }
+
+
             Guid idProdDigital = prodottiDigitale[0].GetAttributeValue<Guid>(DigitalProduct.DigitalProductId);
 
             string nameTo = GetNameBeforeDash(prodottiDigitale[0].GetAttributeValue<string>(DigitalProduct.Name));
@@ -62,7 +65,13 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                     trace?.Trace("sc_typeexpansion non valorizzato o non presente nella PostImage.");
                     throw new InvalidPluginExecutionException("Il campo Type Expansion è obbligatorio. Seleziona un valore prima di salvare.");
                 }
-            
+
+                var verifyDigitalProductWitchTypeExpansion = _prodottoDigitaleHelper.VerifyDigitalProductWitchTypeExpansion(service, postImage, nameTo, typeexpansion.Value);
+
+                if (verifyDigitalProductWitchTypeExpansion.Entities.Count > 0)
+                {
+                    throw new InvalidPluginExecutionException("Esiste già un prodotto digitale attivo con lo stesso nome e TypeExpansion.");
+                }
                 EntityReference parentDigitProd = prodottiDigitale[0].GetAttributeValue<EntityReference>(DigitalProduct.ParentDigitalProductId);
                
                 /////// NON E' DA CONTROLLARE QUESTO FUNCTION

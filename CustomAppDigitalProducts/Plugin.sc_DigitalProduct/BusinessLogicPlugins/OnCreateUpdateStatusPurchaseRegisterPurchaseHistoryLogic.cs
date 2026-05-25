@@ -36,11 +36,6 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                 return;
             }
             int? typeStatusPurchaseOld = preImage.GetAttributeValue<OptionSetValue>(Purchase.StatusPurchase)?.Value;
-            if (typeStatusPurchaseOld == null || typeStatusPurchaseNew == null)
-            {
-                trace?.Trace("typeStatusPurchaseOld non valorizzato o non presente nella PreImage.");
-                throw new InvalidPluginExecutionException("typeStatusPurchaseOld non valorizzato o non presente nella PreImage or PostImage.");
-            }
 
             DateTime? expirationDate = target.GetAttributeValue<DateTime?>(Purchase.ExpirationDate);
 

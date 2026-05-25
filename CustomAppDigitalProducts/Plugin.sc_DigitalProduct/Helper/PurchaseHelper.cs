@@ -92,6 +92,11 @@ namespace Plugin.sc_DigitalProduct.Helper
             tradePurchaseHistoryCreate[PurchaseHistory.OldStatusPurchase] = new OptionSetValue(statusPurchaseOldValue);
             tradePurchaseHistoryCreate[PurchaseHistory.NewStatusPurchase] = new OptionSetValue(statusPurchaseNewValue);
             tradePurchaseHistoryCreate[PurchaseHistory.StatusSetBy] = new EntityReference("systemuser", updatePurchase);
+            /*int? tipoCancelReason = target.Contains(Purchase.CancelReason) ? target.GetAttributeValue<OptionSetValue>(Purchase.CancelReason)?.Value : null;
+            if (tipoCancelReason != null)
+            {
+                tradePurchaseHistoryCreate[PurchaseHistory.CancelReason] = new OptionSetValue(tipoCancelReason.Value);
+            }*/
             //tradePurchaseHistoryCreate[PurchaseHistory.ExpirationDate] = expirationDate.Value;// il fuso orario locale
             SetUserOrTeam(service, tradePurchaseHistoryCreate, assigneeRef, trace);
             service.Create(tradePurchaseHistoryCreate);

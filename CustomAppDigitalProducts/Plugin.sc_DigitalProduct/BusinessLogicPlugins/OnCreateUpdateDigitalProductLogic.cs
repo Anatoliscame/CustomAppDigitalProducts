@@ -54,6 +54,8 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                     throw new InvalidPluginExecutionException("Name di Prodotto Digitale: il campo è assente.");
                 }
 
+                string nameToNoTypeExpansion = $"{nameTo}" + " - " + "Specifica tipo di prodotto digitale";
+
                 int? typePiattaformaPD = prodottoDigitale.Contains(DigitalProduct.TypePlatform)
                     ? prodottoDigitale.GetAttributeValue<OptionSetValue>(DigitalProduct.TypePlatform)?.Value
                      : null;
@@ -82,8 +84,8 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                     throw new InvalidPluginExecutionException("Configurazione mancante: NameCodiceForProdottoDigitale.");
                 }
 
-                List<Entity> prodottiDigitaleAll = _prodottoDigitaleHelper.GeNamesProdottiDigitaleActived(service, nameTo, typePD);
-                if (prodottiDigitaleAll.Count > 0) { throw new InvalidPluginExecutionException("Esiste il prodotto digitale con stesso Nome"); }
+                List<Entity> prodottiDigitaleAll = _prodottoDigitaleHelper.GeNamesProdottiDigitaleActivedTypeExpansionNull(service, nameToNoTypeExpansion, typePD);
+                if (prodottiDigitaleAll.Count > 0) { throw new InvalidPluginExecutionException("Esiste il prodotto digitale con stesso Nome con type expansion null."); }
 
                 prodottoDigitaleArray = Utilities.GetPrivateConfigurationValueSplit(arraynomiProdDig);
                 if (prodottoDigitaleArray.Count == 0)
@@ -108,7 +110,7 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                 prodottoDigitale[DigitalProduct.ProductDetails] = new EntityReference(ProductDetails.LogicalName, prodDigitID);
 
                 prodottoDigitale[DigitalProduct.BasePrice] = new Money(0); ;
-                prodottoDigitale[DigitalProduct.Name] = $"{nameTo}" + " - " + "Specifica tipo di prodotto digitale";
+                prodottoDigitale[DigitalProduct.Name] = nameToNoTypeExpansion;
                 prodottoDigitale[DigitalProduct.Codice] = $"{nameTo}" + " - " + Utilities.GeneraCodice();
 
             }
@@ -141,7 +143,7 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                             throw new InvalidPluginExecutionException("DLC deve essere solo associato al prodotto gigitale di tipo Espansione");
                         }
                     }
-                    else if (typeExpansionParent != 126400001) // DLC
+                    else if (typeExpansionParent != 126400001) // ! DLC
                     {
                         Money prezzoBaseMoney = prodottoDigitale.GetAttributeValue<Money>(DigitalProduct.BasePrice);
 

@@ -47,6 +47,7 @@ public class ReleaseExpiredCartKeysTimer
                 _logger.LogError("Errore connessione Dataverse: {error}", serviceClient.LastError);
                 return;
             }
+            var _purchases = new ReleaseExpiredCartKeysTimerBL(_logger);
 
             IOrganizationService service = serviceClient;
 
@@ -55,6 +56,14 @@ public class ReleaseExpiredCartKeysTimer
 
             _logger.LogInformation("Connessione Dataverse riuscita.");
 
+            Guid SystemUserId = Guid.Empty;
+            Guid CaseId = Guid.Empty;
+
+            var purchasesArray = _purchases.GetPurchaseInAttesaList(service, Convert.ToInt32(intTopQuery));
+
+            if (purchasesArray.Count > 0)
+            {
+            }
             // Qui dopo userai:
             // service.RetrieveMultiple(...)
             // service.Update(...)
