@@ -16,7 +16,12 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
         {
             _logger = logger;
         }
-          
+
+        public List<DigitalProduct> GetDigitalProductList(int IntTopQueryDigitalProduct)
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Entity> GetPurchaseInAttesaList(IOrganizationService service,int topQuery)
         {
             QueryExpression query = new QueryExpression(Purchase.LogicalName)
