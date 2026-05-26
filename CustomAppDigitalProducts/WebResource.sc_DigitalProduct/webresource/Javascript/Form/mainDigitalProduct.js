@@ -106,6 +106,8 @@ CustomApp.mainDigitalProduct = new function () {
                     _self.HideBasePriceIfDlcWithParent(executionContext, valueTypeProduct);
                     formContext.getControl("sc_parentdigitalproductid").setVisible(true);
                     //formContext.getControl("sc_accountcliente").setVisible(false);
+
+                    _self.setCustomViewParentDigitalProductEspansione(executionContext);
                 }
             }
             else if (tipoProductAttr.getValue() == typeProductDigital.Licenza_Software) {
@@ -317,5 +319,48 @@ CustomApp.mainDigitalProduct = new function () {
         if (tipoProduct == null) {
             return;
         }
+    };
+
+    _self.setCustomViewParentDigitalProductEspansione = function (executionContext) {
+        var formContext = executionContext.getFormContext();
+
+        var parentDigitalProductControl = formContext.getControl("sc_parentdigitalproductid");
+
+        if (parentDigitalProductControl == null) {
+            return;
+        }
+
+
+        var viewId = "{00000000-0000-0000-0000-000000000001}";
+        var entityName = "sc_digitalproduct";
+        var viewDisplayName = "Digital Product - Solo Espansione";
+
+        var fetchXml =
+            "<fetch mapping='logical' version='1.0' output-format='xml-platform' distinct='false'>" +
+            "  <entity name='sc_digitalproduct'>" +
+            "    <attribute name='sc_digitalproductid' />" +
+            "    <attribute name='sc_name' />" +
+            "    <attribute name='sc_codice' />" +
+            "    <attribute name='sc_typeplatform' />" +
+            "    <filter type='and'>" +
+            "      <condition attribute='statecode' operator='eq' value='0' />" +
+            "    </filter>" +
+            "    <link-entity name='sc_productdetails' from='sc_productdetailsid' to='sc_productdetailsid' link-type='inner' alias='pd'>" +
+            "      <filter type='and'>" +
+            "        <condition attribute='sc_typeexpansion' operator='eq' value='126400003' />" + // Espansione
+            "      </filter>" +
+            "    </link-entity>" +
+            "  </entity>" +
+            "</fetch>";
+
+        var layoutXml = "<grid name='resultset' object='1' jump='sc_name' select='1' icon='1' preview='1'>" +
+            "  <row name='result' id='sc_digitalproductid'>" +
+            "    <cell name='sc_name' width='250' />" +
+            "    <cell name='sc_codice' width='150' />" +
+            "    <cell name='sc_typeplatform' width='150' />" +
+            "  </row>" +
+            "</grid>";
+
+        parentDigitalProductControl.addCustomView(viewId, entityName, viewDisplayName, fetchXml, layoutXml, true);
     };
 };

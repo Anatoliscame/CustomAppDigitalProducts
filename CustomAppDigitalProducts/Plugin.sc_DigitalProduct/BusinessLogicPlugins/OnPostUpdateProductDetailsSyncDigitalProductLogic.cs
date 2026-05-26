@@ -83,9 +83,6 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
 
                 EntityReference parentDigitProd = prodottiDigitale[0].GetAttributeValue<EntityReference>(DigitalProduct.ParentDigitalProductId);
                
-                /////// NON E' DA CONTROLLARE QUESTO FUNCTION
-                _prodottoDigitaleHelper.UpdateRemoveValueDigitalProduct(service, idProdDigital, parentDigitProd, typeexpansion);
-                ///////
                  _productDetailsHelper.UpdateNameProductDetails(service, postImage, nameTo);
 
                 _prodottoDigitaleHelper.UpdateNameCodiceProdottoDigitale(service, idProdDigital, nameTo, typeexpansion, typeproductdetail);

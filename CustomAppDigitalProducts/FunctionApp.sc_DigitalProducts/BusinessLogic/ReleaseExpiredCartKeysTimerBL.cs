@@ -22,14 +22,14 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
             throw new NotImplementedException();
         }
 
-        public List<Entity> GetPurchaseInAttesaList(IOrganizationService service,int topQuery)
+        public List<Entity> GetPurchaseList(IOrganizationService service,int topQuery, int statuspurchase)
         {
             QueryExpression query = new QueryExpression(Purchase.LogicalName)
             {
                 ColumnSet = new ColumnSet(Purchase.ExpirationDate, Purchase.StatusPurchase, Purchase.PurchaseId, Purchase.AccountClientId, Purchase.Code),
                 Criteria = new FilterExpression()
             };
-            query.Criteria.AddCondition(Purchase.StatusReason, ConditionOperator.Equal, 1); // To be processed
+            query.Criteria.AddCondition(Purchase.StatusReason, ConditionOperator.Equal, statuspurchase); // 126400001 -> In attesa
             query.NoLock = true;
             query.TopCount = topQuery;
 

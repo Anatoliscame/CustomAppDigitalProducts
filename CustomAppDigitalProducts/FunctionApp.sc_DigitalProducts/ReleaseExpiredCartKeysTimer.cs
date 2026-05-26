@@ -59,7 +59,8 @@ public class ReleaseExpiredCartKeysTimer
             Guid SystemUserId = Guid.Empty;
             Guid CaseId = Guid.Empty;
 
-            var purchasesArray = _purchases.GetPurchaseInAttesaList(service, Convert.ToInt32(intTopQuery));
+            // In attesa
+            var purchasesArray = _purchases.GetPurchaseList(service, Convert.ToInt32(intTopQuery), 126400001);
 
             if (purchasesArray.Count > 0)
             {
