@@ -34,12 +34,12 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
             DigitalProductHelper _prodottoDigitaleHelper = new DigitalProductHelper();
             ProductDetailsHelper _productDetailsHelper = new ProductDetailsHelper();
 
-            List<Entity> prodottiDigitale = _prodottoDigitaleHelper.GeProdottiDigitaleActived(service, postImage);
+            List<Entity> prodottiDigitale = _prodottoDigitaleHelper.GeDigitalProductActived(service, postImage);
             if (prodottiDigitale.Count == 0)
             {
                 throw new InvalidPluginExecutionException("Non esiste un prodotto digitale attivo relazionato con Product Details.");
             }
-
+             
 
             Guid idProdDigital = prodottiDigitale[0].GetAttributeValue<Guid>(DigitalProduct.DigitalProductId);
 
@@ -65,13 +65,37 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                     trace?.Trace("sc_typeexpansion non valorizzato o non presente nella PostImage.");
                     throw new InvalidPluginExecutionException("Il campo Type Expansion è obbligatorio. Seleziona un valore prima di salvare.");
                 }
+                var isDuplicateDigitProd = false;
 
-                var verifyDigitalProductWitchTypeExpansion = _prodottoDigitaleHelper.VerifyDigitalProductWitchTypeExpansion(service, postImage, nameTo, typeexpansion.Value);
+                int? secondTypePlatform = prodottiDigitale[0].Contains(DigitalProduct.TypePlatform)
+                           ? prodottiDigitale[0].GetAttributeValue<OptionSetValue>(DigitalProduct.TypePlatform)?.Value
+                            : null;
 
-                if (verifyDigitalProductWitchTypeExpansion.Entities.Count > 0)
+                var digitProdFiltr = _prodottoDigitaleHelper.GetDigitalProductWitchTypePlatformAndTypePD(service, postImage, nameTo);
+                 
+                for (int i = 0; i < digitProdFiltr.Entities.Count; i++)
                 {
-                    throw new InvalidPluginExecutionException("Esiste già un prodotto digitale attivo con lo stesso nome e TypeExpansion.");
+
+                    var aliasedTypeExpansion = digitProdFiltr.Entities[i].GetAttributeValue<AliasedValue>($"pd.{ProductDetails.TypeExpansion}");
+                    var optionSetTypeExpansion = aliasedTypeExpansion?.Value as OptionSetValue;
+
+                    int? firstTypePlatform = digitProdFiltr.Entities[i].Contains(DigitalProduct.TypePlatform)
+                        ? digitProdFiltr.Entities[i].GetAttributeValue<OptionSetValue>(DigitalProduct.TypePlatform)?.Value
+                        : null;
+
+                    if (firstTypePlatform == secondTypePlatform 
+                        && optionSetTypeExpansion?.Value == typeexpansion.Value)
+                    {
+                        isDuplicateDigitProd = true;
+                        break;
+                    }
                 }
+
+                if (isDuplicateDigitProd)
+                {
+                    throw new InvalidPluginExecutionException("Non puoi creare un prodotto digitale con la stessa combinazione di Type Expansion e Type Platform selezionata.");
+                }
+
                 EntityReference parentDigitProd = prodottiDigitale[0].GetAttributeValue<EntityReference>(DigitalProduct.ParentDigitalProductId);
                
                 /////// NON E' DA CONTROLLARE QUESTO FUNCTION

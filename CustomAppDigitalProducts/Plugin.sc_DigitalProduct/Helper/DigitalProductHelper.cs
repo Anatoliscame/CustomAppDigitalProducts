@@ -65,7 +65,7 @@ namespace Plugin.sc_DigitalProduct.Helper
         }
 
 
-        public List<Entity> GeProdottiDigitaleActived(IOrganizationService service, Entity target)
+        public List<Entity> GeDigitalProductActived(IOrganizationService service, Entity target)
         {
 
             QueryExpression query = new QueryExpression(DigitalProduct.LogicalName)
@@ -77,37 +77,32 @@ namespace Plugin.sc_DigitalProduct.Helper
             query.Criteria.AddCondition(DigitalProduct.StateCode, ConditionOperator.Equal, 0);//Active
             query.NoLock = true;
             query.TopCount = 1;
-            var result = service.RetrieveMultiple(query);
-            if (result.Entities.Count == 0)
-            {
-                return new List<Entity>();
-            }
-            return result.Entities.ToList();
+
+            return service.RetrieveMultiple(query).Entities.ToList();
         }
 
-        public EntityCollection VerifyDigitalProductWitchTypeExpansion(IOrganizationService service, Entity postImage, string nameToProductDigit, int value)
-        { 
-               
+        public EntityCollection GetDigitalProductWitchTypePlatformAndTypePD(IOrganizationService service,Entity postImage,string nameToProductDigit)
+        {
             QueryExpression query = new QueryExpression(DigitalProduct.LogicalName)
             {
-                ColumnSet = new ColumnSet(true),
+                ColumnSet = new ColumnSet(DigitalProduct.DigitalProductId,DigitalProduct.Name, DigitalProduct.TypePlatform),
                 Criteria = new FilterExpression()
             };
             query.Criteria.AddCondition(DigitalProduct.Name, ConditionOperator.Equal, nameToProductDigit);
             query.Criteria.AddCondition(DigitalProduct.ProductDetails, ConditionOperator.NotEqual, postImage.Id);
-            query.Criteria.AddCondition(DigitalProduct.StateCode, ConditionOperator.Equal, 0);//Active
+            query.Criteria.AddCondition(DigitalProduct.StateCode, ConditionOperator.Equal, 0); // Active
+
             query.NoLock = true;
 
-            LinkEntity productDetailsLink = query.AddLink(
+           LinkEntity productDetailsLink = query.AddLink(
                 ProductDetails.LogicalName,
                 DigitalProduct.ProductDetails,       // lookup su Digital Product verso ProductDetails
                 ProductDetails.ProdottoDigitaleId,     // primary key di ProductDetails
                 JoinOperator.Inner);
 
-            productDetailsLink.LinkCriteria.AddCondition(ProductDetails.TypeExpansion, ConditionOperator.Equal, value);
-
+            productDetailsLink.EntityAlias = "pd";
+            productDetailsLink.Columns = new ColumnSet(ProductDetails.TypeExpansion,ProductDetails.TypeLicense);
             EntityCollection result = service.RetrieveMultiple(query);
-
             return result;
         }
 
