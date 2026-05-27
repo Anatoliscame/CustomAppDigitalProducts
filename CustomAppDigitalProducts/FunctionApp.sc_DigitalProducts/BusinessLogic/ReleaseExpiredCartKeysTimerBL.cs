@@ -22,24 +22,55 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
             throw new NotImplementedException();
         }
 
-        public List<Entity> GetPurchaseList(IOrganizationService service,int topQuery, int statuspurchase)
+        public List<Entity> GetPurchaseList(IOrganizationService service, int topCount, int statuspurchase)
         {
+            if (topCount <= 0)
+            {
+                topCount = 50;
+            }
             QueryExpression query = new QueryExpression(Purchase.LogicalName)
             {
-                ColumnSet = new ColumnSet(Purchase.ExpirationDate, Purchase.StatusPurchase, Purchase.PurchaseId, Purchase.AccountClientId, Purchase.Code),
-                Criteria = new FilterExpression()
+                ColumnSet = new ColumnSet(true),
+                Criteria = new FilterExpression(LogicalOperator.And),
+                TopCount = topCount,
+                NoLock = true
             };
-            query.Criteria.AddCondition(Purchase.StatusReason, ConditionOperator.Equal, statuspurchase); // 126400001 -> In attesa
-            query.NoLock = true;
-            query.TopCount = topQuery;
+            query.Criteria.AddCondition(Purchase.StatusPurchase, ConditionOperator.Equal, statuspurchase); // In Attesa
+            query.Criteria.AddCondition(Purchase.IsExpired, ConditionOperator.Equal, false);
+            query.Criteria.AddCondition(Purchase.Status, ConditionOperator.Equal, 0); // Active
+            query.AddOrder(Purchase.ExpirationDate, OrderType.Ascending);
 
-            var result = service.RetrieveMultiple(query);
-            if (result.Entities.Count == 0)
-            {
-                return new List<Entity>();
-            }
+            EntityCollection result = service.RetrieveMultiple(query);
+
             return result.Entities.ToList();
+        }        
+        public void ExpireUpdatePurchase(IOrganizationService service, Entity purchase, DateTime? newExpirationDate)
+        {
+            if (purchase.Id == Guid.Empty)
+            {
+                throw new InvalidPluginExecutionException("Purchase Id non valido.");
+            }
+
+            Entity purchaseUpdate = new Entity(Purchase.LogicalName)
+            {
+                Id = purchase.Id
+            };
+            if (newExpirationDate != null)
+            {
+                purchaseUpdate[Purchase.ExpirationDate] = newExpirationDate.Value;
+            }
+            else
+            {
+                //purchaseUpdate[Purchase.StatusPurchase] = new OptionSetValue(126400002); // Annullato
+                purchaseUpdate[Purchase.CancelReason] = new OptionSetValue(126400000); // ExpiredCart
+                purchaseUpdate[Purchase.IsExpired] = true;
+            }
+
+            service.Update(purchaseUpdate);
+            //string purchaseName = purchase.GetAttributeValue<string>(Purchase.Name) ?? purchase.Id.ToString();
         }
 
     }
 }
+
+

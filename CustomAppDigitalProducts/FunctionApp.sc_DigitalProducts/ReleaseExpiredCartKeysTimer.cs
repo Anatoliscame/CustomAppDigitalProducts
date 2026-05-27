@@ -1,4 +1,5 @@
 using FunctionApp.sc_DigitalProducts.BusinessLogic;
+using FunctionApp.sc_DigitalProducts.Entities;
 using Microsoft.Azure.Functions.Worker;
 using Microsoft.Extensions.Logging;
 using Microsoft.PowerPlatform.Dataverse.Client;
@@ -27,12 +28,11 @@ public class ReleaseExpiredCartKeysTimer
         }
 
         ServiceClient serviceClient = null;
-
-        var damManager = new ReleaseExpiredCartKeysTimerBL(_logger);
+        var _purchases = new ReleaseExpiredCartKeysTimerBL(_logger);
 
         try
         {
-            var connectionString = Environment.GetEnvironmentVariable("CRM_CustomeAppScame");
+            var connectionString = Environment.GetEnvironmentVariable("TestDigitalProductScameVersion2");
 
             if (string.IsNullOrWhiteSpace(connectionString))
             {
@@ -47,7 +47,6 @@ public class ReleaseExpiredCartKeysTimer
                 _logger.LogError("Errore connessione Dataverse: {error}", serviceClient.LastError);
                 return;
             }
-            var _purchases = new ReleaseExpiredCartKeysTimerBL(_logger);
 
             IOrganizationService service = serviceClient;
 
@@ -64,11 +63,37 @@ public class ReleaseExpiredCartKeysTimer
 
             if (purchasesArray.Count > 0)
             {
+                foreach (Entity purchase in purchasesArray)
+                {
+                    if (purchase == null) { continue; }
+
+                    if (!purchase.Contains(Purchase.ExpirationDate))
+                    {
+                        _logger.LogWarning("Purchase {purchaseId} senza ExpirationDate. Record ignorato.", purchase.Id);
+                        continue;
+                    }
+                    DateTime nowUtc = DateTime.UtcNow;
+                    DateTime expirationDate = purchase.GetAttributeValue<DateTime>(Purchase.ExpirationDate);
+                    TimeSpan remainingTime = expirationDate - nowUtc;
+
+                    _logger.LogInformation("Purchase {purchaseId} - ExpirationDate: {expirationDate}, NowUtc: {nowUtc}, RemainingTime: {remainingTime}", purchase.Id, expirationDate, nowUtc, remainingTime);
+                     
+                    if (remainingTime <= TimeSpan.Zero)
+                    {
+                        _purchases.ExpireUpdatePurchase(service, purchase, null);
+                        
+                        _logger.LogInformation("Purchase {purchaseId} scaduto. IsExpired impostato a true.", purchase.Id);
+                    }
+                    else
+                    {
+                        DateTime newExpirationDate = expirationDate.Add(remainingTime);
+                        _purchases.ExpireUpdatePurchase(service, purchase, newExpirationDate);
+                        _logger.LogInformation("Purchase {purchaseId} non ancora scaduto. Tempo rimanente: {remainingTime}", purchase.Id, remainingTime);
+                    }
+
+                    Thread.Sleep(Convert.ToInt32(stringFrequency));
+                }
             }
-            // Qui dopo userai:
-            // service.RetrieveMultiple(...)
-            // service.Update(...)
-            // service.Create(...)
         }
         catch (Exception ex)
         {

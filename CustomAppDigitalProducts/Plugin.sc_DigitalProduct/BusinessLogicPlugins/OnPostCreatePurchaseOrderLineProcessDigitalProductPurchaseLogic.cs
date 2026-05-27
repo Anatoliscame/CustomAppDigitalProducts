@@ -92,6 +92,7 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                 Guid accountId = getPDToTo.GetAttributeValue<EntityReference>(DigitalProduct.AccountClientId)?.Id ?? Guid.Empty;
                 pdIdRetrive = getPDToTo.GetAttributeValue<Guid>(DigitalProduct.DigitalProductId);
                 List<Entity> acquistiInattesa = _acquistoHelper.GetAcquistoInAttesa(service, accountId);
+                DateTime createdOn = target.GetAttributeValue<DateTime>(PurchaseOrderLine.CreatedOn);
                 if (acquistiInattesa.Count > 0)
                 {
                     Guid acquistoId = acquistiInattesa[0].GetAttributeValue<Guid>(Purchase.PurchaseId);
@@ -101,7 +102,7 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                 {
                     int quantitaAcquisto = _acquistoHelper.GetAcquisto(service, target).Entities.Count + 1;
 
-                    Guid acquistoId = _acquistoHelper.CreateAcquisto(service, quantitaAcquisto, accountId, 126400001, GeneraCodiceAcquisto(), totaleRiga);
+                    Guid acquistoId = _acquistoHelper.CreateAcquisto(service, quantitaAcquisto, accountId, 126400001, GeneraCodiceAcquisto(), createdOn, totaleRiga);
                     if (acquistoId == Guid.Empty) { throw new InvalidPluginExecutionException($"Errore durante la creazione dell'Acquisto."); }
                     acquistoIdRetrive = acquistoId;
 

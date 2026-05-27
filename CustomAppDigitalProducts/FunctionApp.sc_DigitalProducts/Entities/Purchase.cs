@@ -17,6 +17,10 @@ namespace FunctionApp.sc_DigitalProducts.Entities
         public const string CreatedBy = "createdby";
         public const string Assignee = "ownerid";
 
+        public const string LastCartActivityOn = "sc_lastcartactivityon";
+
+        
+
         public const string StatusReason = "statuscode";
         public const string Status = "statecode";
 
