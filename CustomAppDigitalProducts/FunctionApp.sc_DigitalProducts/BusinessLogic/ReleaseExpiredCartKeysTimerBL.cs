@@ -43,7 +43,28 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
             EntityCollection result = service.RetrieveMultiple(query);
 
             return result.Entities.ToList();
-        }        
+        }
+
+
+        public List<Entity> GetPurchaseOrderLineList(IOrganizationService service, int topCount, Guid purchaseId)
+        {
+
+            QueryExpression query = new QueryExpression(PurchaseOrderLine.LogicalName)
+            {
+                ColumnSet = new ColumnSet(true),
+                Criteria = new FilterExpression(LogicalOperator.And),
+                TopCount = topCount+1,
+                NoLock = true
+            };
+            query.Criteria.AddCondition(PurchaseOrderLine.PurchaseId, ConditionOperator.Equal, purchaseId); // In Attesa
+            query.Criteria.AddCondition(PurchaseOrderLine.StateCode, ConditionOperator.Equal, 0); // Active
+            query.AddOrder(PurchaseOrderLine.CreatedOn, OrderType.Ascending);
+
+            EntityCollection result = service.RetrieveMultiple(query);
+
+            return result.Entities.Skip(1).ToList();
+        }
+
         public void ExpireUpdatePurchase(IOrganizationService service, Entity purchase, DateTime? newExpirationDate)
         {
             if (purchase.Id == Guid.Empty)
@@ -67,9 +88,7 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
             }
 
             service.Update(purchaseUpdate);
-            //string purchaseName = purchase.GetAttributeValue<string>(Purchase.Name) ?? purchase.Id.ToString();
         }
-
     }
 }
 
