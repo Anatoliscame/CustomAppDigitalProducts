@@ -79,6 +79,18 @@ public class ReleaseExpiredCartKeysTimer
                     DateTime currentExpirationDate = purchase.GetAttributeValue<DateTime>(Purchase.ExpirationDate);
 
                     var purchaseOrderLines = _purchases.GetPurchaseOrderLineList(service, Convert.ToInt32(intTopQueryPurchaseOL), purchase.Id);
+                    if (purchaseOrderLines.Count == 1)
+                    {
+                        if (currentExpirationDate <= nowUtc)
+                        {
+                            _purchases.ExpireUpdatePurchase(service, purchase, null);
+
+                            _logger.LogInformation("Purchase {purchaseId} scaduto. IsExpired impostato a true.",purchase.Id);
+                        }
+                        continue;
+                    }
+
+                    purchaseOrderLines = purchaseOrderLines.Skip(1).ToList();
                    // if (purchaseOrderLines.Count == 0) { continue; }
 
                     bool purchaseExpired = false;
