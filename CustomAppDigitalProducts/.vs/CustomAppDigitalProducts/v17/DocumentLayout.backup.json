@@ -3,6 +3,18 @@
   "WorkspaceRootPath": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproduct\\businesslogicplugins\\onpostupdateproductdetailssyncdigitalproductlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|solutionrelative:plugin.sc_digitalproduct\\businesslogicplugins\\onpostupdateproductdetailssyncdigitalproductlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproduct\\businesslogicplugins\\oncreateupdatestatuspurchaseregisterpurchasehistorylogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|solutionrelative:plugin.sc_digitalproduct\\businesslogicplugins\\oncreateupdatestatuspurchaseregisterpurchasehistorylogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
@@ -23,24 +35,12 @@
       "RelativeMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|solutionrelative:plugin.sc_digitalproduct\\oncreateupdatestatuspurchaseregisterpurchasehistory.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproduct\\businesslogicplugins\\onpostupdateproductdetailssyncdigitalproductlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|solutionrelative:plugin.sc_digitalproduct\\businesslogicplugins\\onpostupdateproductdetailssyncdigitalproductlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
       "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproduct\\businesslogicplugins\\onpostupdatepurchasefinalizekeyslogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|solutionrelative:plugin.sc_digitalproduct\\businesslogicplugins\\onpostupdatepurchasefinalizekeyslogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproduct\\helper\\purchasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|solutionrelative:plugin.sc_digitalproduct\\helper\\purchasehelper.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\entities\\purchaseorderlineexpansion.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
@@ -150,7 +150,7 @@
       "DocumentGroups": [
         {
           "DockedHeight": 286,
-          "SelectedChildIndex": 69,
+          "SelectedChildIndex": 80,
           "Children": [
             {
               "$type": "Bookmark",
@@ -354,7 +354,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 7,
+              "DocumentIndex": 8,
               "Title": "OnPostUpdatePurchaseFinalizeKeysLogic.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostUpdatePurchaseFinalizeKeysLogic.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostUpdatePurchaseFinalizeKeysLogic.cs",
@@ -367,7 +367,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 4,
+              "DocumentIndex": 7,
               "Title": "OnCreateUpdateStatusPurchaseRegisterPurchaseHistory.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\OnCreateUpdateStatusPurchaseRegisterPurchaseHistory.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\OnCreateUpdateStatusPurchaseRegisterPurchaseHistory.cs",
@@ -471,7 +471,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 4,
               "Title": "PurchaseOrderlineHelper.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\Helper\\PurchaseOrderlineHelper.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\Helper\\PurchaseOrderlineHelper.cs",
@@ -510,7 +510,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 8,
+              "DocumentIndex": 9,
               "Title": "PurchaseHelper.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\Helper\\PurchaseHelper.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\Helper\\PurchaseHelper.cs",
@@ -588,7 +588,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 5,
               "Title": "OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostCreatePurchaseOrderLineProcessDigitalProductPurchaseLogic.cs",
@@ -601,13 +601,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 3,
               "Title": "OnCreateUpdateStatusPurchaseRegisterPurchaseHistoryLogic.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnCreateUpdateStatusPurchaseRegisterPurchaseHistoryLogic.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnCreateUpdateStatusPurchaseRegisterPurchaseHistoryLogic.cs",
               "ToolTip": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnCreateUpdateStatusPurchaseRegisterPurchaseHistoryLogic.cs",
               "RelativeToolTip": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnCreateUpdateStatusPurchaseRegisterPurchaseHistoryLogic.cs",
-              "ViewState": "AgIAACEAAAAAAAAAAAAAAC4AAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAAEAAAAAAAAAAAAAAFYAAAAvAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-27T10:04:12.99Z",
               "EditorCaption": ""
@@ -627,7 +627,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 3,
+              "DocumentIndex": 6,
               "Title": "OnPreDeletePurchaseReleaseKeysLogic.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPreDeletePurchaseReleaseKeysLogic.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPreDeletePurchaseReleaseKeysLogic.cs",
@@ -744,26 +744,26 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 6,
+              "DocumentIndex": 0,
               "Title": "ReleaseExpiredCartKeysTimerBL.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
               "ToolTip": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
               "RelativeToolTip": "FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
-              "ViewState": "AgIAAE0AAAAAAAAAAAAAADEAAAAIAAAAAAAAAA==",
+              "ViewState": "AgIAAD8AAAAAAAAAAAAAAEoAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-26T10:54:16.738Z",
               "EditorCaption": ""
             },
             {
               "$type": "Document",
-              "DocumentIndex": 9,
+              "DocumentIndex": 1,
               "Title": "ReleaseExpiredCartKeysTimer.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
               "ToolTip": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
               "RelativeToolTip": "FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
-              "ViewState": "AgIAAGUAAAAAAAAAAAAAAHgAAAAAAAAAAAAAAA==",
+              "ViewState": "AgIAAGUAAAAAAAAAAAAAAG4AAAA7AAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-26T10:53:48.274Z",
               "EditorCaption": ""
@@ -796,13 +796,13 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 5,
+              "DocumentIndex": 2,
               "Title": "OnPostUpdateProductDetailsSyncDigitalProductLogic.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostUpdateProductDetailsSyncDigitalProductLogic.cs",
               "RelativeDocumentMoniker": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostUpdateProductDetailsSyncDigitalProductLogic.cs",
               "ToolTip": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostUpdateProductDetailsSyncDigitalProductLogic.cs",
               "RelativeToolTip": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostUpdateProductDetailsSyncDigitalProductLogic.cs",
-              "ViewState": "AgIAAA0AAAAAAAAAAAAAAGgAAAAuAAAAAAAAAA==",
+              "ViewState": "AgIAABAAAAAAAAAAAAAAAIcAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
               "WhenOpened": "2026-05-26T10:26:54.983Z",
               "EditorCaption": ""

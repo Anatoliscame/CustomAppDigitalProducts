@@ -83,9 +83,9 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
             }
             else
             {
-                //purchaseUpdate[Purchase.StatusPurchase] = new OptionSetValue(126400002); // Annullato
                 purchaseUpdate[Purchase.CancelReason] = new OptionSetValue(126400000); // ExpiredCart
                 purchaseUpdate[Purchase.IsExpired] = true;
+                purchaseUpdate[Purchase.StatusPurchase] = new OptionSetValue(126400002); // Annullato
             }
 
             service.Update(purchaseUpdate);

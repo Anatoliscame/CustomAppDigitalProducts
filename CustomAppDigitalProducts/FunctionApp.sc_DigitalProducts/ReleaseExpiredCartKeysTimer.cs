@@ -118,7 +118,7 @@ public class ReleaseExpiredCartKeysTimer
                         
                         _purchases.updatePurchaseOLIsExpiration(service, purchaseOrderLine);
 
-                        TimeSpan elapsedTime = (nowUtc - remainingTime) - createdOn;
+                        //TimeSpan elapsedTime = (nowUtc - remainingTime) - createdOn;
 
                         currentExpirationDate = currentExpirationDate.Add(remainingTime);
                         expirationDateUpdated = true;
@@ -138,7 +138,6 @@ public class ReleaseExpiredCartKeysTimer
                         _logger.LogInformation("Purchase {purchaseId} non ancora scaduto. Nuova ExpirationDate calcolata: {newExpirationDate}", purchase.Id,currentExpirationDate);
                     }
 
-                    //_purchases.ExpireUpdatePurchase(service, purchase, newExpirationDate);
                     Thread.Sleep(Convert.ToInt32(stringFrequency));
                 }
             }
