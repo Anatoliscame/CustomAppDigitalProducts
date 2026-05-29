@@ -17,11 +17,6 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
             _logger = logger;
         }
 
-        public List<DigitalProduct> GetDigitalProductList(int IntTopQueryDigitalProduct)
-        {
-            throw new NotImplementedException();
-        }
-
         public List<Entity> GetPurchaseList(IOrganizationService service, int topCount, int statuspurchase)
         {
             if (topCount <= 0)
@@ -99,6 +94,10 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
             };
             updatePurchaseOL[PurchaseOrderLine.IsExpirationCalculationProcessed] = true;
             service.Update(updatePurchaseOL);
+        }
+        public List<DigitalProduct> GetDigitalProductList(int IntTopQueryDigitalProduct)
+        {
+            throw new NotImplementedException();
         }
     }
 }

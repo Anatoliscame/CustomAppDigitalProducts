@@ -118,8 +118,6 @@ public class ReleaseExpiredCartKeysTimer
                         
                         _purchases.updatePurchaseOLIsExpiration(service, purchaseOrderLine);
 
-                        //TimeSpan elapsedTime = (nowUtc - remainingTime) - createdOn;
-
                         currentExpirationDate = currentExpirationDate.Add(remainingTime);
                         expirationDateUpdated = true;
                     }
