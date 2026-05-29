@@ -41,7 +41,6 @@ namespace Plugin.sc_DigitalProduct.Helper
             nuovoAcquisto[Purchase.Code] = generatedCode;
             nuovoAcquisto[Purchase.Total] = totaleRiga;
             nuovoAcquisto[Purchase.ExpirationDate] = createdOn.AddMinutes(10);
-            nuovoAcquisto[Purchase.LastCartActivityOn] = createdOn;
             Guid acquistoId = service.Create(nuovoAcquisto);
             return acquistoId;
         }

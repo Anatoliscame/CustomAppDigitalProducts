@@ -57,6 +57,7 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
                 NoLock = true
             };
             query.Criteria.AddCondition(PurchaseOrderLine.PurchaseId, ConditionOperator.Equal, purchaseId);
+            query.Criteria.AddCondition(PurchaseOrderLine.IsExpirationCalculationProcessed,ConditionOperator.Equal,false);
             query.Criteria.AddCondition(PurchaseOrderLine.StateCode, ConditionOperator.Equal, 0); // Active
             query.AddOrder(PurchaseOrderLine.CreatedOn, OrderType.Ascending);
 
@@ -88,6 +89,16 @@ namespace FunctionApp.sc_DigitalProducts.BusinessLogic
             }
 
             service.Update(purchaseUpdate);
+        }
+
+        public void updatePurchaseOLIsExpiration(IOrganizationService service, Entity purchaseOL)
+        {
+            Entity updatePurchaseOL = new Entity(PurchaseOrderLine.LogicalName)
+            {
+                Id = purchaseOL.Id
+            };
+            updatePurchaseOL[PurchaseOrderLine.IsExpirationCalculationProcessed] = true;
+            service.Update(updatePurchaseOL);
         }
     }
 }

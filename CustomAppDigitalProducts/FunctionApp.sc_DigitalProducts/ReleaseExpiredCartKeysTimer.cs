@@ -57,9 +57,6 @@ public class ReleaseExpiredCartKeysTimer
 
             _logger.LogInformation("Connessione Dataverse riuscita.");
 
-            Guid SystemUserId = Guid.Empty;
-            Guid CaseId = Guid.Empty;
-
             // In attesa
             var purchasesArray = _purchases.GetPurchaseList(service, Convert.ToInt32(intTopQueryPurchase), 126400001);
 
@@ -79,18 +76,18 @@ public class ReleaseExpiredCartKeysTimer
                     DateTime currentExpirationDate = purchase.GetAttributeValue<DateTime>(Purchase.ExpirationDate);
 
                     var purchaseOrderLines = _purchases.GetPurchaseOrderLineList(service, Convert.ToInt32(intTopQueryPurchaseOL), purchase.Id);
-                    if (purchaseOrderLines.Count == 1)
+                    if (purchaseOrderLines.Count == 0)
                     {
                         if (currentExpirationDate <= nowUtc)
                         {
                             _purchases.ExpireUpdatePurchase(service, purchase, null);
 
-                            _logger.LogInformation("Purchase {purchaseId} scaduto. IsExpired impostato a true.",purchase.Id);
+                            _logger.LogInformation("Purchase {purchaseId} scaduto. IsExpired impostato a true.", purchase.Id);
                         }
                         continue;
                     }
 
-                    purchaseOrderLines = purchaseOrderLines.Skip(1).ToList();
+                    //purchaseOrderLines = purchaseOrderLines.Skip(1).ToList();
                    // if (purchaseOrderLines.Count == 0) { continue; }
 
                     bool purchaseExpired = false;
@@ -99,6 +96,7 @@ public class ReleaseExpiredCartKeysTimer
 
                     foreach (Entity purchaseOrderLine in purchaseOrderLines)
                     {
+
                         DateTime createdOn = purchaseOrderLine.GetAttributeValue<DateTime>(PurchaseOrderLine.CreatedOn);
 
                         _logger.LogInformation("PurchaseOrderLine {purchaseOrderLineId} da gestire nella Function App. CreatedOn: {createdOn}", purchaseOrderLine.Id, createdOn);
@@ -117,6 +115,10 @@ public class ReleaseExpiredCartKeysTimer
                             purchaseExpired = true;
                             break;
                         }
+                        
+                        _purchases.updatePurchaseOLIsExpiration(service, purchaseOrderLine);
+
+                        TimeSpan elapsedTime = (nowUtc - remainingTime) - createdOn;
 
                         currentExpirationDate = currentExpirationDate.Add(remainingTime);
                         expirationDateUpdated = true;
@@ -133,12 +135,10 @@ public class ReleaseExpiredCartKeysTimer
                     if (expirationDateUpdated)
                     {
                         _purchases.ExpireUpdatePurchase(service, purchase, currentExpirationDate);
-
-                        _logger.LogInformation( "Purchase {purchaseId} non ancora scaduto. Nuova ExpirationDate calcolata: {newExpirationDate}", purchase.Id,currentExpirationDate);
+                        _logger.LogInformation("Purchase {purchaseId} non ancora scaduto. Nuova ExpirationDate calcolata: {newExpirationDate}", purchase.Id,currentExpirationDate);
                     }
 
                     //_purchases.ExpireUpdatePurchase(service, purchase, newExpirationDate);
-
                     Thread.Sleep(Convert.ToInt32(stringFrequency));
                 }
             }

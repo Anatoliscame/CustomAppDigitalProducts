@@ -97,6 +97,8 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                 {
                     Guid acquistoId = acquistiInattesa[0].GetAttributeValue<Guid>(Purchase.PurchaseId);
                     acquistoIdRetrive = acquistoId;
+
+                    entityUpdate[PurchaseOrderLine.IsExpirationCalculationProcessed] = false;
                 }
                 else
                 {
@@ -107,10 +109,11 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                     acquistoIdRetrive = acquistoId;
 
                     trace?.Trace($"Nuovo Acquisto creato: {acquistoTo}");
+
+                    entityUpdate[PurchaseOrderLine.IsExpirationCalculationProcessed] = true;
                 }
 
                 entityUpdate[PurchaseOrderLine.PurchaseId] = new EntityReference(Purchase.LogicalName, acquistoIdRetrive);
-
             }
             trace?.Trace($"AssignTo {acquistoTo}");
 
