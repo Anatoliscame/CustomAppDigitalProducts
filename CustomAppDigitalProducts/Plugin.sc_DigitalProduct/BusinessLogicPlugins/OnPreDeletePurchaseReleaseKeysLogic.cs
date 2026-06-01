@@ -99,7 +99,7 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
                             int deletedCountEspnsion = 0;
                             foreach (var orderAcquistoEspansion in orderAcquistoEspansions)
                             {
-                                if (orderAcquistoEspansion == null) continue;
+                                if (orderAcquistoEspansion == null) continue; // Mmm, dovrei toglierlo
 
                                 service.Delete(PurchaseOrderLineExpansion.LogicalName, orderAcquistoEspansion.Id);
                                 deletedCountEspnsion++;

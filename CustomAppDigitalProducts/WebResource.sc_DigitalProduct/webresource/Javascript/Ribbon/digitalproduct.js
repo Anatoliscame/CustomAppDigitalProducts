@@ -105,6 +105,8 @@
         }
         if (tipoProductAttr.getValue() == 126400001) // Licenza Software
         {
+            var isBasePriceValid = CheckBasePriceGreaterThanZero(formContext);
+            if (isBasePriceValid === false) { return; }
             creaOrdineAcquisto(newOrder);
             Xrm.Navigation.openAlertDialog({ text: "Licenza Software" });
         }

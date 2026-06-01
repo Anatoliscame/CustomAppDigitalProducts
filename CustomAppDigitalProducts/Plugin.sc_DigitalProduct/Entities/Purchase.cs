@@ -21,11 +21,14 @@ namespace Plugin.sc_DigitalProduct.Entities
         public const string CreatedBy = "createdby";
         public const string Assignee = "ownerid";
 
+        public const string LastCartActivityOn = "sc_lastcartactivityon";
+
         public const string StatusReason = "statuscode";
         public const string Status = "statecode";
 
         public const string CancelReason = "sc_cancelreason";
         public const string IsExpired = "sc_isexpired";
         public const string ExpirationDate = "sc_expirationdate"; //Data di scadenza
+   
     } 
 } 

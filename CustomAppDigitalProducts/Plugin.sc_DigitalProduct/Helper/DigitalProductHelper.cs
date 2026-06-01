@@ -13,8 +13,8 @@ namespace Plugin.sc_DigitalProduct.Helper
     public class DigitalProductHelper
     {
         public DigitalProductHelper() { }
-         
-        public List<Entity> GeNamesProdottiDigitaleActived(IOrganizationService service, string nameTo, int? typePD)
+
+        public List<Entity> GeNamesProdottiDigitaleActivedTypeExpansionNull(IOrganizationService service, string nameToNoTypeExpansion, int? typePD)
         {
 
             QueryExpression query = new QueryExpression(DigitalProduct.LogicalName)
@@ -22,18 +22,29 @@ namespace Plugin.sc_DigitalProduct.Helper
                 ColumnSet = new ColumnSet(true),
                 Criteria = new FilterExpression()
             };
-            query.Criteria.AddCondition(DigitalProduct.Name, ConditionOperator.Equal, nameTo);
+
+            query.Criteria.AddCondition(DigitalProduct.Name, ConditionOperator.Equal, nameToNoTypeExpansion);
             query.Criteria.AddCondition(DigitalProduct.TypeDigitalProduct, ConditionOperator.Equal, typePD);
-            query.Criteria.AddCondition(DigitalProduct.StateCode, ConditionOperator.Equal, 0);//Active
+            query.Criteria.AddCondition(DigitalProduct.StateCode, ConditionOperator.Equal, 0); // Active
             query.NoLock = true;
-            query.TopCount = 1;
+
+            LinkEntity productDetailsLink = query.AddLink(
+                ProductDetails.LogicalName,
+                DigitalProduct.ProductDetails,       // lookup su Digital Product verso ProductDetails
+                ProductDetails.ProdottoDigitaleId,     // primary key di ProductDetails
+                JoinOperator.Inner);
+
+            productDetailsLink.LinkCriteria.AddCondition(ProductDetails.TypeExpansion, ConditionOperator.Null);
+
             var result = service.RetrieveMultiple(query);
             if (result.Entities.Count == 0)
             {
                 return new List<Entity>();
             }
+
             return result.Entities.ToList();
         }
+
         public List<Entity> GeVideoGameWithEspansionDisponib(IOrganizationService service, Guid prdID)
         {
 
@@ -54,7 +65,7 @@ namespace Plugin.sc_DigitalProduct.Helper
         }
 
 
-        public List<Entity> GeProdottiDigitaleActived(IOrganizationService service, Entity target)
+        public List<Entity> GeDigitalProductActived(IOrganizationService service, Entity target)
         {
 
             QueryExpression query = new QueryExpression(DigitalProduct.LogicalName)
@@ -66,12 +77,33 @@ namespace Plugin.sc_DigitalProduct.Helper
             query.Criteria.AddCondition(DigitalProduct.StateCode, ConditionOperator.Equal, 0);//Active
             query.NoLock = true;
             query.TopCount = 1;
-            var result = service.RetrieveMultiple(query);
-            if (result.Entities.Count == 0)
+
+            return service.RetrieveMultiple(query).Entities.ToList();
+        }
+
+        public EntityCollection GetDigitalProductWitchTypePlatformAndTypePD(IOrganizationService service,Entity postImage,string nameToProductDigit)
+        {
+            QueryExpression query = new QueryExpression(DigitalProduct.LogicalName)
             {
-                return new List<Entity>();
-            }
-            return result.Entities.ToList();
+                ColumnSet = new ColumnSet(DigitalProduct.DigitalProductId,DigitalProduct.Name, DigitalProduct.TypePlatform),
+                Criteria = new FilterExpression()
+            };
+            query.Criteria.AddCondition(DigitalProduct.Name, ConditionOperator.Equal, nameToProductDigit);
+            query.Criteria.AddCondition(DigitalProduct.ProductDetails, ConditionOperator.NotEqual, postImage.Id);
+            query.Criteria.AddCondition(DigitalProduct.StateCode, ConditionOperator.Equal, 0); // Active
+
+            query.NoLock = true;
+
+           LinkEntity productDetailsLink = query.AddLink(
+                ProductDetails.LogicalName,
+                DigitalProduct.ProductDetails,       // lookup su Digital Product verso ProductDetails
+                ProductDetails.ProdottoDigitaleId,     // primary key di ProductDetails
+                JoinOperator.Inner);
+
+            productDetailsLink.EntityAlias = "pd";
+            productDetailsLink.Columns = new ColumnSet(ProductDetails.TypeExpansion,ProductDetails.TypeLicense);
+            EntityCollection result = service.RetrieveMultiple(query);
+            return result;
         }
 
         public void UpdateKeyProdottoDigitale(IOrganizationService service, Guid keyProdottoDigitale, int typePiattaforma)

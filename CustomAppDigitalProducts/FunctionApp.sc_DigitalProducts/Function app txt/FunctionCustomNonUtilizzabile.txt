@@ -1,0 +1,59 @@
+﻿        public EntityCollection GetPurchaseList(IOrganizationService service, int topCount, int statuspurchase)
+        {
+            EntityCollection totalRecords = new EntityCollection();
+
+            int pageNumber = 1;
+            string pagingCookie = null;
+            bool moreRecords = true;
+
+
+            if (topCount <= 0)
+            {
+                topCount = 50;
+            }
+
+
+            DateTime nowUtc = DateTime.UtcNow;
+
+            QueryExpression query = new QueryExpression(Purchase.LogicalName)
+            {
+                ColumnSet = new ColumnSet(true),
+                Criteria = new FilterExpression(LogicalOperator.And),
+                NoLock = true,
+                PageInfo = new PagingInfo()
+                {
+                    Count = topCount,
+                    PageNumber = pageNumber,
+                    PagingCookie = pagingCookie
+                }
+            };
+
+            query.Criteria.AddCondition(Purchase.StatusPurchase, ConditionOperator.Equal, statuspurchase); // InAttesa
+            query.Criteria.AddCondition(Purchase.ExpirationDate, ConditionOperator.NotNull);
+            query.Criteria.AddCondition(Purchase.ExpirationDate, ConditionOperator.LessEqual, nowUtc);
+
+            FilterExpression isExpiredFilter = new FilterExpression(LogicalOperator.Or);
+            isExpiredFilter.AddCondition(Purchase.IsExpired, ConditionOperator.Equal, false);
+            isExpiredFilter.AddCondition(Purchase.IsExpired, ConditionOperator.Null);
+            query.Criteria.AddFilter(isExpiredFilter);
+            while (moreRecords)
+            {
+                query.PageInfo.PageNumber = pageNumber;
+                query.PageInfo.PagingCookie = pagingCookie;
+
+                EntityCollection resultQuery = service.RetrieveMultiple(query);
+
+                totalRecords.Entities.AddRange(resultQuery.Entities);
+
+                moreRecords = resultQuery.MoreRecords;
+
+                if (moreRecords)
+                {
+                    pageNumber++;
+                    pagingCookie = resultQuery.PagingCookie;
+                }
+            }
+
+            return totalRecords;
+
+        }

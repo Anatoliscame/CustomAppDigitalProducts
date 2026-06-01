@@ -32,7 +32,7 @@ namespace Plugin.sc_DigitalProduct.Helper
             return service.RetrieveMultiple(acquistiQ);
         }
          
-        public Guid CreateAcquisto(IOrganizationService service, int quantitaAcquisto, Guid accountId, int KestatusAcquistoValue, string generatedCode, decimal totaleRiga)
+        public Guid CreateAcquisto(IOrganizationService service, int quantitaAcquisto, Guid accountId, int KestatusAcquistoValue, string generatedCode, DateTime createdOn, decimal totaleRiga)
         {
             Entity nuovoAcquisto = new Entity(Purchase.LogicalName);
             nuovoAcquisto[Purchase.Name] = $"acquisto" + quantitaAcquisto.ToString() + " " + DateTime.Now.ToString("dd/MM/yyyy HH:mm");
@@ -40,7 +40,7 @@ namespace Plugin.sc_DigitalProduct.Helper
             nuovoAcquisto[Purchase.StatusPurchase] = new OptionSetValue(KestatusAcquistoValue); // Stato "In Attesa" (Assumendo che il valore sia 100000000)
             nuovoAcquisto[Purchase.Code] = generatedCode;
             nuovoAcquisto[Purchase.Total] = totaleRiga;
-            nuovoAcquisto[Purchase.ExpirationDate] = DateTime.UtcNow;
+            nuovoAcquisto[Purchase.ExpirationDate] = createdOn.AddMinutes(5);
             Guid acquistoId = service.Create(nuovoAcquisto);
             return acquistoId;
         }
@@ -73,6 +73,8 @@ namespace Plugin.sc_DigitalProduct.Helper
             };
             query.Criteria.AddCondition(Purchase.StatusPurchase, ConditionOperator.Equal, 126400001); // In Attesa
             query.Criteria.AddCondition(Purchase.AccountClientId, ConditionOperator.Equal, accountId);
+            query.Criteria.AddCondition(Purchase.IsExpired, ConditionOperator.Equal, false);
+            query.Criteria.AddCondition(Purchase.Status, ConditionOperator.Equal, 0); // Actived
             query.NoLock = true;
             var result = service.RetrieveMultiple(query);
             if (result.Entities.Count == 0)
@@ -92,6 +94,11 @@ namespace Plugin.sc_DigitalProduct.Helper
             tradePurchaseHistoryCreate[PurchaseHistory.OldStatusPurchase] = new OptionSetValue(statusPurchaseOldValue);
             tradePurchaseHistoryCreate[PurchaseHistory.NewStatusPurchase] = new OptionSetValue(statusPurchaseNewValue);
             tradePurchaseHistoryCreate[PurchaseHistory.StatusSetBy] = new EntityReference("systemuser", updatePurchase);
+            /*int? tipoCancelReason = target.Contains(Purchase.CancelReason) ? target.GetAttributeValue<OptionSetValue>(Purchase.CancelReason)?.Value : null;
+            if (tipoCancelReason != null)
+            {
+                tradePurchaseHistoryCreate[PurchaseHistory.CancelReason] = new OptionSetValue(tipoCancelReason.Value);
+            }*/
             //tradePurchaseHistoryCreate[PurchaseHistory.ExpirationDate] = expirationDate.Value;// il fuso orario locale
             SetUserOrTeam(service, tradePurchaseHistoryCreate, assigneeRef, trace);
             service.Create(tradePurchaseHistoryCreate);
