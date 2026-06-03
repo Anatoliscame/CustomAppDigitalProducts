@@ -1,0 +1,1496 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/3/2026 11:10:42 AM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AVAPC-972818717"
+  DTS:CreatorName="AVANADE-CORP\anatoli.scameroni"
+  DTS:DTSID="{670A0641-E6A9-49AE-BF1F-FECF4E57B50F}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Basic package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="28"
+  DTS:VersionGUID="{4D74C036-6DCD-4A2A-8581-A763C493C234}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:ConnectionManagers>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[(localdb)\mssqllocaldb.SC_DATAHUB1]"
+      DTS:CreationName="OLEDB"
+      DTS:DTSID="{A1A7F403-7DF1-44D9-B439-C519D1158757}"
+      DTS:ObjectName="(localdb)\mssqllocaldb.SC_DATAHUB1">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:ConnectRetryCount="1"
+          DTS:ConnectRetryInterval="5"
+          DTS:ConnectionString="Data Source=(localdb)\mssqllocaldb;Initial Catalog=SC_DATAHUB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-Basic package1-{A1A7F403-7DF1-44D9-B439-C519D1158757}(localdb)\mssqllocaldb.SC_DATAHUB1;Auto Translate=False;" />
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+    <DTS:ConnectionManager
+      DTS:refId="Package.ConnectionManagers[Flat File Connection Manager]"
+      DTS:CreationName="FLATFILE"
+      DTS:DTSID="{3DEE9E75-8867-4D5D-8AF7-210475FAD3B4}"
+      DTS:ObjectName="Flat File Connection Manager">
+      <DTS:ObjectData>
+        <DTS:ConnectionManager
+          DTS:Format="Delimited"
+          DTS:LocaleID="1033"
+          DTS:HeaderRowDelimiter="_x000D__x000A_"
+          DTS:ColumnNamesInFirstDataRow="True"
+          DTS:RowDelimiter=""
+          DTS:TextQualifier="_x003C_none_x003E_"
+          DTS:CodePage="1252"
+          DTS:ConnectionString="C:\Users\anatoli.scameroni\Downloads\SSIS\apps.txt">
+          <DTS:FlatFileColumns>
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName="sc_name "
+              DTS:DTSID="{18957537-BED8-406D-8A09-9496A8923BE6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_productdetailsid "
+              DTS:DTSID="{8A139135-0822-4A1F-8634-C4A0DB02EC62}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_codice "
+              DTS:DTSID="{AD15E17B-4A08-4240-BA57-419AB38AF0CB}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_accountclientid "
+              DTS:DTSID="{20A8BF63-084F-4DE1-BF5A-374DC7E34DED}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_statodigitalproduct "
+              DTS:DTSID="{BE0D6372-D765-46CC-9270-C967477B54AD}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_typedigitalproduct "
+              DTS:DTSID="{0CC79FCC-FBAC-4D94-86F5-48711925ED5C}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_typeplatform "
+              DTS:DTSID="{E1A759A0-B188-464E-A53C-1DA33E4D1498}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_key "
+              DTS:DTSID="{0BA3A08D-5FE7-487B-9BA2-C18685FCED5D}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_baseprice "
+              DTS:DTSID="{CC865D79-324C-4D05-8D9E-DBC3FC9EA5A6}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" statecode "
+              DTS:DTSID="{8F696C5C-88AC-43F7-848A-7151BD75B840}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_requirementsnotesactivation "
+              DTS:DTSID="{61832D6D-E6DE-4748-8481-3A25362BE74F}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_stockavailable "
+              DTS:DTSID="{D0A00D3E-3F66-4BA5-8164-C2F03C9773DC}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x007C_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_description "
+              DTS:DTSID="{B830C28B-AA2F-4907-8CCD-D3906563F576}"
+              DTS:CreationName="" />
+            <DTS:FlatFileColumn
+              DTS:ColumnType="Delimited"
+              DTS:ColumnDelimiter="_x000D__x000A_"
+              DTS:MaximumWidth="50"
+              DTS:DataType="129"
+              DTS:TextQualified="True"
+              DTS:ObjectName=" sc_parentdigitalproductid"
+              DTS:DTSID="{E50D8DF6-C18E-49C7-BCAC-C012E79ED9CD}"
+              DTS:CreationName="" />
+          </DTS:FlatFileColumns>
+        </DTS:ConnectionManager>
+      </DTS:ObjectData>
+    </DTS:ConnectionManager>
+  </DTS:ConnectionManagers>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Import all the apps"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{87B44B28-B60E-46F0-B8FE-CE62497AE02B}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Import all the apps"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Import all the apps\Data Conversion"
+              componentClassID="Microsoft.DataConvert"
+              contactInfo="Data Conversion;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Data Conversion"
+              name="Data Conversion"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input]"
+                  name="Data Conversion Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input].Columns[sc_name ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName="sc_name "
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[sc_name ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input].Columns[ sc_codice ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_codice "
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_codice ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input].Columns[ sc_key ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_key "
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_key ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input].Columns[ sc_description ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_description "
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_description ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input].Columns[ sc_requirementsnotesactivation ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_requirementsnotesactivation "
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_requirementsnotesactivation ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input].Columns[ sc_productdetailsid ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_productdetailsid "
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_productdetailsid ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input].Columns[ sc_accountclientid ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_accountclientid "
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_accountclientid ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input].Columns[ sc_parentdigitalproductid]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_parentdigitalproductid"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_parentdigitalproductid]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output]"
+                  exclusionGroup="1"
+                  name="Data Conversion Output"
+                  synchronousInputId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_name]"
+                      name="sc_name"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[sc_name ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice]"
+                      name="sc_codice"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_codice ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_key]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_key]"
+                      name="sc_key"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_key ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_description]"
+                      name="sc_description"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_description ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_requirementsnotesactivation]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_requirementsnotesactivation]"
+                      name="sc_requirementsnotesactivation"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_requirementsnotesactivation ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_productdetailsid_guid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_productdetailsid_guid]"
+                      name="sc_productdetailsid_guid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_productdetailsid ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_accountclientid_guid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_accountclientid_guid]"
+                      name="sc_accountclientid_guid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_accountclientid ]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_parentdigitalproductid_guid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      length="50"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_parentdigitalproductid_guid]"
+                      name="sc_parentdigitalproductid_guid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the input column used as the source of data for the conversion."
+                          name="SourceInputColumnLineageID">#{Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_parentdigitalproductid]}</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Data Conversion Error Output"
+                  synchronousInputId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import all the apps\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Import all the apps\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import all the apps\Derived Column.Inputs[Derived Column Input].Columns[sc_productdetailsid_guid]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_productdetailsid_guid"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_productdetailsid_guid]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_productdetailsid_guid]}) == "" || [UPPER]([TRIM](#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_productdetailsid_guid]})) == "NULL" ? NULL(DT_GUID) : (DT_GUID)#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_productdetailsid_guid]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(sc_productdetailsid_guid) == "" || UPPER(TRIM(sc_productdetailsid_guid)) == "NULL" ? NULL(DT_GUID) : (DT_GUID)sc_productdetailsid_guid</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the apps\Derived Column.Inputs[Derived Column Input].Columns[sc_accountclientid_guid]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_accountclientid_guid"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_accountclientid_guid]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_accountclientid_guid]}) == "" || [UPPER]([TRIM](#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_accountclientid_guid]})) == "NULL" ? NULL(DT_GUID) : (DT_GUID)#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_accountclientid_guid]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(sc_accountclientid_guid) == "" || UPPER(TRIM(sc_accountclientid_guid)) == "NULL" ? NULL(DT_GUID) : (DT_GUID)sc_accountclientid_guid</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\Import all the apps\Derived Column.Inputs[Derived Column Input].Columns[sc_parentdigitalproductid_guid]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_parentdigitalproductid_guid"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_parentdigitalproductid_guid]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[TRIM](#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_parentdigitalproductid_guid]}) == "" || [UPPER]([TRIM](#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_parentdigitalproductid_guid]})) == "NULL" ? NULL(DT_GUID) : (DT_GUID)#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_parentdigitalproductid_guid]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">TRIM(sc_parentdigitalproductid_guid) == "" || UPPER(TRIM(sc_parentdigitalproductid_guid)) == "NULL" ? NULL(DT_GUID) : (DT_GUID)sc_parentdigitalproductid_guid</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import all the apps\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Import all the apps\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import all the apps\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Import all the apps\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import all the apps\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import all the apps\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import all the apps\List of apps"
+              componentClassID="Microsoft.FlatFileSource"
+              contactInfo="Flat File Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;1"
+              description="Flat File Source"
+              localeId="1033"
+              name="List of apps"
+              usesDispositions="true"
+              version="1">
+              <properties>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether zero-length columns are treated as null."
+                  name="RetainNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of an output column containing the file name. If no name is specified, no output column containing the file name will be generated."
+                  name="FileNameColumnName"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import all the apps\List of apps.Connections[FlatFileConnection]"
+                  connectionManagerID="Package.ConnectionManagers[Flat File Connection Manager]"
+                  connectionManagerRefId="Package.ConnectionManagers[Flat File Connection Manager]"
+                  name="FlatFileConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output]"
+                  name="Flat File Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_productdetailsid ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_productdetailsid ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_productdetailsid ]"
+                      name=" sc_productdetailsid "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_codice ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="IgnoreFailure"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_codice ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_codice ]"
+                      name=" sc_codice "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_accountclientid ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_accountclientid ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_accountclientid ]"
+                      name=" sc_accountclientid "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_statodigitalproduct ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_statodigitalproduct ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_statodigitalproduct ]"
+                      name=" sc_statodigitalproduct "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_typedigitalproduct ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_typedigitalproduct ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_typedigitalproduct ]"
+                      name=" sc_typedigitalproduct "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_typeplatform ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_typeplatform ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_typeplatform ]"
+                      name=" sc_typeplatform "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_key ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_key ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_key ]"
+                      name=" sc_key "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_baseprice ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_baseprice ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_baseprice ]"
+                      name=" sc_baseprice "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ statecode ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ statecode ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ statecode ]"
+                      name=" statecode "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_requirementsnotesactivation ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_requirementsnotesactivation ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_requirementsnotesactivation ]"
+                      name=" sc_requirementsnotesactivation "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_stockavailable ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_stockavailable ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_stockavailable ]"
+                      name=" sc_stockavailable "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_description ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_description ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_description ]"
+                      name=" sc_description "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_parentdigitalproductid]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_parentdigitalproductid]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_parentdigitalproductid]"
+                      name=" sc_parentdigitalproductid"
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[sc_name ]"
+                      codePage="1252"
+                      dataType="str"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[sc_name ]"
+                      length="50"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[sc_name ]"
+                      name="sc_name "
+                      truncationRowDisposition="FailComponent">
+                      <properties>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the column uses the faster, locale-neutral parsing routines."
+                          name="FastParse">false</property>
+                        <property
+                          dataType="System.Boolean"
+                          description="Indicates whether the data is in binary format."
+                          name="UseBinaryFormat">false</property>
+                      </properties>
+                    </outputColumn>
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_productdetailsid ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_productdetailsid " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_codice ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_codice " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_accountclientid ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_accountclientid " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_statodigitalproduct ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_statodigitalproduct " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_typedigitalproduct ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_typedigitalproduct " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_typeplatform ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_typeplatform " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_key ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_key " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_baseprice ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_baseprice " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ statecode ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" statecode " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_requirementsnotesactivation ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_requirementsnotesactivation " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_stockavailable ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_stockavailable " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_description ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_description " />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[ sc_parentdigitalproductid]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name=" sc_parentdigitalproductid" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].ExternalColumns[sc_name ]"
+                      codePage="1252"
+                      dataType="str"
+                      length="50"
+                      name="sc_name " />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Error Output]"
+                  isErrorOut="true"
+                  name="Flat File Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      codePage="1252"
+                      dataType="text"
+                      description="Flat File Source Error Output Column"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Error Output].Columns[Flat File Source Error Output Column]"
+                      name="Flat File Source Error Output Column" />
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import all the apps\List of apps.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Import all the apps\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[crm].[DigitalProduct]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    sc_name,
+    sc_productdetailsid,
+    sc_codice,
+    sc_accountclientid,
+    sc_statodigitalproduct,
+    sc_typedigitalproduct,
+    sc_typeplatform,
+    sc_key,
+    sc_baseprice,
+    statecode,
+    sc_requirementsnotesactivation,
+    sc_stockavailable,
+    sc_description,
+    sc_parentdigitalproductid
+FROM crm.DigitalProduct</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import all the apps\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\mssqllocaldb.SC_DATAHUB1]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ sc_statodigitalproduct ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_statodigitalproduct "
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_statodigitalproduct]"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_statodigitalproduct ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ sc_typedigitalproduct ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_typedigitalproduct "
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproduct]"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_typedigitalproduct ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ sc_typeplatform ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_typeplatform "
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeplatform]"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_typeplatform ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ sc_baseprice ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_baseprice "
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_baseprice]"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_baseprice ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ statecode ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" statecode "
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statecode]"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ statecode ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[ sc_stockavailable ]"
+                      cachedCodepage="1252"
+                      cachedDataType="str"
+                      cachedLength="50"
+                      cachedName=" sc_stockavailable "
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_stockavailable]"
+                      lineageId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output].Columns[ sc_stockavailable ]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_name]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_name"
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_name]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_codice]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_codice"
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_codice]"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_key]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_key"
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_key]"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_key]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_description]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_description"
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_description]"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_description]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_requirementsnotesactivation]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_requirementsnotesactivation"
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_requirementsnotesactivation]"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_requirementsnotesactivation]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_productdetailsid_guid]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_productdetailsid_guid"
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_productdetailsid]"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_productdetailsid_guid]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_accountclientid_guid]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_accountclientid_guid"
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_accountclientid]"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_accountclientid_guid]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_parentdigitalproductid_guid]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_parentdigitalproductid_guid"
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_parentdigitalproductid]"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_parentdigitalproductid_guid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="200"
+                      name="sc_name" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_codice]"
+                      dataType="wstr"
+                      length="100"
+                      name="sc_codice" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_statodigitalproduct]"
+                      dataType="i4"
+                      name="sc_statodigitalproduct" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproduct]"
+                      dataType="i4"
+                      name="sc_typedigitalproduct" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeplatform]"
+                      dataType="i4"
+                      name="sc_typeplatform" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_key]"
+                      dataType="wstr"
+                      length="200"
+                      name="sc_key" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_baseprice]"
+                      dataType="numeric"
+                      name="sc_baseprice"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_requirementsnotesactivation]"
+                      dataType="nText"
+                      name="sc_requirementsnotesactivation" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_stockavailable]"
+                      dataType="numeric"
+                      name="sc_stockavailable"
+                      precision="18"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_description]"
+                      dataType="nText"
+                      name="sc_description" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_productdetailsid]"
+                      dataType="guid"
+                      name="sc_productdetailsid" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_accountclientid]"
+                      dataType="guid"
+                      name="sc_accountclientid" />
+                    <externalMetadataColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_parentdigitalproductid]"
+                      dataType="guid"
+                      name="sc_parentdigitalproductid" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import all the apps\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Import all the apps.Paths[Data Conversion Output]"
+              endId="Package\Import all the apps\Derived Column.Inputs[Derived Column Input]"
+              name="Data Conversion Output"
+              startId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output]" />
+            <path
+              refId="Package\Import all the apps.Paths[Derived Column Output]"
+              endId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Import all the apps\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Import all the apps.Paths[Flat File Source Output]"
+              endId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input]"
+              name="Flat File Source Output"
+              startId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Import all the apps"
+          TopLeft="144.999993517995,92.9499955677988" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\Import all the apps">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\Import all the apps\OLE DB Destination"
+          TopLeft="244.999989047647,161.849992282391" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\Import all the apps\Data Conversion"
+          TopLeft="29.3749986868352,111.799994668961" />
+        <NodeLayout
+          Size="133.333333333334,42.6666666666667"
+          Id="Package\Import all the apps\List of apps"
+          TopLeft="148.124993378297,51.9999975204469" />
+        <EdgeLayout
+          Id="Package\Import all the apps.Paths[Flat File Source Output]"
+          TopLeft="148.124993378297,73.3333308537802">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-40.0833280247948,38.4666638151806"
+              Start="0,0"
+              End="-40.0833280247948,30.9666638151806">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-36.0833280247948,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-36.0833280247948,0"
+                    Point2="-40.0833280247948,0"
+                    Point3="-40.0833280247948,4" />
+                  <mssgle:LineSegment
+                    End="-40.0833280247948,30.9666638151806" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Import all the apps\Derived Column"
+          TopLeft="31.8749985750765,181.299992499352" />
+        <EdgeLayout
+          Id="Package\Import all the apps.Paths[Data Conversion Output]"
+          TopLeft="108.624998630956,154.466661335628">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,26.8333311637241"
+              Start="0,0"
+              End="0,19.3333311637241">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.3333311637241" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import all the apps.Paths[Derived Column Output]"
+          TopLeft="186.541665241743,202.633325832685">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="58.458323805904,-19.4500002169607"
+              Start="0,0"
+              End="50.958323805904,-19.4500002169607">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="25.229161902952,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="25.229161902952,0"
+                    Point2="29.229161902952,0"
+                    Point3="29.229161902952,-4" />
+                  <mssgle:LineSegment
+                    End="29.229161902952,-15.4500002169607" />
+                  <mssgle:CubicBezierSegment
+                    Point1="29.229161902952,-15.4500002169607"
+                    Point2="29.229161902952,-19.4500002169607"
+                    Point3="33.229161902952,-19.4500002169607" />
+                  <mssgle:LineSegment
+                    End="50.958323805904,-19.4500002169607" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import all the apps\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>

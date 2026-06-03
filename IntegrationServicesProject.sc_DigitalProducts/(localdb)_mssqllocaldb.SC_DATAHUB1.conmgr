@@ -1,0 +1,12 @@
+﻿<?xml version="1.0"?>
+<DTS:ConnectionManager xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:ObjectName="(localdb)_mssqllocaldb.SC_DATAHUB1"
+  DTS:DTSID="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+  DTS:CreationName="OLEDB">
+  <DTS:ObjectData>
+    <DTS:ConnectionManager
+      DTS:ConnectRetryCount="1"
+      DTS:ConnectRetryInterval="5"
+      DTS:ConnectionString="Data Source=(localdb)\mssqllocaldb;Initial Catalog=SC_DATAHUB;Provider=MSOLEDBSQL.1;Integrated Security=SSPI;Application Name=SSIS-IntegrationServicesProject.sc_DigitalProducts-{63204EA1-F3A5-48AB-912F-33D405F3D529}(localdb)\mssqllocaldb.SC_DATAHUB1;Auto Translate=False;" />
+  </DTS:ObjectData>
+</DTS:ConnectionManager>
