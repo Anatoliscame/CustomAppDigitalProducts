@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Basic package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="28"
-  DTS:VersionGUID="{4D74C036-6DCD-4A2A-8581-A763C493C234}">
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{A0E40E7B-687D-4366-904E-18E54E835669}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -292,13 +292,13 @@
                       </properties>
                     </outputColumn>
                     <outputColumn
-                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice]"
+                      refId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice_dcte]"
                       dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       length="50"
-                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice]"
-                      name="sc_codice"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice_dcte]"
+                      name="sc_codice_dcte"
                       truncationRowDisposition="FailComponent">
                       <properties>
                         <property
@@ -1046,6 +1046,152 @@
               </outputs>
             </component>
             <component
+              refId="Package\Import all the apps\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT sc_codice
+FROM crm.DigitalProduct
+WHERE sc_codice IS NOT NULL</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT sc_codice
+FROM crm.DigitalProduct
+WHERE sc_codice IS NOT NULL) [refTable]
+where [refTable].[sc_codice] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="sc_codice" dataType="DT_WSTR" length="100" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice_dcte]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Import all the apps\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="Package.ConnectionManagers[(localdb)\mssqllocaldb.SC_DATAHUB1]"
+                  connectionManagerRefId="Package.ConnectionManagers[(localdb)\mssqllocaldb.SC_DATAHUB1]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Import all the apps\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Import all the apps\Lookup.Inputs[Lookup Input].Columns[sc_codice_dcte]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_codice_dcte"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice_dcte]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">sc_codice</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Import all the apps\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\Import all the apps\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import all the apps\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\Import all the apps\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Import all the apps\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\Import all the apps\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Import all the apps\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Import all the apps\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Import all the apps\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
               refId="Package\Import all the apps\OLE DB Destination"
               componentClassID="Microsoft.OLEDBDestination"
               contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
@@ -1188,13 +1334,6 @@ FROM crm.DigitalProduct</property>
                       externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
                       lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_name]" />
                     <inputColumn
-                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_codice]"
-                      cachedDataType="wstr"
-                      cachedLength="50"
-                      cachedName="sc_codice"
-                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_codice]"
-                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice]" />
-                    <inputColumn
                       refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_key]"
                       cachedDataType="wstr"
                       cachedLength="50"
@@ -1236,6 +1375,13 @@ FROM crm.DigitalProduct</property>
                       cachedName="sc_parentdigitalproductid_guid"
                       externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_parentdigitalproductid]"
                       lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_parentdigitalproductid_guid]" />
+                    <inputColumn
+                      refId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_codice_dcte]"
+                      cachedDataType="wstr"
+                      cachedLength="50"
+                      cachedName="sc_codice_dcte"
+                      externalMetadataColumnId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_codice]"
+                      lineageId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output].Columns[sc_codice_dcte]" />
                   </inputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -1339,7 +1485,7 @@ FROM crm.DigitalProduct</property>
               startId="Package\Import all the apps\Data Conversion.Outputs[Data Conversion Output]" />
             <path
               refId="Package\Import all the apps.Paths[Derived Column Output]"
-              endId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              endId="Package\Import all the apps\Lookup.Inputs[Lookup Input]"
               name="Derived Column Output"
               startId="Package\Import all the apps\Derived Column.Outputs[Derived Column Output]" />
             <path
@@ -1347,6 +1493,11 @@ FROM crm.DigitalProduct</property>
               endId="Package\Import all the apps\Data Conversion.Inputs[Data Conversion Input]"
               name="Flat File Source Output"
               startId="Package\Import all the apps\List of apps.Outputs[Flat File Source Output]" />
+            <path
+              refId="Package\Import all the apps.Paths[Lookup No Match Output]"
+              endId="Package\Import all the apps\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\Import all the apps\Lookup.Outputs[Lookup No Match Output]" />
           </paths>
         </pipeline>
       </DTS:ObjectData>
@@ -1375,39 +1526,41 @@ FROM crm.DigitalProduct</property>
     design-time-name="Package\Import all the apps">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="172,42.6666666666667"
           Id="Package\Import all the apps\OLE DB Destination"
-          TopLeft="244.999989047647,161.849992282391" />
+          TopLeft="276.874987622724,191.099990887642" />
         <NodeLayout
-          Size="157.333333333334,42.6666666666667"
-          Id="Package\Import all the apps\Data Conversion"
-          TopLeft="29.3749986868352,111.799994668961" />
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Import all the apps\Derived Column"
+          TopLeft="55.6249975133688,180.649992530346" />
         <NodeLayout
           Size="133.333333333334,42.6666666666667"
           Id="Package\Import all the apps\List of apps"
-          TopLeft="148.124993378297,51.9999975204469" />
+          TopLeft="168.124992484227,24.6999988222123" />
+        <NodeLayout
+          Size="157.333333333334,42.6666666666667"
+          Id="Package\Import all the apps\Data Conversion"
+          TopLeft="53.1249976251275,111.799994668961" />
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\Import all the apps\Lookup"
+          TopLeft="44.9999979883433,274.233322609266" />
         <EdgeLayout
-          Id="Package\Import all the apps.Paths[Flat File Source Output]"
-          TopLeft="148.124993378297,73.3333308537802">
+          Id="Package\Import all the apps.Paths[Data Conversion Output]"
+          TopLeft="132.374997569248,154.466661335628">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-40.0833280247948,38.4666638151806"
+              EndConnector="0,26.1833311947185"
               Start="0,0"
-              End="-40.0833280247948,30.9666638151806">
+              End="0,18.6833311947185">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-36.0833280247948,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-36.0833280247948,0"
-                    Point2="-40.0833280247948,0"
-                    Point3="-40.0833280247948,4" />
-                  <mssgle:LineSegment
-                    End="-40.0833280247948,30.9666638151806" />
+                    End="0,18.6833311947185" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1416,24 +1569,32 @@ FROM crm.DigitalProduct</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Import all the apps\Derived Column"
-          TopLeft="31.8749985750765,181.299992499352" />
         <EdgeLayout
-          Id="Package\Import all the apps.Paths[Data Conversion Output]"
-          TopLeft="108.624998630956,154.466661335628">
+          Id="Package\Import all the apps.Paths[Flat File Source Output]"
+          TopLeft="234.791659150894,67.366665488879">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,26.8333311637241"
+              EndConnector="-102.9999948591,44.4333291800821"
               Start="0,0"
-              End="0,19.3333311637241">
+              End="-102.9999948591,36.9333291800821">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.3333311637241" />
+                    End="0,18.216664590041" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.216664590041"
+                    Point2="0,22.216664590041"
+                    Point3="-4,22.216664590041" />
+                  <mssgle:LineSegment
+                    End="-98.9999948590996,22.216664590041" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-98.9999948590996,22.216664590041"
+                    Point2="-102.9999948591,22.216664590041"
+                    Point3="-102.9999948591,26.216664590041" />
+                  <mssgle:LineSegment
+                    End="-102.9999948591,36.9333291800821" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1444,36 +1605,72 @@ FROM crm.DigitalProduct</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import all the apps.Paths[Derived Column Output]"
-          TopLeft="186.541665241743,202.633325832685">
+          TopLeft="132.958330846702,223.316659197013">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="58.458323805904,-19.4500002169607"
+              EndConnector="-48.8472217472477,50.9166634122533"
               Start="0,0"
-              End="50.958323805904,-19.4500002169607">
+              End="-48.8472217472477,43.4166634122533">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="25.229161902952,0" />
+                    End="0,26.1247080513332" />
                   <mssgle:CubicBezierSegment
-                    Point1="25.229161902952,0"
-                    Point2="29.229161902952,0"
-                    Point3="29.229161902952,-4" />
+                    Point1="0,26.1247080513332"
+                    Point2="0,30.1247080513332"
+                    Point3="-4,30.1247080513332" />
                   <mssgle:LineSegment
-                    End="29.229161902952,-15.4500002169607" />
+                    End="-44.8472217472477,30.1247080513332" />
                   <mssgle:CubicBezierSegment
-                    Point1="29.229161902952,-15.4500002169607"
-                    Point2="29.229161902952,-19.4500002169607"
-                    Point3="33.229161902952,-19.4500002169607" />
+                    Point1="-44.8472217472477,30.1247080513332"
+                    Point2="-48.8472217472477,30.1247080513332"
+                    Point3="-48.8472217472477,34.1247080513332" />
                   <mssgle:LineSegment
-                    End="50.958323805904,-19.4500002169607" />
+                    End="-48.8472217472477,43.4166634122533" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import all the apps.Paths[Lookup No Match Output]"
+          TopLeft="119.222220210566,274.233322609266">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="243.652767412158,-40.4666650549573"
+              Start="0,0"
+              End="243.652767412158,-32.9666650549573">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,-12.5246706488921" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,-12.5246706488921"
+                    Point2="0,-16.5246706488921"
+                    Point3="4,-16.5246706488921" />
+                  <mssgle:LineSegment
+                    End="239.652767412158,-16.5246706488921" />
+                  <mssgle:CubicBezierSegment
+                    Point1="239.652767412158,-16.5246706488921"
+                    Point2="243.652767412158,-16.5246706488921"
+                    Point3="243.652767412158,-20.5246706488921" />
+                  <mssgle:LineSegment
+                    End="243.652767412158,-32.9666650549573" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="66.0199969873293,-11.5246706488921,111.6127734375,11.609375"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1489,6 +1686,29 @@ FROM crm.DigitalProduct</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\Import all the apps\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
