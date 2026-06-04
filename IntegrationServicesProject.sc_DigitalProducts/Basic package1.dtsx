@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Basic package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="36"
-  DTS:VersionGUID="{A0E40E7B-687D-4366-904E-18E54E835669}">
+  DTS:VersionBuild="42"
+  DTS:VersionGUID="{58E21B3B-DA82-438C-BA48-E6601F4A866F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -177,6 +177,23 @@
   </DTS:ConnectionManagers>
   <DTS:Variables />
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Execute SQL Task"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{BF44F923-7480-4F4F-9B0D-2A27D4823C74}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Execute SQL Task"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{A1A7F403-7DF1-44D9-B439-C519D1158757}"
+          SQLTask:SqlStatementSource="delete from crm.DigitalProduct" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Import all the apps"
       DTS:CreationName="Microsoft.Pipeline"
@@ -1503,6 +1520,16 @@ FROM crm.DigitalProduct</property>
       </DTS:ObjectData>
     </DTS:Executable>
   </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{D3BC2420-20CE-4D5A-A8F7-41C40BDC9F6C}"
+      DTS:From="Package\Execute SQL Task"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Import all the apps" />
+  </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
 <!--If you manually edit this section and make a mistake, you can delete it. -->
@@ -1514,11 +1541,49 @@ FROM crm.DigitalProduct</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="169.333333333334,42.6666666666667"
           Id="Package\Import all the apps"
-          TopLeft="144.999993517995,92.9499955677988" />
+          TopLeft="223.749989997596,160.54999234438" />
+        <NodeLayout
+          Size="164,42.6666666666667"
+          Id="Package\Execute SQL Task"
+          TopLeft="235.624989466742,39.6499981093407" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="317.624989466742,82.3166647760074">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-9.20833280247956,78.2333275683723"
+              Start="0,0"
+              End="-9.20833280247956,70.7333275683723">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,35.1166637841861" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,35.1166637841861"
+                    Point2="0,39.1166637841861"
+                    Point3="-4,39.1166637841861" />
+                  <mssgle:LineSegment
+                    End="-5.20833280247956,39.1166637841861" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-5.20833280247956,39.1166637841861"
+                    Point2="-9.20833280247956,39.1166637841861"
+                    Point3="-9.20833280247956,43.1166637841861" />
+                  <mssgle:LineSegment
+                    End="-9.20833280247956,70.7333275683723" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
   </Package>
@@ -1538,7 +1603,7 @@ FROM crm.DigitalProduct</property>
         <NodeLayout
           Size="133.333333333334,42.6666666666667"
           Id="Package\Import all the apps\List of apps"
-          TopLeft="168.124992484227,24.6999988222123" />
+          TopLeft="163.749992679805,20.7999990081788" />
         <NodeLayout
           Size="157.333333333334,42.6666666666667"
           Id="Package\Import all the apps\Data Conversion"
@@ -1571,30 +1636,30 @@ FROM crm.DigitalProduct</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import all the apps.Paths[Flat File Source Output]"
-          TopLeft="234.791659150894,67.366665488879">
+          TopLeft="230.416659346471,63.4666656748455">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-102.9999948591,44.4333291800821"
+              EndConnector="-98.6249950546772,48.3333289941156"
               Start="0,0"
-              End="-102.9999948591,36.9333291800821">
+              End="-98.6249950546772,40.8333289941156">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.216664590041" />
+                    End="0,20.1666644970578" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,18.216664590041"
-                    Point2="0,22.216664590041"
-                    Point3="-4,22.216664590041" />
+                    Point1="0,20.1666644970578"
+                    Point2="0,24.1666644970578"
+                    Point3="-4,24.1666644970578" />
                   <mssgle:LineSegment
-                    End="-98.9999948590996,22.216664590041" />
+                    End="-94.6249950546772,24.1666644970578" />
                   <mssgle:CubicBezierSegment
-                    Point1="-98.9999948590996,22.216664590041"
-                    Point2="-102.9999948591,22.216664590041"
-                    Point3="-102.9999948591,26.216664590041" />
+                    Point1="-94.6249950546772,24.1666644970578"
+                    Point2="-98.6249950546772,24.1666644970578"
+                    Point3="-98.6249950546772,28.1666644970578" />
                   <mssgle:LineSegment
-                    End="-102.9999948591,36.9333291800821" />
+                    End="-98.6249950546772,40.8333289941156" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1669,7 +1734,7 @@ FROM crm.DigitalProduct</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="66.0199969873293,-11.5246706488921,111.6127734375,11.609375"
+              BoundingBox="57.1513446435793,-11.5246706488921,129.350078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
