@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>IntegrationServicesProject.sc_DigitalProducts</Name>
-    <LastWriteTime>2026-06-05T15:21:21.2030092Z</LastWriteTime>
+    <LastWriteTime>2026-06-08T08:25:26.4381721Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -23,7 +23,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Dynamics package1.dtsx</Name>
-      <LastWriteTime>2026-06-05T15:21:51.7217438Z</LastWriteTime>
+      <LastWriteTime>2026-06-08T14:30:29.8908035Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

@@ -3,16 +3,16 @@
   "WorkspaceRootPath": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\",
   "Documents": [
     {
+      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
       "AbsoluteMoniker": "D:0:0:{53877083-4ED8-446C-B19E-8C1D5AB39CD7}|WebResource.sc_DigitalProduct\\WebResource.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\webresource.sc_digitalproduct\\webresource\\javascript\\ribbon\\digitalproduct.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
       "RelativeMoniker": "D:0:0:{53877083-4ED8-446C-B19E-8C1D5AB39CD7}|WebResource.sc_DigitalProduct\\WebResource.sc_DigitalProduct.csproj|solutionrelative:webresource.sc_digitalproduct\\webresource\\javascript\\ribbon\\digitalproduct.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\releaseexpiredcartkeystimer.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
-    },
-    {
-      "AbsoluteMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{799B80C7-894F-4864-B864-008D57B64C75}|FunctionApp.sc_DigitalProducts\\FunctionApp.sc_DigitalProducts.csproj|solutionrelative:functionapp.sc_digitalproducts\\businesslogic\\releaseexpiredcartkeystimerbl.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
       "AbsoluteMoniker": "D:0:0:{53877083-4ED8-446C-B19E-8C1D5AB39CD7}|WebResource.sc_DigitalProduct\\WebResource.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\webresource.sc_digitalproduct\\webresource\\javascript\\power pages\\digitalproducteditform.js||{14D17961-FE51-464D-9111-C4AF11D7D99A}",
@@ -161,8 +161,8 @@
       "VerticalTabListWidth": 100,
       "DocumentGroups": [
         {
-          "DockedHeight": 345,
-          "SelectedChildIndex": 80,
+          "DockedHeight": 289,
+          "SelectedChildIndex": 83,
           "Children": [
             {
               "$type": "Bookmark",
@@ -756,7 +756,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 0,
+              "DocumentIndex": 1,
               "Title": "digitalproduct.js",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\WebResource.sc_DigitalProduct\\webresource\\Javascript\\Ribbon\\digitalproduct.js",
               "RelativeDocumentMoniker": "WebResource.sc_DigitalProduct\\webresource\\Javascript\\Ribbon\\digitalproduct.js",
@@ -795,7 +795,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 2,
+              "DocumentIndex": 0,
               "Title": "ReleaseExpiredCartKeysTimerBL.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\BusinessLogic\\ReleaseExpiredCartKeysTimerBL.cs",
@@ -808,7 +808,7 @@
             },
             {
               "$type": "Document",
-              "DocumentIndex": 1,
+              "DocumentIndex": 2,
               "Title": "ReleaseExpiredCartKeysTimer.cs",
               "DocumentMoniker": "C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
               "RelativeDocumentMoniker": "FunctionApp.sc_DigitalProducts\\ReleaseExpiredCartKeysTimer.cs",
@@ -861,7 +861,7 @@
           ]
         },
         {
-          "DockedHeight": 48,
+          "DockedHeight": 104,
           "SelectedChildIndex": -1,
           "Children": [
             {
