@@ -10,11 +10,11 @@
         <WinAuthDomain />
         <ServerName />
         <PathOnServer />
-        <StartObjectID>Basic package1.dtsx</StartObjectID>
+        <StartObjectID>Dynamics package1.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>
-        <ProgressReporting>true</ProgressReporting>
+        <ProgressReporting>false</ProgressReporting>
         <ParameterConfigurationSensitiveValues>
           <ConfigurationSetting>
             <Id>LastModifiedTime</Id>

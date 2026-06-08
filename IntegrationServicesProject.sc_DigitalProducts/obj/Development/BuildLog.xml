@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>IntegrationServicesProject.sc_DigitalProducts</Name>
-    <LastWriteTime>2026-06-04T10:02:16.1163755Z</LastWriteTime>
+    <LastWriteTime>2026-06-05T15:21:21.2030092Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -13,7 +13,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Basic package1.dtsx</Name>
-      <LastWriteTime>2026-06-04T10:02:16.0849941Z</LastWriteTime>
+      <LastWriteTime>2026-06-05T10:07:11.8771454Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Basic Exel package.dtsx</Name>
+      <LastWriteTime>2026-06-05T10:31:33.9690699Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>Dynamics package1.dtsx</Name>
+      <LastWriteTime>2026-06-05T15:21:51.7217438Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

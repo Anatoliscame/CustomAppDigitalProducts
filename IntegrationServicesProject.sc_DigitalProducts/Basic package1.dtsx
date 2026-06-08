@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Basic package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="42"
-  DTS:VersionGUID="{58E21B3B-DA82-438C-BA48-E6601F4A866F}">
+  DTS:VersionBuild="49"
+  DTS:VersionGUID="{7FF53B93-E822-4323-BC14-D811873AACD8}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:ConnectionManagers>
@@ -1543,13 +1543,13 @@ FROM crm.DigitalProduct</property>
       <GraphLayout
         Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="169.333333333334,42.6666666666667"
-          Id="Package\Import all the apps"
-          TopLeft="223.749989997596,160.54999234438" />
-        <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\Execute SQL Task"
           TopLeft="235.624989466742,39.6499981093407" />
+        <NodeLayout
+          Size="169.333333333334,42.6666666666667"
+          Id="Package\Import all the apps"
+          TopLeft="223.749989997596,160.54999234438" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="317.624989466742,82.3166647760074">
@@ -1595,7 +1595,7 @@ FROM crm.DigitalProduct</property>
         <NodeLayout
           Size="172,42.6666666666667"
           Id="Package\Import all the apps\OLE DB Destination"
-          TopLeft="276.874987622724,191.099990887642" />
+          TopLeft="301.874986505137,233.349988873005" />
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\Import all the apps\Derived Column"
@@ -1611,7 +1611,7 @@ FROM crm.DigitalProduct</property>
         <NodeLayout
           Size="113.333333333334,42.6666666666667"
           Id="Package\Import all the apps\Lookup"
-          TopLeft="44.9999979883433,274.233322609266" />
+          TopLeft="74.3749966751785,261.233323229154" />
         <EdgeLayout
           Id="Package\Import all the apps.Paths[Data Conversion Output]"
           TopLeft="132.374997569248,154.466661335628">
@@ -1632,6 +1632,42 @@ FROM crm.DigitalProduct</property>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Import all the apps.Paths[Lookup No Match Output]"
+          TopLeft="187.708330008512,282.566656562488">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="114.166656496625,-27.8833343561492"
+              Start="0,0"
+              End="106.666656496625,-27.8833343561492">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="53.0833282483126,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="53.0833282483126,0"
+                    Point2="57.0833282483126,0"
+                    Point3="57.0833282483126,-4" />
+                  <mssgle:LineSegment
+                    End="57.0833282483126,-23.8833343561492" />
+                  <mssgle:CubicBezierSegment
+                    Point1="57.0833282483126,-23.8833343561492"
+                    Point2="57.0833282483126,-27.8833343561492"
+                    Point3="61.0833282483126,-27.8833343561492" />
+                  <mssgle:LineSegment
+                    End="106.666656496625,-27.8833343561492" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-7.59171081418742,1,129.350078125,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -1670,72 +1706,24 @@ FROM crm.DigitalProduct</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package\Import all the apps.Paths[Derived Column Output]"
-          TopLeft="132.958330846702,223.316659197013">
+          TopLeft="131.999997094274,223.316659197013">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-48.8472217472477,50.9166634122533"
+              EndConnector="0,37.9166640321417"
               Start="0,0"
-              End="-48.8472217472477,43.4166634122533">
+              End="0,30.4166640321417">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.1247080513332" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,26.1247080513332"
-                    Point2="0,30.1247080513332"
-                    Point3="-4,30.1247080513332" />
-                  <mssgle:LineSegment
-                    End="-44.8472217472477,30.1247080513332" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-44.8472217472477,30.1247080513332"
-                    Point2="-48.8472217472477,30.1247080513332"
-                    Point3="-48.8472217472477,34.1247080513332" />
-                  <mssgle:LineSegment
-                    End="-48.8472217472477,43.4166634122533" />
+                    End="0,30.4166640321417" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Import all the apps.Paths[Lookup No Match Output]"
-          TopLeft="119.222220210566,274.233322609266">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="243.652767412158,-40.4666650549573"
-              Start="0,0"
-              End="243.652767412158,-32.9666650549573">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-12.5246706488921" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-12.5246706488921"
-                    Point2="0,-16.5246706488921"
-                    Point3="4,-16.5246706488921" />
-                  <mssgle:LineSegment
-                    End="239.652767412158,-16.5246706488921" />
-                  <mssgle:CubicBezierSegment
-                    Point1="239.652767412158,-16.5246706488921"
-                    Point2="243.652767412158,-16.5246706488921"
-                    Point3="243.652767412158,-20.5246706488921" />
-                  <mssgle:LineSegment
-                    End="243.652767412158,-32.9666650549573" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="57.1513446435793,-11.5246706488921,129.350078125,16"
-              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -1760,7 +1748,7 @@ FROM crm.DigitalProduct</property>
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -1770,7 +1758,7 @@ FROM crm.DigitalProduct</property>
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>
