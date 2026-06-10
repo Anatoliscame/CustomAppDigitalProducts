@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Dynamics package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="82"
-  DTS:VersionGUID="{D845B087-EF04-40A1-BEEE-A50D31B1FC26}">
+  DTS:VersionBuild="86"
+  DTS:VersionGUID="{1E8BD20F-23E5-403E-BE3B-DB03B8775A15}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -66,461 +66,10 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Data Flow Dynamics"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{C47C40FC-A060-484C-9440-9A208E0D1CE1}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow Dynamics"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Data Flow Dynamics\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Data Flow Dynamics\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow Dynamics\Derived Column.Inputs[Derived Column Input].Columns[sc_name]"
-                      cachedDataType="wstr"
-                      cachedLength="850"
-                      cachedName="sc_name"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]}) ? NULL(DT_WSTR,200) : (DT_WSTR,200)#{Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(sc_name) ? NULL(DT_WSTR,200) : (DT_WSTR,200)sc_name</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Dynamics\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow Dynamics\Derived Column.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow Dynamics\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow Dynamics\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Dynamics\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Dynamics\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow Dynamics\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow Dynamics\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Dynamics\Dynamics CRM Source"
-              componentClassID="Microsoft.ManagedComponentHost"
-              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
-              description="Extract data from Microsoft Dynamics 365 CE/CRM."
-              name="Dynamics CRM Source"
-              usesDispositions="true"
-              version="3">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the type of source data from Microsoft Dynamics CRM."
-                  expressionType="Notify"
-                  name="SourceType"
-                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">1</property>
-                <property
-                  dataType="System.String"
-                  description="Dynamics CRM entity to retrieve data from."
-                  expressionType="Notify"
-                  name="SourceEntity"></property>
-                <property
-                  dataType="System.String"
-                  description="FetchXML statement."
-                  expressionType="Notify"
-                  name="FetchXML">&lt;fetch mapping='logical'&gt;
-  &lt;entity name='sc_digitalproduct'&gt;
-    &lt;attribute name='sc_name'/&gt;
-    &lt;attribute name='sc_digitalproductid'/&gt;
-    &lt;filter type='and'&gt;
-      &lt;condition attribute='statecode' operator='eq' value='0' /&gt;
-    &lt;/filter&gt;
-  &lt;/entity&gt;
-&lt;/fetch&gt;</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the batch size of the query."
-                  expressionType="Notify"
-                  name="BatchSize">2000</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
-                  expressionType="Notify"
-                  name="MaxRowsReturned">0</property>
-                <property
-                  dataType="System.Null"
-                  description="The caller to be used for CRM impersonation when reading from CRM server."
-                  expressionType="Notify"
-                  name="ImpersonateAs" />
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the output timezone for CRM datetime fields."
-                  expressionType="Notify"
-                  name="OutputTimezone"
-                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone">0</property>
-                <property
-                  dataType="System.String"
-                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow Dynamics\Dynamics CRM Source.Connections[DynamicsCRM]"
-                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
-                  description="Dynamics CRM Connection Manager"
-                  name="DynamicsCRM" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output]"
-                  name="Primary Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_digitalproductid]"
-                      dataType="guid"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_digitalproductid]"
-                      lineageId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_digitalproductid]"
-                      name="sc_digitalproductid"
-                      truncationRowDisposition="FailComponent" />
-                    <outputColumn
-                      refId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_name]"
-                      length="850"
-                      lineageId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]"
-                      name="sc_name"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_digitalproductid]"
-                      dataType="guid"
-                      name="sc_digitalproductid" />
-                    <externalMetadataColumn
-                      refId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_name]"
-                      dataType="wstr"
-                      length="850"
-                      name="sc_name" />
-                  </externalMetadataColumns>
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow Dynamics\Row Count"
-              componentClassID="Microsoft.RowCount"
-              contactInfo="Row Count;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Counts rows as they pass through a data flow. For example, use the number of rows processed to determine whether or not to perform cleanup operations, or update text in an e-mail message to communicate processing status."
-              name="Row Count">
-              <properties>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable to hold the row count."
-                  name="VariableName">User::MatchedRowsCount</property>
-              </properties>
-              <inputs>
-                <input
-                  refId="Package\Data Flow Dynamics\Row Count.Inputs[Row Count Input 1]"
-                  hasSideEffects="true"
-                  name="Row Count Input 1">
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow Dynamics\Row Count.Outputs[Row Count Output 1]"
-                  name="Row Count Output 1"
-                  synchronousInputId="Package\Data Flow Dynamics\Row Count.Inputs[Row Count Input 1]">
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Data Flow Dynamics.Paths[Derived Column Output]"
-              endId="Package\Data Flow Dynamics\Row Count.Inputs[Row Count Input 1]"
-              name="Derived Column Output"
-              startId="Package\Data Flow Dynamics\Derived Column.Outputs[Derived Column Output]" />
-            <path
-              refId="Package\Data Flow Dynamics.Paths[Primary Output]"
-              endId="Package\Data Flow Dynamics\Derived Column.Inputs[Derived Column Input]"
-              name="Primary Output"
-              startId="Package\Data Flow Dynamics\Dynamics CRM Source.Outputs[Primary Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
-      DTS:refId="Package\Data Flow SQL Server"
-      DTS:CreationName="Microsoft.Pipeline"
-      DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
-      DTS:DTSID="{4257D6EF-8B62-4E32-A743-B6068AC7890D}"
-      DTS:ExecutableType="Microsoft.Pipeline"
-      DTS:LocaleID="-1"
-      DTS:ObjectName="Data Flow SQL Server"
-      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
-      <DTS:Variables />
-      <DTS:ObjectData>
-        <pipeline
-          version="1">
-          <components>
-            <component
-              refId="Package\Data Flow SQL Server\Derived Column"
-              componentClassID="Microsoft.DerivedColumn"
-              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
-              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
-              name="Derived Column"
-              usesDispositions="true">
-              <inputs>
-                <input
-                  refId="Package\Data Flow SQL Server\Derived Column.Inputs[Derived Column Input]"
-                  description="Input to the Derived Column Transformation"
-                  name="Derived Column Input">
-                  <inputColumns>
-                    <inputColumn
-                      refId="Package\Data Flow SQL Server\Derived Column.Inputs[Derived Column Input].Columns[ProductName]"
-                      cachedDataType="wstr"
-                      cachedLength="200"
-                      cachedName="ProductName"
-                      errorOrTruncationOperation="Computation"
-                      errorRowDisposition="FailComponent"
-                      lineageId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]"
-                      truncationRowDisposition="FailComponent"
-                      usageType="readWrite">
-                      <properties>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Expression"
-                          name="Expression">[ISNULL](#{Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]}) ? NULL(DT_WSTR,200) : (DT_WSTR,200)#{Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]}</property>
-                        <property
-                          containsID="true"
-                          dataType="System.String"
-                          description="Derived Column Friendly Expression"
-                          expressionType="Notify"
-                          name="FriendlyExpression">ISNULL(ProductName) ? NULL(DT_WSTR,200) : (DT_WSTR,200)ProductName</property>
-                      </properties>
-                    </inputColumn>
-                  </inputColumns>
-                  <externalMetadataColumns />
-                </input>
-              </inputs>
-              <outputs>
-                <output
-                  refId="Package\Data Flow SQL Server\Derived Column.Outputs[Derived Column Output]"
-                  description="Default Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  name="Derived Column Output"
-                  synchronousInputId="Package\Data Flow SQL Server\Derived Column.Inputs[Derived Column Input]">
-                  <externalMetadataColumns />
-                </output>
-                <output
-                  refId="Package\Data Flow SQL Server\Derived Column.Outputs[Derived Column Error Output]"
-                  description="Error Output of the Derived Column Transformation"
-                  exclusionGroup="1"
-                  isErrorOut="true"
-                  name="Derived Column Error Output"
-                  synchronousInputId="Package\Data Flow SQL Server\Derived Column.Inputs[Derived Column Input]">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow SQL Server\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow SQL Server\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow SQL Server\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow SQL Server\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-            <component
-              refId="Package\Data Flow SQL Server\OLE DB Source"
-              componentClassID="Microsoft.OLEDBSource"
-              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
-              description="OLE DB Source"
-              name="OLE DB Source"
-              usesDispositions="true"
-              version="7">
-              <properties>
-                <property
-                  dataType="System.Int32"
-                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
-                  name="CommandTimeout">0</property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the name of the database object used to open a rowset."
-                  name="OpenRowset"></property>
-                <property
-                  dataType="System.String"
-                  description="Specifies the variable that contains the name of the database object used to open a rowset."
-                  name="OpenRowsetVariable"></property>
-                <property
-                  dataType="System.String"
-                  description="The SQL command to be executed."
-                  name="SqlCommand"
-                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC [crm].[GetProductNamesFromPrivateConfiguration]
-    @Key = N'NamesForProdottoDigitaleVideoGame'</property>
-                <property
-                  dataType="System.String"
-                  description="The variable that contains the SQL command to be executed."
-                  name="SqlCommandVariable"></property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the column code page to use when code page information is unavailable from the data source."
-                  name="DefaultCodePage">1252</property>
-                <property
-                  dataType="System.Boolean"
-                  description="Forces the use of the DefaultCodePage property value when describing character data."
-                  name="AlwaysUseDefaultCodePage">false</property>
-                <property
-                  dataType="System.Int32"
-                  description="Specifies the mode used to access the database."
-                  name="AccessMode"
-                  typeConverter="AccessMode">2</property>
-                <property
-                  dataType="System.String"
-                  description="The mappings between the parameters in the SQL command and variables."
-                  name="ParameterMapping"></property>
-              </properties>
-              <connections>
-                <connection
-                  refId="Package\Data Flow SQL Server\OLE DB Source.Connections[OleDbConnection]"
-                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
-                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
-                  description="The OLE DB runtime connection used to access the database."
-                  name="OleDbConnection" />
-              </connections>
-              <outputs>
-                <output
-                  refId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Output]"
-                  name="OLE DB Source Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]"
-                      dataType="wstr"
-                      errorOrTruncationOperation="Conversion"
-                      errorRowDisposition="FailComponent"
-                      externalMetadataColumnId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
-                      length="200"
-                      lineageId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Output].Columns[ProductName]"
-                      name="ProductName"
-                      truncationRowDisposition="FailComponent" />
-                  </outputColumns>
-                  <externalMetadataColumns
-                    isUsed="True">
-                    <externalMetadataColumn
-                      refId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[ProductName]"
-                      dataType="wstr"
-                      length="200"
-                      name="ProductName" />
-                  </externalMetadataColumns>
-                </output>
-                <output
-                  refId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Error Output]"
-                  isErrorOut="true"
-                  name="OLE DB Source Error Output">
-                  <outputColumns>
-                    <outputColumn
-                      refId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductName]"
-                      dataType="wstr"
-                      length="200"
-                      lineageId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ProductName]"
-                      name="ProductName" />
-                    <outputColumn
-                      refId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
-                      name="ErrorCode"
-                      specialFlags="1" />
-                    <outputColumn
-                      refId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      dataType="i4"
-                      lineageId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
-                      name="ErrorColumn"
-                      specialFlags="2" />
-                  </outputColumns>
-                  <externalMetadataColumns />
-                </output>
-              </outputs>
-            </component>
-          </components>
-          <paths>
-            <path
-              refId="Package\Data Flow SQL Server.Paths[OLE DB Source Output]"
-              endId="Package\Data Flow SQL Server\Derived Column.Inputs[Derived Column Input]"
-              name="OLE DB Source Output"
-              startId="Package\Data Flow SQL Server\OLE DB Source.Outputs[OLE DB Source Output]" />
-          </paths>
-        </pipeline>
-      </DTS:ObjectData>
-    </DTS:Executable>
-    <DTS:Executable
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{A8D35502-8FEB-463E-9A79-CD3F8C03FCDD}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -1362,6 +911,7 @@
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
+      DTS:Disabled="True"
       DTS:DTSID="{3ACCD3F8-B69A-4FA5-925A-D1D2D93241B9}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
@@ -1446,15 +996,7 @@
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\Data Flow Dynamics"
-          TopLeft="231.24998966232,290.549986145497" />
-        <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\Data Flow SQL Server"
-          TopLeft="266.249988097698,93.5999955368044" />
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="152,42.6666666666667"
           Id="Package\Data Flow Task"
@@ -1466,7 +1008,7 @@
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="205.333333333334,111.333333333334"
+          PanelSize="205.333333333334,112"
           Size="205.333333333334,154.666666666667"
           Id="Package\Foreach Loop Container"
           TopLeft="5.62499974854296,83.8499960017206" />
@@ -1508,136 +1050,66 @@
     </LayoutInfo>
   </Package>
   <TaskHost
-    design-time-name="Package\Data Flow Dynamics">
+    design-time-name="Package\Data Flow Task">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="98.6666666666667,42.6666666666667"
+          Id="Package\Data Flow Task\Sort"
+          TopLeft="251.785703030016,221.928560846193" />
         <NodeLayout
           Size="131.333333333334,42.6666666666667"
-          Id="Package\Data Flow Dynamics\Row Count"
-          TopLeft="308.571419375284,264.999992102385" />
+          Id="Package\Data Flow Task\Merge Join"
+          TopLeft="428.749980833382,238.56666276137" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Data Flow Task\Derived Column"
+          TopLeft="222.321418632887,148.571421486991" />
+        <NodeLayout
+          Size="131.333333333334,42.6666666666667"
+          Id="Package\Data Flow Task\Row Count"
+          TopLeft="418.749981280417,385.199991073609" />
         <NodeLayout
           Size="185.333333333334,42.6666666666667"
-          Id="Package\Data Flow Dynamics\Dynamics CRM Source"
-          TopLeft="296.714276871511,78.2857119526183" />
+          Id="Package\Data Flow Task\Dynamics CRM Source"
+          TopLeft="85.0892819104986,353.042840308462" />
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Data Flow Dynamics\Derived Column"
-          TopLeft="225.714278987476,165.238090810322" />
-        <EdgeLayout
-          Id="Package\Data Flow Dynamics.Paths[Primary Output]"
-          TopLeft="389.380943538178,120.952378619285">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-86.3333312173685,44.2857121910368"
-              Start="0,0"
-              End="-86.3333312173685,36.7857121910368">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,18.1428560955184" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.1428560955184"
-                    Point2="0,22.1428560955184"
-                    Point3="-4,22.1428560955184" />
-                  <mssgle:LineSegment
-                    End="-82.3333312173685,22.1428560955184" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-82.3333312173685,22.1428560955184"
-                    Point2="-86.3333312173685,22.1428560955184"
-                    Point3="-86.3333312173685,26.1428560955184" />
-                  <mssgle:LineSegment
-                    End="-86.3333312173685,36.7857121910368" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
-          Id="Package\Data Flow Dynamics.Paths[Derived Column Output]"
-          TopLeft="303.047612320809,207.904757476988">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="71.190473721141,57.0952346253964"
-              Start="0,0"
-              End="71.190473721141,49.5952346253964">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,24.5476173126982" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,24.5476173126982"
-                    Point2="0,28.5476173126982"
-                    Point3="4,28.5476173126982" />
-                  <mssgle:LineSegment
-                    End="67.190473721141,28.5476173126982" />
-                  <mssgle:CubicBezierSegment
-                    Point1="67.190473721141,28.5476173126982"
-                    Point2="71.190473721141,28.5476173126982"
-                    Point3="71.190473721141,32.5476173126982" />
-                  <mssgle:LineSegment
-                    End="71.190473721141,49.5952346253964" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="27.5952368605705,33.5476173126982,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <TaskHost
-    design-time-name="Package\Data Flow SQL Server">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+          Size="108,42.6666666666667"
+          Id="Package\Data Flow Task\Sort 1"
+          TopLeft="211.249990556389,298.466662575404" />
+        <NodeLayout
+          Size="182.666666666667,42.6666666666667"
+          Id="Package\Data Flow Task\Recordset Destination"
+          TopLeft="378.124983096496,476.916655973594" />
         <NodeLayout
           Size="150.666666666667,42.6666666666667"
-          Id="Package\Data Flow SQL Server\OLE DB Source"
-          TopLeft="243.615377355081,73.9999977946282" />
+          Id="Package\Data Flow Task\OLE DB Source"
+          TopLeft="228.57141835349,86.3571387393135" />
         <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Data Flow SQL Server\Derived Column"
-          TopLeft="216.15383971196,186.153840606029" />
+          Size="156,42.6666666666667"
+          Id="Package\Data Flow Task\Conditional Split"
+          TopLeft="412.499981559814,314.783331070741" />
         <EdgeLayout
-          Id="Package\Data Flow SQL Server.Paths[OLE DB Source Output]"
-          TopLeft="318.948710688414,116.666664461295">
+          Id="Package\Data Flow Task.Paths[Primary Output]"
+          TopLeft="177.755948577165,353.042840308462">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-25.4615376431208,69.4871761447345"
+              EndConnector="33.4940419792241,-33.2428443997247"
               Start="0,0"
-              End="-25.4615376431208,61.9871761447345">
+              End="25.9940419792241,-33.2428443997247">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,30.7435880723673" />
+                    End="0,-29.2428443997247" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,30.7435880723673"
-                    Point2="0,34.7435880723673"
-                    Point3="-4,34.7435880723673" />
+                    Point1="0,-29.2428443997247"
+                    Point2="0,-33.2428443997247"
+                    Point3="4,-33.2428443997247" />
                   <mssgle:LineSegment
-                    End="-21.4615376431208,34.7435880723673" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-21.4615376431208,34.7435880723673"
-                    Point2="-25.4615376431208,34.7435880723673"
-                    Point3="-25.4615376431208,38.7435880723673" />
-                  <mssgle:LineSegment
-                    End="-25.4615376431208,61.9871761447345" />
+                    End="25.9940419792241,-33.2428443997247" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1646,38 +1118,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Data Flow SQL Server\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Data Flow Task">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\Data Flow Task\Derived Column"
-          TopLeft="222.321418632887,148.571421486991" />
-        <NodeLayout
-          Size="98.6666666666667,42.6666666666667"
-          Id="Package\Data Flow Task\Sort"
-          TopLeft="251.785703030016,221.928560846193" />
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\Data Flow Task\OLE DB Source"
-          TopLeft="228.57141835349,86.3571387393135" />
-        <NodeLayout
-          Size="185.333333333334,42.6666666666667"
-          Id="Package\Data Flow Task\Dynamics CRM Source"
-          TopLeft="85.0892819104986,353.042840308462" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[OLE DB Source Output]"
           TopLeft="379.238085020157,107.690472072647">
@@ -1713,6 +1153,52 @@
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
+          Id="Package\Data Flow Task.Paths[Merge Join Output]"
+          TopLeft="492.458314529931,281.233329428037">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,33.5500016427039"
+              Start="0,0"
+              End="0,26.0500016427039">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.0500016427039" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Data Flow Task.Paths[ExistsOnDataverse]"
+          TopLeft="487.458314753448,357.449997737408">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.749993336201"
+              Start="0,0"
+              End="0,20.249993336201">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.249993336201" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-41.47634765625,5.33837557435052,82.9526953125,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
           Id="Package\Data Flow Task.Paths[Derived Column Output]"
           TopLeft="300.386894164785,191.238088153658">
           <EdgeLayout.Curve>
@@ -1726,76 +1212,6 @@
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,23.1904726925352" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="108,42.6666666666667"
-          Id="Package\Data Flow Task\Sort 1"
-          TopLeft="211.249990556389,298.466662575404" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Primary Output]"
-          TopLeft="177.755948577165,353.042840308462">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="33.4940419792241,-33.2428443997247"
-              Start="0,0"
-              End="25.9940419792241,-33.2428443997247">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,-29.2428443997247" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,-29.2428443997247"
-                    Point2="0,-33.2428443997247"
-                    Point3="4,-33.2428443997247" />
-                  <mssgle:LineSegment
-                    End="25.9940419792241,-33.2428443997247" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="131.333333333334,42.6666666666667"
-          Id="Package\Data Flow Task\Merge Join"
-          TopLeft="428.749980833382,238.56666276137" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Sort Output]"
-          TopLeft="350.452369696683,243.261894179526">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="78.2976111366995,16.6381019151775"
-              Start="0,0"
-              End="70.7976111366995,16.6381019151775">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="35.1488055683497,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="35.1488055683497,0"
-                    Point2="39.1488055683497,0"
-                    Point3="39.1488055683497,4" />
-                  <mssgle:LineSegment
-                    End="39.1488055683497,12.6381019151775" />
-                  <mssgle:CubicBezierSegment
-                    Point1="39.1488055683497,12.6381019151775"
-                    Point2="39.1488055683497,16.6381019151775"
-                    Point3="43.1488055683497,16.6381019151775" />
-                  <mssgle:LineSegment
-                    End="70.7976111366995,16.6381019151775" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1838,24 +1254,32 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42.6666666666667"
-          Id="Package\Data Flow Task\Conditional Split"
-          TopLeft="412.499981559814,314.783331070741" />
         <EdgeLayout
-          Id="Package\Data Flow Task.Paths[Merge Join Output]"
-          TopLeft="492.458314529931,281.233329428037">
+          Id="Package\Data Flow Task.Paths[Sort Output]"
+          TopLeft="350.452369696683,243.261894179526">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,33.5500016427039"
+              EndConnector="78.2976111366995,16.6381019151775"
               Start="0,0"
-              End="0,26.0500016427039">
+              End="70.7976111366995,16.6381019151775">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,26.0500016427039" />
+                    End="35.1488055683497,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="35.1488055683497,0"
+                    Point2="39.1488055683497,0"
+                    Point3="39.1488055683497,4" />
+                  <mssgle:LineSegment
+                    End="39.1488055683497,12.6381019151775" />
+                  <mssgle:CubicBezierSegment
+                    Point1="39.1488055683497,12.6381019151775"
+                    Point2="39.1488055683497,16.6381019151775"
+                    Point3="43.1488055683497,16.6381019151775" />
+                  <mssgle:LineSegment
+                    End="70.7976111366995,16.6381019151775" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1864,38 +1288,6 @@
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="131.333333333334,42.6666666666667"
-          Id="Package\Data Flow Task\Row Count"
-          TopLeft="418.749981280417,385.199991073609" />
-        <EdgeLayout
-          Id="Package\Data Flow Task.Paths[ExistsOnDataverse]"
-          TopLeft="487.458314753448,357.449997737408">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,27.749993336201"
-              Start="0,0"
-              End="0,20.249993336201">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.249993336201" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-41.47634765625,5.33837557435052,82.9526953125,9.5732421875"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="182.666666666667,42.6666666666667"
-          Id="Package\Data Flow Task\Recordset Destination"
-          TopLeft="378.124983096496,476.916655973594" />
         <EdgeLayout
           Id="Package\Data Flow Task.Paths[Row Count Output 1]"
           TopLeft="484.416647947083,427.866657740275">

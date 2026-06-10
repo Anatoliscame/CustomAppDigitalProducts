@@ -10,7 +10,7 @@
         <WinAuthDomain />
         <ServerName />
         <PathOnServer />
-        <StartObjectID>Dynamics package1.dtsx</StartObjectID>
+        <StartObjectID>DynamicsMappingDB_DigitProdSc.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">AVAPC-972818717</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2tjRpWYGbE6XJvGVQ6bvwAAAAAACAAAAAAAQZgAAAAEAACAAAAAcYkg5q1U7jhnn525goFKRUxjQbpmue8UBLyEf/9gn/AAAAAAOgAAAAAIAACAAAAB5cpvrAuW0cH8SlOG8ha8j31nWfjPe9K2mEkK6UXHvW5AAAACYLtaaPV0vnXLAYwWNHXdvB1FGEXUmC7lTXhdqVuBRRqF568evfsUGB+vV0Jd8GL9KIxSXoWr30Wmj030VgxKY+DNcsMWfKFzw1pkfI3CsCW6oe479Jk9EBpBWKmSoLelu+1ncmIBh+hHM0CNzDJ0/JB6U0qKxbbsMNKqD+bfJq1C7X4BlPPNsoH7pccC4BMFAAAAAWO2h50gAu5G6dba0B8EjhObMEKEv25Ndptycp3wjzutF7QMdmD7VykWZIJQxKM6uGAtPO9lycCEFPiyWnsa3jQ==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2tjRpWYGbE6XJvGVQ6bvwAAAAAACAAAAAAAQZgAAAAEAACAAAACQFrbeeJC0BCjvdrH8hyB5ytDn+01R45Bsrva1pieQBwAAAAAOgAAAAAIAACAAAACJpypW0nz/RgRkROL31wQ3gU6RJgpAN7qjAx6AH20eT5AAAACC9qPt0QNR8Xnmw1s2pfVuW+AJlItvd+fRP47ZKDCkAUCos3bRvmMCuLaQouut2s0ZxfkCWB6BwmVh6fnHdnlINnl4ctKIvPQHaKB4Yk8jugxI8WinJbJ3qqjxNVoM+eWOQgNKvLHwiMcz/O6ox6eRI67/u1cgqNo8jJYrTV4fkgMRD539J9gEMzhmdmoj/mtAAAAATWKfUvf+Z5M3wY3gwVm5cOnhGUhmMFHpghDfcgDmn6xAr/YxFGVTX2BGRvpTy3iStHkb5SWqnqnkiPFsADKfrA==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -34,6 +34,7 @@
           <SSIS:Package SSIS:Name="Basic package1.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Basic Exel package.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Dynamics package1.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="DynamicsMappingDB_DigitProdSc.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="(localdb)_mssqllocaldb.SC_DATAHUB1.conmgr" />
@@ -1376,10 +1377,27 @@
                 <SSIS:Property SSIS:Name="Name">Dynamics package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">64</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">86</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{837C0A4F-6882-4A83-807F-3510D51E60A9}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{1E8BD20F-23E5-403E-BE3B-DB03B8775A15}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="DynamicsMappingDB_DigitProdSc.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{7EE642C2-F050-4698-ADB5-0E2D2B655F1B}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">DigitalProductSc Package1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">34</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{98DCC2EA-9BFA-4ACA-9D59-7B2C917405CC}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

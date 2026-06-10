@@ -1,0 +1,3078 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/10/2026 12:16:27 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AVAPC-972818717"
+  DTS:CreatorName="AVANADE-CORP\anatoli.scameroni"
+  DTS:DTSID="{7EE642C2-F050-4698-ADB5-0E2D2B655F1B}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="DigitalProductSc Package1"
+  DTS:PackageType="5"
+  DTS:VersionBuild="36"
+  DTS:VersionGUID="{13F49837-5FB9-4035-B5C9-1153904C7C5C}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\DigitalProduct"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
+      DTS:DTSID="{AF51F575-7F94-4430-B255-F6CF4E80AB9F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DigitalProduct"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DigitalProduct\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DigitalProduct\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DigitalProduct\Conditional Split.Inputs[Conditional Split Input].Columns[sc_digitalproductid]"
+                      cachedDataType="guid"
+                      cachedName="sc_digitalproductid"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_digitalproductid]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DigitalProduct\Conditional Split.Outputs[ExistsOnDataverseSc]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ExistsOnDataverseSc"
+                  synchronousInputId="Package\DigitalProduct\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_digitalproductid]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(sc_digitalproductid)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DigitalProduct\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\DigitalProduct\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DigitalProduct\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\DigitalProduct\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DigitalProduct\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DigitalProduct\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DigitalProduct\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DigitalProduct\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input].Columns[sc_description]"
+                      cachedDataType="nText"
+                      cachedName="sc_description"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_description]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_description]}) ? NULL(DT_WSTR,850) : (DT_WSTR,850)#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_description]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_description) ? NULL(DT_WSTR,850) : (DT_WSTR,850)sc_description</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input].Columns[sc_requirementsnotesactivation]"
+                      cachedDataType="nText"
+                      cachedName="sc_requirementsnotesactivation"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_requirementsnotesactivation]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_requirementsnotesactivation]}) ? NULL(DT_WSTR,850) : (DT_WSTR,850)#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_requirementsnotesactivation]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_requirementsnotesactivation) ? NULL(DT_WSTR,850) : (DT_WSTR,850)sc_requirementsnotesactivation</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input].Columns[sc_statodigitalproduct]"
+                      cachedDataType="i4"
+                      cachedName="sc_statodigitalproduct"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_statodigitalproduct]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_statodigitalproduct]}) ? NULL(DT_I4) : #{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_statodigitalproduct]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_statodigitalproduct) ? NULL(DT_I4) : sc_statodigitalproduct</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input].Columns[sc_stockavailable]"
+                      cachedDataType="i4"
+                      cachedName="sc_stockavailable"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_stockavailable]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_stockavailable]}) ? NULL(DT_I4) : #{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_stockavailable]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_stockavailable) ? NULL(DT_I4) : sc_stockavailable</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input].Columns[sc_typedigitalproduct]"
+                      cachedDataType="i4"
+                      cachedName="sc_typedigitalproduct"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]}) ? NULL(DT_I4) : #{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_typedigitalproduct) ? NULL(DT_I4) : sc_typedigitalproduct</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input].Columns[sc_typeplatform]"
+                      cachedDataType="i4"
+                      cachedName="sc_typeplatform"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeplatform]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeplatform]}) ? NULL(DT_I4) : #{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeplatform]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_typeplatform) ? NULL(DT_I4) : sc_typeplatform</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input].Columns[statuscode]"
+                      cachedDataType="i4"
+                      cachedName="statuscode"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]}) ? NULL(DT_I4) : #{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(statuscode) ? NULL(DT_I4) : statuscode</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DigitalProduct\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DigitalProduct\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DigitalProduct\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DigitalProduct\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DigitalProduct\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DigitalProduct\Dynamics CRM Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Source"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">1</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity"></property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML">&lt;fetch mapping='logical'&gt;
+  &lt;entity name='sc_digitalproduct'&gt;
+
+    &lt;attribute name='sc_digitalproductid'/&gt;
+    &lt;attribute name='sc_name'/&gt;
+    &lt;attribute name='sc_codice'/&gt;
+    &lt;attribute name='sc_key'/&gt;
+
+    &lt;attribute name='sc_accountclientid'/&gt;
+    &lt;attribute name='sc_accountclientidname'/&gt;
+    &lt;attribute name='sc_accountclientidyominame'/&gt;
+
+    &lt;attribute name='sc_productdetailsid'/&gt;
+    &lt;attribute name='sc_productdetailsidname'/&gt;
+
+    &lt;attribute name='sc_parentdigitalproductid'/&gt;
+    &lt;attribute name='sc_parentdigitalproductidname'/&gt;
+
+    &lt;attribute name='sc_baseprice'/&gt;
+    &lt;attribute name='sc_baseprice_base'/&gt;
+
+    &lt;attribute name='sc_description'/&gt;
+    &lt;attribute name='sc_requirementsnotesactivation'/&gt;
+
+    &lt;attribute name='sc_statodigitalproduct'/&gt;
+    &lt;attribute name='sc_statodigitalproductname'/&gt;
+
+    &lt;attribute name='sc_stockavailable'/&gt;
+
+    &lt;attribute name='sc_typedigitalproduct'/&gt;
+    &lt;attribute name='sc_typedigitalproductname'/&gt;
+
+    &lt;attribute name='sc_typeplatform'/&gt;
+    &lt;attribute name='sc_typeplatformname'/&gt;
+
+    &lt;attribute name='statuscode'/&gt;
+    &lt;attribute name='statuscodename'/&gt;
+
+    &lt;filter type='and'&gt;
+      &lt;condition attribute='statecode' operator='eq' value='0' /&gt;
+    &lt;/filter&gt;
+
+  &lt;/entity&gt;
+&lt;/fetch&gt;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.String"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DigitalProduct\Dynamics CRM Source.Connections[DynamicsCRM]"
+                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_accountclientid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_accountclientid]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_accountclientid]"
+                      name="sc_accountclientid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_accountclientidname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_accountclientidname]"
+                      length="160"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_accountclientidname]"
+                      name="sc_accountclientidname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_accountclientidyominame]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_accountclientidyominame]"
+                      length="160"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_accountclientidyominame]"
+                      name="sc_accountclientidyominame"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_baseprice]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_baseprice]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_baseprice]"
+                      name="sc_baseprice"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_baseprice_base]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_baseprice_base]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_baseprice_base]"
+                      name="sc_baseprice_base"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_codice]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_codice]"
+                      length="100"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_codice]"
+                      name="sc_codice"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_description]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_description]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_description]"
+                      name="sc_description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_digitalproductid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_digitalproductid]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_digitalproductid]"
+                      name="sc_digitalproductid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_key]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_key]"
+                      length="100"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_key]"
+                      name="sc_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      length="850"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]"
+                      name="sc_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_parentdigitalproductid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_parentdigitalproductid]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_parentdigitalproductid]"
+                      name="sc_parentdigitalproductid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_parentdigitalproductidname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_parentdigitalproductidname]"
+                      length="850"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_parentdigitalproductidname]"
+                      name="sc_parentdigitalproductidname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_productdetailsid]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]"
+                      name="sc_productdetailsid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsidname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_productdetailsidname]"
+                      length="850"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsidname]"
+                      name="sc_productdetailsidname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_requirementsnotesactivation]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_requirementsnotesactivation]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_requirementsnotesactivation]"
+                      name="sc_requirementsnotesactivation"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_statodigitalproduct]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_statodigitalproduct]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_statodigitalproduct]"
+                      name="sc_statodigitalproduct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_statodigitalproductname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_statodigitalproductname]"
+                      length="255"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_statodigitalproductname]"
+                      name="sc_statodigitalproductname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_stockavailable]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_stockavailable]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_stockavailable]"
+                      name="sc_stockavailable"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typedigitalproduct]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]"
+                      name="sc_typedigitalproduct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproductname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typedigitalproductname]"
+                      length="255"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproductname]"
+                      name="sc_typedigitalproductname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeplatform]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typeplatform]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeplatform]"
+                      name="sc_typeplatform"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeplatformname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typeplatformname]"
+                      length="255"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeplatformname]"
+                      name="sc_typeplatformname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
+                      name="statuscode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                      length="255"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]"
+                      name="statuscodename"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_accountclientid]"
+                      dataType="guid"
+                      name="sc_accountclientid" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_accountclientidname]"
+                      dataType="wstr"
+                      length="160"
+                      name="sc_accountclientidname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_accountclientidyominame]"
+                      dataType="wstr"
+                      length="160"
+                      name="sc_accountclientidyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_baseprice]"
+                      dataType="decimal"
+                      name="sc_baseprice"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_baseprice_base]"
+                      dataType="decimal"
+                      name="sc_baseprice_base"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_codice]"
+                      dataType="wstr"
+                      length="100"
+                      name="sc_codice" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_description]"
+                      dataType="nText"
+                      name="sc_description" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_digitalproductid]"
+                      dataType="guid"
+                      name="sc_digitalproductid" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_key]"
+                      dataType="wstr"
+                      length="100"
+                      name="sc_key" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_parentdigitalproductid]"
+                      dataType="guid"
+                      name="sc_parentdigitalproductid" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_parentdigitalproductidname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_parentdigitalproductidname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_productdetailsid]"
+                      dataType="guid"
+                      name="sc_productdetailsid" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_productdetailsidname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_productdetailsidname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_requirementsnotesactivation]"
+                      dataType="nText"
+                      name="sc_requirementsnotesactivation" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_statodigitalproduct]"
+                      dataType="i4"
+                      name="sc_statodigitalproduct" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_statodigitalproductname]"
+                      dataType="wstr"
+                      length="255"
+                      name="sc_statodigitalproductname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_stockavailable]"
+                      dataType="i4"
+                      name="sc_stockavailable" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typedigitalproduct]"
+                      dataType="i4"
+                      name="sc_typedigitalproduct" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typedigitalproductname]"
+                      dataType="wstr"
+                      length="255"
+                      name="sc_typedigitalproductname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typeplatform]"
+                      dataType="i4"
+                      name="sc_typeplatform" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typeplatformname]"
+                      dataType="wstr"
+                      length="255"
+                      name="sc_typeplatformname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statuscodename" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DigitalProduct\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT sc_codice
+FROM crm.DigitalProductSc
+WHERE sc_codice IS NOT NULL</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT sc_codice
+FROM crm.DigitalProductSc
+WHERE sc_codice IS NOT NULL) [refTable]
+where [refTable].[sc_codice] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="sc_codice" dataType="DT_WSTR" length="400" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_codice]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DigitalProduct\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DigitalProduct\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DigitalProduct\Lookup.Inputs[Lookup Input].Columns[sc_codice]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sc_codice"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_codice]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">sc_codice</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DigitalProduct\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\DigitalProduct\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DigitalProduct\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\DigitalProduct\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DigitalProduct\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\DigitalProduct\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DigitalProduct\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DigitalProduct\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DigitalProduct\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DigitalProduct\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP (1000) [sc_digitalproductid]
+      ,[sc_name]
+      ,[sc_codice]
+      ,[sc_key]
+      ,[sc_accountclientid]
+      ,[sc_accountclientidname]
+      ,[sc_accountclientidyominame]
+      ,[sc_productdetailsid]
+      ,[sc_productdetailsidname]
+      ,[sc_parentdigitalproductid]
+      ,[sc_parentdigitalproductidname]
+      ,[sc_baseprice]
+      ,[sc_baseprice_base]
+      ,[sc_description]
+      ,[sc_statodigitalproduct]
+      ,[sc_statodigitalproductname]
+      ,[sc_typedigitalproduct]
+      ,[sc_typedigitalproductname]
+      ,[sc_typeplatform]
+      ,[sc_typeplatformname]
+      ,[sc_stockavailable]
+      ,[sc_requirementsnotesactivation]
+      ,[statuscode]
+      ,[statuscodename]
+  FROM [SC_DATAHUB].[crm].[DigitalProductSc]</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DigitalProduct\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_accountclientid]"
+                      cachedDataType="guid"
+                      cachedName="sc_accountclientid"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_accountclientid]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_accountclientid]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_accountclientidname]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="sc_accountclientidname"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_accountclientidname]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_accountclientidname]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_accountclientidyominame]"
+                      cachedDataType="wstr"
+                      cachedLength="160"
+                      cachedName="sc_accountclientidyominame"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_accountclientidyominame]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_accountclientidyominame]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_baseprice]"
+                      cachedDataType="decimal"
+                      cachedName="sc_baseprice"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_baseprice]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_baseprice]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_baseprice_base]"
+                      cachedDataType="decimal"
+                      cachedName="sc_baseprice_base"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_baseprice_base]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_baseprice_base]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_codice]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sc_codice"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_codice]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_codice]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_description]"
+                      cachedDataType="nText"
+                      cachedName="sc_description"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_description]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_description]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_digitalproductid]"
+                      cachedDataType="guid"
+                      cachedName="sc_digitalproductid"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_digitalproductid]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_digitalproductid]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_key]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sc_key"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_key]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_key]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_name]"
+                      cachedDataType="wstr"
+                      cachedLength="850"
+                      cachedName="sc_name"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_parentdigitalproductid]"
+                      cachedDataType="guid"
+                      cachedName="sc_parentdigitalproductid"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_parentdigitalproductid]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_parentdigitalproductid]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_parentdigitalproductidname]"
+                      cachedDataType="wstr"
+                      cachedLength="850"
+                      cachedName="sc_parentdigitalproductidname"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_parentdigitalproductidname]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_parentdigitalproductidname]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_productdetailsid]"
+                      cachedDataType="guid"
+                      cachedName="sc_productdetailsid"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_productdetailsid]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_productdetailsidname]"
+                      cachedDataType="wstr"
+                      cachedLength="850"
+                      cachedName="sc_productdetailsidname"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_productdetailsidname]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsidname]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_requirementsnotesactivation]"
+                      cachedDataType="nText"
+                      cachedName="sc_requirementsnotesactivation"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_requirementsnotesactivation]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_requirementsnotesactivation]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_statodigitalproduct]"
+                      cachedDataType="i4"
+                      cachedName="sc_statodigitalproduct"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_statodigitalproduct]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_statodigitalproduct]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_statodigitalproductname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sc_statodigitalproductname"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_statodigitalproductname]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_statodigitalproductname]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_stockavailable]"
+                      cachedDataType="i4"
+                      cachedName="sc_stockavailable"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_stockavailable]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_stockavailable]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typedigitalproduct]"
+                      cachedDataType="i4"
+                      cachedName="sc_typedigitalproduct"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproduct]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typedigitalproductname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sc_typedigitalproductname"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproductname]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproductname]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typeplatform]"
+                      cachedDataType="i4"
+                      cachedName="sc_typeplatform"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeplatform]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeplatform]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typeplatformname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sc_typeplatformname"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeplatformname]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeplatformname]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[statuscode]"
+                      cachedDataType="i4"
+                      cachedName="statuscode"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscode]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]" />
+                    <inputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[statuscodename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="statuscodename"
+                      externalMetadataColumnId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscodename]"
+                      lineageId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_digitalproductid]"
+                      dataType="guid"
+                      name="sc_digitalproductid" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_codice]"
+                      dataType="wstr"
+                      length="400"
+                      name="sc_codice" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_key]"
+                      dataType="wstr"
+                      length="400"
+                      name="sc_key" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_accountclientid]"
+                      dataType="guid"
+                      name="sc_accountclientid" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_accountclientidname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_accountclientidname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_accountclientidyominame]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_accountclientidyominame" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_productdetailsid]"
+                      dataType="guid"
+                      name="sc_productdetailsid" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_productdetailsidname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_productdetailsidname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_parentdigitalproductid]"
+                      dataType="guid"
+                      name="sc_parentdigitalproductid" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_parentdigitalproductidname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_parentdigitalproductidname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_baseprice]"
+                      dataType="numeric"
+                      name="sc_baseprice"
+                      precision="19"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_baseprice_base]"
+                      dataType="numeric"
+                      name="sc_baseprice_base"
+                      precision="19"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_description]"
+                      dataType="nText"
+                      name="sc_description" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_statodigitalproduct]"
+                      dataType="i4"
+                      name="sc_statodigitalproduct" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_statodigitalproductname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_statodigitalproductname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproduct]"
+                      dataType="i4"
+                      name="sc_typedigitalproduct" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproductname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_typedigitalproductname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeplatform]"
+                      dataType="i4"
+                      name="sc_typeplatform" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeplatformname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_typeplatformname" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_stockavailable]"
+                      dataType="i4"
+                      name="sc_stockavailable" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_requirementsnotesactivation]"
+                      dataType="nText"
+                      name="sc_requirementsnotesactivation" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode" />
+                    <externalMetadataColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscodename]"
+                      dataType="wstr"
+                      length="850"
+                      name="statuscodename" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DigitalProduct\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DigitalProduct\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DigitalProduct\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DigitalProduct\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DigitalProduct.Paths[Derived Column Output]"
+              endId="Package\DigitalProduct\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\DigitalProduct\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\DigitalProduct.Paths[ExistsOnDataverseSc]"
+              endId="Package\DigitalProduct\Lookup.Inputs[Lookup Input]"
+              name="ExistsOnDataverseSc"
+              startId="Package\DigitalProduct\Conditional Split.Outputs[ExistsOnDataverseSc]" />
+            <path
+              refId="Package\DigitalProduct.Paths[Lookup No Match Output]"
+              endId="Package\DigitalProduct\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\DigitalProduct\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\DigitalProduct.Paths[Primary Output]"
+              endId="Package\DigitalProduct\Derived Column.Inputs[Derived Column Input]"
+              name="Primary Output"
+              startId="Package\DigitalProduct\Dynamics CRM Source.Outputs[Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\ProductDigital"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{996BA131-D493-4C12-9F83-DEA5FE71F7CE}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="ProductDigital"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\ProductDigital\Conditional Split"
+              componentClassID="Microsoft.ConditionalSplit"
+              contactInfo="Conditional Split;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Routes data rows to different outputs depending on the content of the data. Use conditions (SSIS expressions) to specify which rows are routed. For example, separate records that need to be cleaned from those that are ready to be loaded or route only a subset of records."
+              name="Conditional Split"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input]"
+                  description="Input to the Conditional Split Transformation"
+                  name="Conditional Split Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input].Columns[sc_productdetailsid]"
+                      cachedDataType="guid"
+                      cachedName="sc_productdetailsid"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]" />
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ProductDigital\Conditional Split.Outputs[ExistsOnDataverseSc]"
+                  description="Output 1 of the Conditional Split Transformation"
+                  errorOrTruncationOperation="Computation"
+                  errorRowDisposition="FailComponent"
+                  exclusionGroup="1"
+                  name="ExistsOnDataverseSc"
+                  synchronousInputId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input]"
+                  truncationRowDisposition="FailComponent">
+                  <properties>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
+                      name="Expression">![ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]})</property>
+                    <property
+                      containsID="true"
+                      dataType="System.String"
+                      description="Specifies the friendly version of the expression. This expression version uses column names."
+                      expressionType="Notify"
+                      name="FriendlyExpression">!ISNULL(sc_productdetailsid)</property>
+                    <property
+                      dataType="System.Int32"
+                      description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
+                      name="EvaluationOrder">0</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ProductDigital\Conditional Split.Outputs[Conditional Split Default Output]"
+                  description="Default Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  name="Conditional Split Default Output"
+                  synchronousInputId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input]">
+                  <properties>
+                    <property
+                      dataType="System.Boolean"
+                      name="IsDefaultOut">true</property>
+                  </properties>
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ProductDigital\Conditional Split.Outputs[Conditional Split Error Output]"
+                  description="Error Output of the Conditional Split Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Conditional Split Error Output"
+                  synchronousInputId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProductDigital\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProductDigital\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProductDigital\Conditional Split.Outputs[Conditional Split Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ProductDigital\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input].Columns[sc_genre]"
+                      cachedDataType="i4"
+                      cachedName="sc_genre"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_genre]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_genre]}) ? NULL(DT_I4) : #{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_genre]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_genre) ? NULL(DT_I4) : sc_genre</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input].Columns[sc_durationmonths]"
+                      cachedDataType="i4"
+                      cachedName="sc_durationmonths"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_durationmonths]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_durationmonths]}) ? NULL(DT_I4) : #{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_durationmonths]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_durationmonths) ? NULL(DT_I4) : sc_durationmonths</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input].Columns[sc_numberofstations]"
+                      cachedDataType="i4"
+                      cachedName="sc_numberofstations"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_numberofstations]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_numberofstations]}) ? NULL(DT_I4) : #{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_numberofstations]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_numberofstations) ? NULL(DT_I4) : sc_numberofstations</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input].Columns[sc_pg]"
+                      cachedDataType="i4"
+                      cachedName="sc_pg"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_pg]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_pg]}) ? NULL(DT_I4) : #{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_pg]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_pg) ? NULL(DT_I4) : sc_pg</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input].Columns[sc_releasedate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="sc_releasedate"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_releasedate]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_releasedate]}) ? NULL(DT_DBTIMESTAMP) : (DT_DBTIMESTAMP)#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_releasedate]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_releasedate) ? NULL(DT_DBTIMESTAMP) : (DT_DBTIMESTAMP)sc_releasedate</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input].Columns[sc_typedigitalproduct]"
+                      cachedDataType="i4"
+                      cachedName="sc_typedigitalproduct"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]}) ? NULL(DT_I4) : #{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_typedigitalproduct) ? NULL(DT_I4) : sc_typedigitalproduct</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input].Columns[sc_typeexpansion]"
+                      cachedDataType="i4"
+                      cachedName="sc_typeexpansion"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansion]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansion]}) ? NULL(DT_I4) : #{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansion]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_typeexpansion) ? NULL(DT_I4) : sc_typeexpansion</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input].Columns[sc_typelicense]"
+                      cachedDataType="i4"
+                      cachedName="sc_typelicense"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicense]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicense]}) ? NULL(DT_I4) : #{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicense]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(sc_typelicense) ? NULL(DT_I4) : sc_typelicense</property>
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input].Columns[statuscode]"
+                      cachedDataType="i4"
+                      cachedName="statuscode"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]}) ? NULL(DT_I4) : #{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]}</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">ISNULL(statuscode) ? NULL(DT_I4) : statuscode</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ProductDigital\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ProductDigital\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProductDigital\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProductDigital\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProductDigital\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ProductDigital\Dynamics CRM Source"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Source"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">1</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity"></property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML">&lt;fetch mapping="logical"&gt;
+  &lt;entity name="sc_productdetails"&gt;
+
+    &lt;attribute name="sc_productdetailsid" /&gt;
+    &lt;attribute name="sc_name" /&gt;
+
+    &lt;attribute name="sc_country" /&gt;
+    &lt;attribute name="sc_pg" /&gt;
+    &lt;attribute name="sc_genre" /&gt;
+
+    &lt;attribute name="sc_typedigitalproduct" /&gt;
+    &lt;attribute name="sc_typeexpansion" /&gt;
+    &lt;attribute name="sc_typelicense" /&gt;
+
+    &lt;attribute name="sc_numberofstations" /&gt;
+    &lt;attribute name="sc_durationmonths" /&gt;
+    &lt;attribute name="sc_releasedate" /&gt;
+
+    &lt;attribute name="sc_commissionamountapp" /&gt;
+    &lt;attribute name="sc_commissionamountapp_base" /&gt;
+    &lt;attribute name="sc_commissionpercentageapp" /&gt;
+
+    &lt;attribute name="statuscode" /&gt;
+
+    &lt;filter type="and"&gt;
+      &lt;condition attribute="statecode" operator="eq" value="0" /&gt;
+    &lt;/filter&gt;
+
+  &lt;/entity&gt;
+&lt;/fetch&gt;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.Null"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ProductDigital\Dynamics CRM Source.Connections[DynamicsCRM]"
+                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_commissionamountapp]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_commissionamountapp]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_commissionamountapp]"
+                      name="sc_commissionamountapp"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_commissionamountapp_base]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_commissionamountapp_base]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_commissionamountapp_base]"
+                      name="sc_commissionamountapp_base"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_commissionpercentageapp]"
+                      dataType="decimal"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_commissionpercentageapp]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_commissionpercentageapp]"
+                      name="sc_commissionpercentageapp"
+                      scale="2"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_country]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_country]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_country]"
+                      name="sc_country"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_countryname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_countryname]"
+                      length="850"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_countryname]"
+                      name="sc_countryname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_durationmonths]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_durationmonths]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_durationmonths]"
+                      name="sc_durationmonths"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_genre]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_genre]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_genre]"
+                      name="sc_genre"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_genrename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_genrename]"
+                      length="255"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_genrename]"
+                      name="sc_genrename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      length="850"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]"
+                      name="sc_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_numberofstations]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_numberofstations]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_numberofstations]"
+                      name="sc_numberofstations"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_pg]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_pg]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_pg]"
+                      name="sc_pg"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_pgname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_pgname]"
+                      length="255"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_pgname]"
+                      name="sc_pgname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_productdetailsid]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]"
+                      name="sc_productdetailsid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_releasedate]"
+                      dataType="dbTimeStamp"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_releasedate]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_releasedate]"
+                      name="sc_releasedate"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typedigitalproduct]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]"
+                      name="sc_typedigitalproduct"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproductname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typedigitalproductname]"
+                      length="255"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproductname]"
+                      name="sc_typedigitalproductname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansion]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typeexpansion]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansion]"
+                      name="sc_typeexpansion"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansionname]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typeexpansionname]"
+                      length="255"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansionname]"
+                      name="sc_typeexpansionname"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicense]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typelicense]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicense]"
+                      name="sc_typelicense"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicensename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typelicensename]"
+                      length="255"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicensename]"
+                      name="sc_typelicensename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]"
+                      name="statuscode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                      length="255"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]"
+                      name="statuscodename"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_commissionamountapp]"
+                      dataType="decimal"
+                      name="sc_commissionamountapp"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_commissionamountapp_base]"
+                      dataType="decimal"
+                      name="sc_commissionamountapp_base"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_commissionpercentageapp]"
+                      dataType="decimal"
+                      name="sc_commissionpercentageapp"
+                      scale="2" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_country]"
+                      dataType="guid"
+                      name="sc_country" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_countryname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_countryname" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_durationmonths]"
+                      dataType="i4"
+                      name="sc_durationmonths" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_genre]"
+                      dataType="i4"
+                      name="sc_genre" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_genrename]"
+                      dataType="wstr"
+                      length="255"
+                      name="sc_genrename" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_numberofstations]"
+                      dataType="i4"
+                      name="sc_numberofstations" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_pg]"
+                      dataType="i4"
+                      name="sc_pg" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_pgname]"
+                      dataType="wstr"
+                      length="255"
+                      name="sc_pgname" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_productdetailsid]"
+                      dataType="guid"
+                      name="sc_productdetailsid" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_releasedate]"
+                      dataType="dbTimeStamp"
+                      name="sc_releasedate">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="DateTimeBehavior">TimeZoneIndependent</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typedigitalproduct]"
+                      dataType="i4"
+                      name="sc_typedigitalproduct" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typedigitalproductname]"
+                      dataType="wstr"
+                      length="255"
+                      name="sc_typedigitalproductname" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typeexpansion]"
+                      dataType="i4"
+                      name="sc_typeexpansion" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typeexpansionname]"
+                      dataType="wstr"
+                      length="255"
+                      name="sc_typeexpansionname" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typelicense]"
+                      dataType="i4"
+                      name="sc_typelicense" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_typelicensename]"
+                      dataType="wstr"
+                      length="255"
+                      name="sc_typelicensename" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[statuscodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statuscodename" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ProductDigital\Lookup"
+              componentClassID="Microsoft.Lookup"
+              contactInfo="Lookup;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;6"
+              description="Joins additional columns to the data flow by looking up values in a table. For example, join to the 'employee id' column the employees table to get 'hire date' and 'employee name'. We recommend this transformation when the lookup table can fit into memory."
+              name="Lookup"
+              usesDispositions="true"
+              version="6">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Specifies the SQL statement that generates the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT sc_country, sc_typedigitalproduct
+FROM crm.ProductDetailsSc
+WHERE sc_country IS NOT NULL and sc_typedigitalproduct IS NOT NULL and (sc_typeexpansion IS NOT NULL  or sc_typelicense IS NOT NULL)</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies a SQL statement that uses parameters to generate the lookup table."
+                  expressionType="Notify"
+                  name="SqlCommandParam"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">select * from (SELECT sc_country, sc_typedigitalproduct
+FROM crm.ProductDetailsSc
+WHERE sc_country IS NOT NULL and sc_typedigitalproduct IS NOT NULL and (sc_typeexpansion IS NOT NULL  or sc_typelicense IS NOT NULL)) [refTable]
+where [refTable].[sc_country] = ? and [refTable].[sc_typedigitalproduct] = ?</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of connection used to access the reference dataset."
+                  name="ConnectionType"
+                  typeConverter="LookupConnectionType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the cache type of the lookup table."
+                  name="CacheType"
+                  typeConverter="CacheType">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how the Lookup transformation handles rows without matching entries in the reference data set."
+                  name="NoMatchBehavior"
+                  typeConverter="LookupNoMatchBehavior">1</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the percentage of the cache that is allocated for rows with no matching entries in the reference dataset."
+                  name="NoMatchCachePercentage">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Maximum Memory Usage for Reference Cache on a 32 bit platform."
+                  name="MaxMemoryUsage">25</property>
+                <property
+                  dataType="System.Int64"
+                  description="Maximum Memory Usage for Reference Cache on a 64 bit platform."
+                  name="MaxMemoryUsage64">25</property>
+                <property
+                  dataType="System.String"
+                  description="Indicates whether to reference metadata in an XML format."
+                  name="ReferenceMetadataXml">&lt;referenceMetadata&gt;&lt;referenceColumns&gt;&lt;referenceColumn name="sc_country" dataType="DT_GUID" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;referenceColumn name="sc_typedigitalproduct" dataType="DT_I4" length="0" precision="0" scale="0" codePage="0"/&gt;&lt;/referenceColumns&gt;&lt;/referenceMetadata&gt;</property>
+                <property
+                  containsID="true"
+                  dataType="System.String"
+                  description="Specifies the list of lineage identifiers that map to the parameters that the SQL statement in the SQLCommand property uses. Entries in the list are separated by semicolons."
+                  name="ParameterMap">#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_country]};#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]};</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Determines whether duplicate keys in the reference data should be treated as errors when full cache mode is used."
+                  name="TreatDuplicateKeysAsError">false</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ProductDigital\Lookup.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="Connection manager used to access lookup data."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ProductDigital\Lookup.Inputs[Lookup Input]"
+                  name="Lookup Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProductDigital\Lookup.Inputs[Lookup Input].Columns[sc_country]"
+                      cachedDataType="guid"
+                      cachedName="sc_country"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_country]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">sc_country</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                    <inputColumn
+                      refId="Package\ProductDigital\Lookup.Inputs[Lookup Input].Columns[sc_typedigitalproduct]"
+                      cachedDataType="i4"
+                      cachedName="sc_typedigitalproduct"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          description="Specifies the column in the reference table that a column joins."
+                          name="JoinToReferenceColumn">sc_typedigitalproduct</property>
+                        <property
+                          dataType="System.Null"
+                          description="Specifies the column in the reference table from which a column is copied."
+                          name="CopyFromReferenceColumn" />
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ProductDigital\Lookup.Outputs[Lookup Match Output]"
+                  errorOrTruncationOperation="Lookup"
+                  exclusionGroup="1"
+                  name="Lookup Match Output"
+                  synchronousInputId="Package\ProductDigital\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ProductDigital\Lookup.Outputs[Lookup No Match Output]"
+                  description="The Lookup output that handles rows with no matching entries in the reference dataset. Use this output when the NoMatchBehavior property is set to &quot;Send rows with no matching entries to the no match output.&quot;"
+                  exclusionGroup="1"
+                  name="Lookup No Match Output"
+                  synchronousInputId="Package\ProductDigital\Lookup.Inputs[Lookup Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\ProductDigital\Lookup.Outputs[Lookup Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Lookup Error Output"
+                  synchronousInputId="Package\ProductDigital\Lookup.Inputs[Lookup Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProductDigital\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProductDigital\Lookup.Outputs[Lookup Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProductDigital\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProductDigital\Lookup.Outputs[Lookup Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\ProductDigital\OLE DB Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT TOP (1000) [sc_productdetailsid]
+      ,[sc_name]
+      ,[sc_country]
+      ,[sc_countryname]
+      ,[sc_pg]
+      ,[sc_pgname]
+      ,[sc_genre]
+      ,[sc_genrename]
+      ,[sc_typedigitalproduct]
+      ,[sc_typedigitalproductname]
+      ,[sc_typeexpansion]
+      ,[sc_typeexpansionname]
+      ,[sc_typelicense]
+      ,[sc_typelicensename]
+      ,[sc_numberofstations]
+      ,[sc_durationmonths]
+      ,[sc_releasedate]
+      ,[sc_commissionamountapp]
+      ,[sc_commissionamountapp_base]
+      ,[sc_commissionpercentageapp]
+      ,[statuscode]
+      ,[statuscodename]
+  FROM [SC_DATAHUB].[crm].[ProductDetailsSc]</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\ProductDigital\OLE DB Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_commissionamountapp]"
+                      cachedDataType="decimal"
+                      cachedName="sc_commissionamountapp"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_commissionamountapp]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_commissionamountapp]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_commissionamountapp_base]"
+                      cachedDataType="decimal"
+                      cachedName="sc_commissionamountapp_base"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_commissionamountapp_base]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_commissionamountapp_base]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_commissionpercentageapp]"
+                      cachedDataType="decimal"
+                      cachedName="sc_commissionpercentageapp"
+                      cachedScale="2"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_commissionpercentageapp]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_commissionpercentageapp]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_country]"
+                      cachedDataType="guid"
+                      cachedName="sc_country"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_country]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_country]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_countryname]"
+                      cachedDataType="wstr"
+                      cachedLength="850"
+                      cachedName="sc_countryname"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_countryname]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_countryname]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_durationmonths]"
+                      cachedDataType="i4"
+                      cachedName="sc_durationmonths"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_durationmonths]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_durationmonths]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_genre]"
+                      cachedDataType="i4"
+                      cachedName="sc_genre"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_genre]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_genre]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_genrename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sc_genrename"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_genrename]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_genrename]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_name]"
+                      cachedDataType="wstr"
+                      cachedLength="850"
+                      cachedName="sc_name"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_name]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_numberofstations]"
+                      cachedDataType="i4"
+                      cachedName="sc_numberofstations"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_numberofstations]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_numberofstations]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_pg]"
+                      cachedDataType="i4"
+                      cachedName="sc_pg"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_pg]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_pg]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_pgname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sc_pgname"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_pgname]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_pgname]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_productdetailsid]"
+                      cachedDataType="guid"
+                      cachedName="sc_productdetailsid"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_productdetailsid]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_releasedate]"
+                      cachedDataType="dbTimeStamp"
+                      cachedName="sc_releasedate"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_releasedate]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_releasedate]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typedigitalproduct]"
+                      cachedDataType="i4"
+                      cachedName="sc_typedigitalproduct"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproduct]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typedigitalproductname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sc_typedigitalproductname"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproductname]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproductname]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typeexpansion]"
+                      cachedDataType="i4"
+                      cachedName="sc_typeexpansion"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeexpansion]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansion]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typeexpansionname]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sc_typeexpansionname"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeexpansionname]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansionname]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typelicense]"
+                      cachedDataType="i4"
+                      cachedName="sc_typelicense"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typelicense]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicense]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[sc_typelicensename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="sc_typelicensename"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typelicensename]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicensename]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[statuscode]"
+                      cachedDataType="i4"
+                      cachedName="statuscode"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscode]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscode]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].Columns[statuscodename]"
+                      cachedDataType="wstr"
+                      cachedLength="255"
+                      cachedName="statuscodename"
+                      externalMetadataColumnId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscodename]"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[statuscodename]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_productdetailsid]"
+                      dataType="guid"
+                      name="sc_productdetailsid" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_country]"
+                      dataType="guid"
+                      name="sc_country" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_countryname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_countryname" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_pg]"
+                      dataType="i4"
+                      name="sc_pg" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_pgname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_pgname" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_genre]"
+                      dataType="i4"
+                      name="sc_genre" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_genrename]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_genrename" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproduct]"
+                      dataType="i4"
+                      name="sc_typedigitalproduct" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typedigitalproductname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_typedigitalproductname" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeexpansion]"
+                      dataType="i4"
+                      name="sc_typeexpansion" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typeexpansionname]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_typeexpansionname" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typelicense]"
+                      dataType="i4"
+                      name="sc_typelicense" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_typelicensename]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_typelicensename" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_numberofstations]"
+                      dataType="i4"
+                      name="sc_numberofstations" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_durationmonths]"
+                      dataType="i4"
+                      name="sc_durationmonths" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_releasedate]"
+                      dataType="dbTimeStamp2"
+                      name="sc_releasedate"
+                      scale="7" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_commissionamountapp]"
+                      dataType="numeric"
+                      name="sc_commissionamountapp"
+                      precision="19"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_commissionamountapp_base]"
+                      dataType="numeric"
+                      name="sc_commissionamountapp_base"
+                      precision="19"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_commissionpercentageapp]"
+                      dataType="numeric"
+                      name="sc_commissionpercentageapp"
+                      precision="18"
+                      scale="4" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode" />
+                    <externalMetadataColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input].ExternalColumns[statuscodename]"
+                      dataType="wstr"
+                      length="850"
+                      name="statuscodename" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\ProductDigital\OLE DB Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\ProductDigital\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\ProductDigital\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\ProductDigital\OLE DB Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\ProductDigital.Paths[Derived Column Output]"
+              endId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input]"
+              name="Derived Column Output"
+              startId="Package\ProductDigital\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\ProductDigital.Paths[ExistsOnDataverseSc]"
+              endId="Package\ProductDigital\Lookup.Inputs[Lookup Input]"
+              name="ExistsOnDataverseSc"
+              startId="Package\ProductDigital\Conditional Split.Outputs[ExistsOnDataverseSc]" />
+            <path
+              refId="Package\ProductDigital.Paths[Lookup No Match Output]"
+              endId="Package\ProductDigital\OLE DB Destination.Inputs[OLE DB Destination Input]"
+              name="Lookup No Match Output"
+              startId="Package\ProductDigital\Lookup.Outputs[Lookup No Match Output]" />
+            <path
+              refId="Package\ProductDigital.Paths[Primary Output]"
+              endId="Package\ProductDigital\Derived Column.Inputs[Derived Column Input]"
+              name="Primary Output"
+              startId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph">
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\DigitalProduct"
+          TopLeft="83.124996284023,125.449994018078" />
+        <NodeLayout
+          Size="145.333333333334,42.6666666666667"
+          Id="Package\ProductDigital"
+          TopLeft="261.874988293276,122.849994142056" />
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DigitalProduct">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\DigitalProduct\Lookup"
+          TopLeft="99.291663062449,271.04998707533" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\DigitalProduct\Derived Column"
+          TopLeft="168.124992484227,131.949993708134" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\DigitalProduct\Dynamics CRM Source"
+          TopLeft="164.999992623925,56.549997303486" />
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\DigitalProduct\OLE DB Destination"
+          TopLeft="183.124991813675,343.849983603955" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\DigitalProduct\Conditional Split"
+          TopLeft="175.624992148951,209.949989988804" />
+        <EdgeLayout
+          Id="Package\DigitalProduct.Paths[Derived Column Output]"
+          TopLeft="245.45832581756,174.616660374801">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.16666633139045,35.3333296140037"
+              Start="0,0"
+              End="8.16666633139045,27.8333296140037">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,13.6666648070019" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,13.6666648070019"
+                    Point2="0,17.6666648070019"
+                    Point3="4,17.6666648070019" />
+                  <mssgle:LineSegment
+                    End="4.16666633139045,17.6666648070019" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.16666633139045,17.6666648070019"
+                    Point2="8.16666633139045,17.6666648070019"
+                    Point3="8.16666633139045,21.6666648070019" />
+                  <mssgle:LineSegment
+                    End="8.16666633139045,27.8333296140037" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DigitalProduct.Paths[Primary Output]"
+          TopLeft="257.666659290592,99.2166639701526">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.2083334730317,32.7333297379813"
+              Start="0,0"
+              End="-12.2083334730317,25.2333297379813">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,12.3666648689906" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,12.3666648689906"
+                    Point2="0,16.3666648689906"
+                    Point3="-4,16.3666648689906" />
+                  <mssgle:LineSegment
+                    End="-8.2083334730317,16.3666648689906" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.2083334730317,16.3666648689906"
+                    Point2="-12.2083334730317,16.3666648689906"
+                    Point3="-12.2083334730317,20.3666648689906" />
+                  <mssgle:LineSegment
+                    End="-12.2083334730317,25.2333297379813" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DigitalProduct.Paths[Lookup No Match Output]"
+          TopLeft="155.958329729116,313.716653741996">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="113.166662084559,30.1333298619585"
+              Start="0,0"
+              End="113.166662084559,22.6333298619585">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.0666649309793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.0666649309793"
+                    Point2="0,15.0666649309793"
+                    Point3="4,15.0666649309793" />
+                  <mssgle:LineSegment
+                    End="109.166662084559,15.0666649309793" />
+                  <mssgle:CubicBezierSegment
+                    Point1="109.166662084559,15.0666649309793"
+                    Point2="113.166662084559,15.0666649309793"
+                    Point3="113.166662084559,19.0666649309793" />
+                  <mssgle:LineSegment
+                    End="113.166662084559,22.6333298619585" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8.09170802022035,20.0666649309793,129.350078125,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DigitalProduct.Paths[ExistsOnDataverseSc]"
+          TopLeft="175.624992148951,231.283323322137">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-19.6666624198354,39.7666637531923"
+              Start="0,0"
+              End="-19.6666624198354,32.2666637531923">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-15.6666624198354,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-15.6666624198354,0"
+                    Point2="-19.6666624198354,0"
+                    Point3="-19.6666624198354,4" />
+                  <mssgle:LineSegment
+                    End="-19.6666624198354,32.2666637531923" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-66.2796897635854,-15.5732421875,93.2260546875,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DigitalProduct\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:string">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:string">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\DigitalProduct\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\ProductDigital">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\ProductDigital\Dynamics CRM Source"
+          TopLeft="208.999993771315,60.9999981820583" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\ProductDigital\Derived Column"
+          TopLeft="215.999993562699,148.666662236055" />
+        <EdgeLayout
+          Id="Package\ProductDigital.Paths[Primary Output]"
+          TopLeft="301.666660437981,103.666664848725">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-8.33333354194957,44.9999973873299"
+              Start="0,0"
+              End="-8.33333354194957,37.4999973873299">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,18.4999986936649" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.4999986936649"
+                    Point2="0,22.4999986936649"
+                    Point3="-4,22.4999986936649" />
+                  <mssgle:LineSegment
+                    End="-4.33333354194957,22.4999986936649" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.33333354194957,22.4999986936649"
+                    Point2="-8.33333354194957,22.4999986936649"
+                    Point3="-8.33333354194957,26.4999986936649" />
+                  <mssgle:LineSegment
+                    End="-8.33333354194957,37.4999973873299" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\ProductDigital\Conditional Split"
+          TopLeft="200.666660686334,219.333326796691" />
+        <EdgeLayout
+          Id="Package\ProductDigital.Paths[Derived Column Output]"
+          TopLeft="293.333326896032,191.333328902722">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-14.6666662096978,27.9999978939692"
+              Start="0,0"
+              End="-14.6666662096978,20.4999978939692">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.99999894698462" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.99999894698462"
+                    Point2="0,13.9999989469846"
+                    Point3="-4,13.9999989469846" />
+                  <mssgle:LineSegment
+                    End="-10.6666662096978,13.9999989469846" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-10.6666662096978,13.9999989469846"
+                    Point2="-14.6666662096978,13.9999989469846"
+                    Point3="-14.6666662096978,17.9999989469846" />
+                  <mssgle:LineSegment
+                    End="-14.6666662096978,20.4999978939692" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\ProductDigital\Lookup"
+          TopLeft="225.999993264675,298.666657765707" />
+        <EdgeLayout
+          Id="Package\ProductDigital.Paths[ExistsOnDataverseSc]"
+          TopLeft="280.666660308838,261.999993463357">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,36.6666643023492"
+              Start="0,0"
+              End="0,29.1666643023492">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,29.1666643023492" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-46.61302734375,9.7967110574246,93.2260546875,9.5732421875"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="172,42.6666666666667"
+          Id="Package\ProductDigital\OLE DB Destination"
+          TopLeft="418.666654189428,299.999991059304" />
+        <EdgeLayout
+          Id="Package\ProductDigital.Paths[Lookup No Match Output]"
+          TopLeft="339.333326598009,320.666657745838">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="79.3333275914193,0"
+              Start="0,0"
+              End="71.8333275914193,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="71.8333275914193,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-19.8897229230404,5,111.6127734375,11.609375"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\ProductDigital\Lookup">
+    <Properties>
+      <Property>
+        <Name>OverwriteParamsSQLProp</Name>
+        <Value
+          type="q2:boolean">false</Value>
+      </Property>
+      <Property>
+        <Name>UsedTableName</Name>
+        <Value
+          type="q3:string"></Value>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q4:int">0</Value>
+      </Property>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <PipelineComponentMetadata
+    design-time-name="Package\ProductDigital\OLE DB Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
