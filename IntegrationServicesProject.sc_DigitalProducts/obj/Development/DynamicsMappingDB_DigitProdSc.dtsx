@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DigitalProductSc Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="35"
-  DTS:VersionGUID="{9AA4F972-E7FD-4D80-A0EB-DD35EB66D74F}">
+  DTS:VersionBuild="37"
+  DTS:VersionGUID="{F21110B4-EE42-48CA-92A1-457B4885309F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1383,6 +1383,26 @@ where [refTable].[sc_codice] = ?</property>
                       cachedDataType="guid"
                       cachedName="sc_productdetailsid"
                       lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input].Columns[sc_country]"
+                      cachedDataType="guid"
+                      cachedName="sc_country"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_country]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input].Columns[sc_typedigitalproduct]"
+                      cachedDataType="i4"
+                      cachedName="sc_typedigitalproduct"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input].Columns[sc_typeexpansion]"
+                      cachedDataType="i4"
+                      cachedName="sc_typeexpansion"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansion]" />
+                    <inputColumn
+                      refId="Package\ProductDigital\Conditional Split.Inputs[Conditional Split Input].Columns[sc_typelicense]"
+                      cachedDataType="i4"
+                      cachedName="sc_typelicense"
+                      lineageId="Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicense]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -1402,13 +1422,13 @@ where [refTable].[sc_codice] = ?</property>
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the expression. This expression version uses lineage identifiers instead of column names."
-                      name="Expression">![ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]})</property>
+                      name="Expression">![ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_productdetailsid]}) &amp;&amp; ![ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_country]}) &amp;&amp; ![ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typedigitalproduct]}) &amp;&amp; (![ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typeexpansion]}) || ![ISNULL](#{Package\ProductDigital\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_typelicense]}))</property>
                     <property
                       containsID="true"
                       dataType="System.String"
                       description="Specifies the friendly version of the expression. This expression version uses column names."
                       expressionType="Notify"
-                      name="FriendlyExpression">!ISNULL(sc_productdetailsid)</property>
+                      name="FriendlyExpression">!ISNULL(sc_productdetailsid) &amp;&amp; !ISNULL(sc_country) &amp;&amp; !ISNULL(sc_typedigitalproduct) &amp;&amp; (!ISNULL(sc_typeexpansion) || !ISNULL(sc_typelicense))</property>
                     <property
                       dataType="System.Int32"
                       description="Specifies the position of the condition in the list of conditions that the transformation evaluates. The evaluation order is from the lowest to the highest value."
@@ -3016,28 +3036,28 @@ where [refTable].[sc_country] = ? and [refTable].[sc_typedigitalproduct] = ?</pr
         <NodeLayout
           Size="172,42.6666666666667"
           Id="Package\ProductDigital\OLE DB Destination"
-          TopLeft="418.666654189428,299.999991059304" />
+          TopLeft="419.999987483025,299.999991059304" />
         <EdgeLayout
           Id="Package\ProductDigital.Paths[Lookup No Match Output]"
           TopLeft="339.333326598009,320.666657745838">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="79.3333275914193,0"
+              EndConnector="80.6666608850162,0"
               Start="0,0"
-              End="71.8333275914193,0">
+              End="73.1666608850162,0">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="71.8333275914193,0" />
+                    End="73.1666608850162,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-19.8897229230404,5,111.6127734375,11.609375"
+              BoundingBox="-19.2230562762419,5,111.6127734375,11.609375"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
