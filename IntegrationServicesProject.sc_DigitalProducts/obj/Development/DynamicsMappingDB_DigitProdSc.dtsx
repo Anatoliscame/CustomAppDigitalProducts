@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DigitalProductSc Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="37"
-  DTS:VersionGUID="{F21110B4-EE42-48CA-92A1-457B4885309F}">
+  DTS:VersionBuild="40"
+  DTS:VersionGUID="{1FD91C9C-4014-4309-937C-949612B9D9FD}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -1355,6 +1355,7 @@ where [refTable].[sc_codice] = ?</property>
       DTS:refId="Package\ProductDigital"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
+      DTS:Disabled="True"
       DTS:DTSID="{996BA131-D493-4C12-9F83-DEA5FE71F7CE}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -2852,7 +2853,7 @@ where [refTable].[sc_country] = ? and [refTable].[sc_typedigitalproduct] = ?</pr
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-8.09170802022035,20.0666649309793,129.350078125,16"
+              BoundingBox="-8.09170802022049,20.0666649309793,129.350078125,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -2926,51 +2927,49 @@ where [refTable].[sc_country] = ? and [refTable].[sc_typedigitalproduct] = ?</pr
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
-          Size="185.333333333334,42.6666666666667"
-          Id="Package\ProductDigital\Dynamics CRM Source"
-          TopLeft="208.999993771315,60.9999981820583" />
+          Size="172,42.6666666666667"
+          Id="Package\ProductDigital\OLE DB Destination"
+          TopLeft="419.999987483025,299.999991059304" />
+        <NodeLayout
+          Size="113.333333333334,42.6666666666667"
+          Id="Package\ProductDigital\Lookup"
+          TopLeft="225.999993264675,298.666657765707" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\ProductDigital\Conditional Split"
+          TopLeft="200.666660686334,219.333326796691" />
         <NodeLayout
           Size="154.666666666667,42.6666666666667"
           Id="Package\ProductDigital\Derived Column"
           TopLeft="215.999993562699,148.666662236055" />
+        <NodeLayout
+          Size="185.333333333334,42.6666666666667"
+          Id="Package\ProductDigital\Dynamics CRM Source"
+          TopLeft="208.999993771315,60.9999981820583" />
         <EdgeLayout
-          Id="Package\ProductDigital.Paths[Primary Output]"
-          TopLeft="301.666660437981,103.666664848725">
+          Id="Package\ProductDigital.Paths[ExistsOnDataverseSc]"
+          TopLeft="280.666660308838,261.999993463357">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-8.33333354194957,44.9999973873299"
+              EndConnector="0,36.6666643023492"
               Start="0,0"
-              End="-8.33333354194957,37.4999973873299">
+              End="0,29.1666643023492">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,18.4999986936649" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,18.4999986936649"
-                    Point2="0,22.4999986936649"
-                    Point3="-4,22.4999986936649" />
-                  <mssgle:LineSegment
-                    End="-4.33333354194957,22.4999986936649" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-4.33333354194957,22.4999986936649"
-                    Point2="-8.33333354194957,22.4999986936649"
-                    Point3="-8.33333354194957,26.4999986936649" />
-                  <mssgle:LineSegment
-                    End="-8.33333354194957,37.4999973873299" />
+                    End="0,29.1666643023492" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="-46.61302734375,9.7967110574246,93.2260546875,9.5732421875"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="156,42.6666666666667"
-          Id="Package\ProductDigital\Conditional Split"
-          TopLeft="200.666660686334,219.333326796691" />
         <EdgeLayout
           Id="Package\ProductDigital.Paths[Derived Column Output]"
           TopLeft="293.333326896032,191.333328902722">
@@ -3005,38 +3004,40 @@ where [refTable].[sc_country] = ? and [refTable].[sc_typedigitalproduct] = ?</pr
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="113.333333333334,42.6666666666667"
-          Id="Package\ProductDigital\Lookup"
-          TopLeft="225.999993264675,298.666657765707" />
         <EdgeLayout
-          Id="Package\ProductDigital.Paths[ExistsOnDataverseSc]"
-          TopLeft="280.666660308838,261.999993463357">
+          Id="Package\ProductDigital.Paths[Primary Output]"
+          TopLeft="301.666660437982,103.666664848725">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,36.6666643023492"
+              EndConnector="-8.33333354194934,44.99999738733"
               Start="0,0"
-              End="0,29.1666643023492">
+              End="-8.33333354194934,37.49999738733">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,29.1666643023492" />
+                    End="0,18.499998693665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.499998693665"
+                    Point2="0,22.499998693665"
+                    Point3="-4,22.499998693665" />
+                  <mssgle:LineSegment
+                    End="-4.33333354194934,22.499998693665" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-4.33333354194934,22.499998693665"
+                    Point2="-8.33333354194934,22.499998693665"
+                    Point3="-8.33333354194934,26.499998693665" />
+                  <mssgle:LineSegment
+                    End="-8.33333354194934,37.49999738733" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="-46.61302734375,9.7967110574246,93.2260546875,9.5732421875"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="172,42.6666666666667"
-          Id="Package\ProductDigital\OLE DB Destination"
-          TopLeft="419.999987483025,299.999991059304" />
         <EdgeLayout
           Id="Package\ProductDigital.Paths[Lookup No Match Output]"
           TopLeft="339.333326598009,320.666657745838">
@@ -3070,7 +3071,7 @@ where [refTable].[sc_country] = ? and [refTable].[sc_typedigitalproduct] = ?</pr
       <Property>
         <Name>OverwriteParamsSQLProp</Name>
         <Value
-          type="q2:boolean">false</Value>
+          type="q2:string">false</Value>
       </Property>
       <Property>
         <Name>UsedTableName</Name>
@@ -3080,7 +3081,7 @@ where [refTable].[sc_country] = ? and [refTable].[sc_typedigitalproduct] = ?</pr
       <Property>
         <Name>TableInfoObjectType</Name>
         <Value
-          type="q4:int">0</Value>
+          type="q4:string">0</Value>
       </Property>
       <Property>
         <Name>DataSourceViewID</Name>

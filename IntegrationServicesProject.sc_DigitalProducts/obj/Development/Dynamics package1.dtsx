@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Dynamics package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="86"
-  DTS:VersionGUID="{1E8BD20F-23E5-403E-BE3B-DB03B8775A15}">
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{09252DD1-D095-451C-BE6D-A4AD83A5A47A}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -22,6 +22,16 @@
       DTS:IncludeInDebugDump="2345"
       DTS:Namespace="User"
       DTS:ObjectName="CurrentProductCode">
+      <DTS:VariableValue
+        DTS:DataType="8"
+        xml:space="preserve"></DTS:VariableValue>
+    </DTS:Variable>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{2DC5A970-5B17-4B72-8005-E79BD65036E0}"
+      DTS:IncludeInDebugDump="2345"
+      DTS:Namespace="User"
+      DTS:ObjectName="CurrentProductKey">
       <DTS:VariableValue
         DTS:DataType="8"
         xml:space="preserve"></DTS:VariableValue>
@@ -69,7 +79,6 @@
       DTS:refId="Package\Data Flow Task"
       DTS:CreationName="Microsoft.Pipeline"
       DTS:Description="Data Flow Task"
-      DTS:Disabled="True"
       DTS:DTSID="{A8D35502-8FEB-463E-9A79-CD3F8C03FCDD}"
       DTS:ExecutableType="Microsoft.Pipeline"
       DTS:LocaleID="-1"
@@ -272,6 +281,7 @@
   &lt;entity name='sc_digitalproduct'&gt;
     &lt;attribute name='sc_name'/&gt;
     &lt;attribute name='sc_codice'/&gt;
+    &lt;attribute name='sc_key'/&gt;
     &lt;attribute name='sc_digitalproductid'/&gt;
     &lt;filter type='and'&gt;
       &lt;condition attribute='statecode' operator='eq' value='0' /&gt;
@@ -345,6 +355,16 @@
                       lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_codice]"
                       name="sc_codice"
                       truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_key]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_key]"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_key]"
+                      name="sc_key"
+                      truncationRowDisposition="FailComponent" />
                   </outputColumns>
                   <externalMetadataColumns
                     isUsed="True">
@@ -362,6 +382,11 @@
                       dataType="wstr"
                       length="100"
                       name="sc_codice" />
+                    <externalMetadataColumn
+                      refId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].ExternalColumns[sc_key]"
+                      dataType="wstr"
+                      length="100"
+                      name="sc_key" />
                   </externalMetadataColumns>
                 </output>
               </outputs>
@@ -427,6 +452,13 @@
                       cachedName="sc_codice"
                       cachedSortKeyPosition="2"
                       lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[sc_codice]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[sc_key]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sc_key"
+                      cachedSortKeyPosition="3"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[sc_key]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -478,6 +510,20 @@
                           dataType="System.Int32"
                           description="The input column associated with this output column"
                           name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[sc_codice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[sc_key]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[sc_key]"
+                      name="sc_key">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="The input column associated with this output column"
+                          name="InputColumnID">#{Package\Data Flow Task\Merge Join.Inputs[Merge Join Right Input].Columns[sc_key]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -626,6 +672,12 @@
                       cachedLength="100"
                       cachedName="sc_codice"
                       lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[sc_codice]" />
+                    <inputColumn
+                      refId="Package\Data Flow Task\Recordset Destination.Inputs[Recordset Destination Input].Columns[sc_key]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sc_key"
+                      lineageId="Package\Data Flow Task\Merge Join.Outputs[Merge Join Output].Columns[sc_key]" />
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -803,6 +855,23 @@
                           name="NewSortKeyPosition">2</property>
                       </properties>
                     </inputColumn>
+                    <inputColumn
+                      refId="Package\Data Flow Task\Sort 1.Inputs[Sort Input].Columns[sc_key]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sc_key"
+                      lineageId="Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_key]">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the comparison options for character data."
+                          name="NewComparisonFlags">0</property>
+                        <property
+                          dataType="System.Int32"
+                          description="Specifies the sort order of the column."
+                          name="NewSortKeyPosition">3</property>
+                      </properties>
+                    </inputColumn>
                   </inputColumns>
                   <externalMetadataColumns />
                 </input>
@@ -854,6 +923,21 @@
                           dataType="System.Int32"
                           description="Specifies the lineage identifier of the input column that is associated with this output column."
                           name="SortColumnId">#{Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_codice]}</property>
+                      </properties>
+                    </outputColumn>
+                    <outputColumn
+                      refId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[sc_key]"
+                      dataType="wstr"
+                      length="100"
+                      lineageId="Package\Data Flow Task\Sort 1.Outputs[Sort Output].Columns[sc_key]"
+                      name="sc_key"
+                      sortKeyPosition="3">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.Int32"
+                          description="Specifies the lineage identifier of the input column that is associated with this output column."
+                          name="SortColumnId">#{Package\Data Flow Task\Dynamics CRM Source.Outputs[Primary Output].Columns[sc_key]}</property>
                       </properties>
                     </outputColumn>
                   </outputColumns>
@@ -911,7 +995,6 @@
       DTS:refId="Package\Foreach Loop Container"
       DTS:CreationName="STOCK:FOREACHLOOP"
       DTS:Description="Foreach Loop Container"
-      DTS:Disabled="True"
       DTS:DTSID="{3ACCD3F8-B69A-4FA5-925A-D1D2D93241B9}"
       DTS:ExecutableType="STOCK:FOREACHLOOP"
       DTS:LocaleID="-1"
@@ -942,7 +1025,7 @@
           <DTS:ObjectData>
             <SQLTask:SqlTaskData
               SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
-              SQLTask:SqlStatementSource="EXEC [crm].[InsertUpdateAndDigitalProduct]&#xA;    @ProductName = ?,&#xA;    @ProductCode = ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+              SQLTask:SqlStatementSource="EXEC [crm].[InsertUpdateAndDigitalProduct]&#xA;    @ProductName = ?,&#xA;    @ProductCode = ?,&#xA;    @ProductKey = ?;" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
               <SQLTask:ParameterBinding
                 SQLTask:ParameterName="0"
                 SQLTask:DtsVariableName="User::CurrentProductName"
@@ -955,6 +1038,12 @@
                 SQLTask:ParameterDirection="Input"
                 SQLTask:DataType="130"
                 SQLTask:ParameterSize="400" />
+              <SQLTask:ParameterBinding
+                SQLTask:ParameterName="2"
+                SQLTask:DtsVariableName="User::CurrentProductKey"
+                SQLTask:ParameterDirection="Input"
+                SQLTask:DataType="130"
+                SQLTask:ParameterSize="400" />
             </SQLTask:SqlTaskData>
           </DTS:ObjectData>
         </DTS:Executable>
@@ -962,16 +1051,22 @@
       <DTS:ForEachVariableMappings>
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{A0F2FA6F-CFB3-4E46-A372-C89659B4D54B}"
-          DTS:ObjectName="{A0F2FA6F-CFB3-4E46-A372-C89659B4D54B}"
+          DTS:DTSID="{CDAD88BD-3C84-49B4-9E34-2299CC355548}"
+          DTS:ObjectName="{CDAD88BD-3C84-49B4-9E34-2299CC355548}"
           DTS:ValueIndex="0"
           DTS:VariableName="User::CurrentProductName" />
         <DTS:ForEachVariableMapping
           DTS:CreationName=""
-          DTS:DTSID="{D7DC6EC5-8B76-4326-B093-01EA60BC475A}"
-          DTS:ObjectName="{D7DC6EC5-8B76-4326-B093-01EA60BC475A}"
+          DTS:DTSID="{0FD4FCF0-7DB9-4D0F-8005-E0F16A44C996}"
+          DTS:ObjectName="{0FD4FCF0-7DB9-4D0F-8005-E0F16A44C996}"
           DTS:ValueIndex="1"
           DTS:VariableName="User::CurrentProductCode" />
+        <DTS:ForEachVariableMapping
+          DTS:CreationName=""
+          DTS:DTSID="{DCC6CAEE-8F9F-4144-A5C2-15C5DB68551C}"
+          DTS:ObjectName="{DCC6CAEE-8F9F-4144-A5C2-15C5DB68551C}"
+          DTS:ValueIndex="2"
+          DTS:VariableName="User::CurrentProductKey" />
       </DTS:ForEachVariableMappings>
     </DTS:Executable>
   </DTS:Executables>
@@ -1194,7 +1289,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-41.47634765625,5.33837557435052,82.9526953125,9.5732421875"
+              BoundingBox="-41.47634765625,5.3383755743505,82.9526953125,9.5732421875"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
@@ -1320,7 +1415,7 @@
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-15.479165758627,29.5249991166591,16,16"
+              BoundingBox="-15.4791657586271,29.5249991166591,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
