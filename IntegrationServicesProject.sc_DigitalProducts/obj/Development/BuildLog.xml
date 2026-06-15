@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>IntegrationServicesProject.sc_DigitalProducts</Name>
-    <LastWriteTime>2026-06-11T13:49:15.5541574Z</LastWriteTime>
+    <LastWriteTime>2026-06-15T13:40:32.0358416Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -23,12 +23,17 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Dynamics package1.dtsx</Name>
-      <LastWriteTime>2026-06-11T13:54:08.0241229Z</LastWriteTime>
+      <LastWriteTime>2026-06-11T16:11:06.9969881Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>DynamicsMappingDB_DigitProdSc.dtsx</Name>
-      <LastWriteTime>2026-06-11T13:02:24.4029627Z</LastWriteTime>
+      <LastWriteTime>2026-06-11T16:56:38.6421659Z</LastWriteTime>
+      <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
+    </ProjectBuildItemInfo>
+    <ProjectBuildItemInfo>
+      <Name>NamesDigitalProductVerifyAndOperationCRUD.dtsx</Name>
+      <LastWriteTime>2026-06-15T14:23:50.6848213Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

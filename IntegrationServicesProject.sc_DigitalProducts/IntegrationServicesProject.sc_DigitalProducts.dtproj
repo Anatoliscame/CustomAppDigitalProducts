@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">AVAPC-972818717</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2tjRpWYGbE6XJvGVQ6bvwAAAAAACAAAAAAAQZgAAAAEAACAAAACR0bcJomzRXBg2yGNrJsBIGkdw6Ru+2u12MzPeB+BhyQAAAAAOgAAAAAIAACAAAADmWuMPbe5hGXazjccv5T2y9dbQeb6q3je6kHQBNRWZrpAAAAARxfnS/2gO/y3Mwam5AZDWvlC+ZVQwXT3WjpFhe0ZXNf8c/4ES3zg3SoBUCnB6NVw+TNheh6bKRXhvNymHBFf46J2NFGKKwQFMHxMF38KD0BM2+XUAwAmevUX1QgIsJ1MA5XBPW2UQo1lGEtjZsd9xxKLkQI/cB/bHdyl3OUIkUgX0PTQewfv5YB16gd1fgUNAAAAAHtpPXLCtkNI6cDRJrnBktIzDhPSMeuNX4Z9TSpqB2nmU1gk0f9IAtTgtr1yDWQr92rnkMgOECC74WNgQ8KReaA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2tjRpWYGbE6XJvGVQ6bvwAAAAAACAAAAAAAQZgAAAAEAACAAAADe2h7JsKaEtm82X28EbYf40qCktfIbjp8AIMA2kiVQDQAAAAAOgAAAAAIAACAAAAD+fH8g8iTn1ajstumHx/5JtUvWS4CHEppi9sbTQ86FApAAAABCsasEs3ZhznLUJl1LRla1ixQEMcPBxFox/y8te1x/VP3RIabK3WAe8LuxHNpPHWRnRz028BtdCkH5eWTAR+AgZH1WclLVQxtJannaZTyFf6KK5KmPhplX7bYzhNuzKPs5OBEQpOqochGsRedwJyJHe4a92IhytzTW3+UP9Fa3oyJW4gY2pt6QHUt1Zj4T9S5AAAAAD9W5f7poV/gQNC5lwkFEda+nXI+R+eYxDaMrnqz6MYT7TqZIHrCL0azwHs/CPd5g/o25XSpH/3PEW1BYk2V4qQ==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -35,6 +35,7 @@
           <SSIS:Package SSIS:Name="Basic Exel package.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="Dynamics package1.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DynamicsMappingDB_DigitProdSc.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="NamesDigitalProductVerifyAndOperationCRUD.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="(localdb)_mssqllocaldb.SC_DATAHUB1.conmgr" />
@@ -1377,10 +1378,10 @@
                 <SSIS:Property SSIS:Name="Name">Dynamics package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">88</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">91</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{88BDA385-C7C8-4A45-ABAF-3A09DB810516}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{1E192DDF-399E-4C15-BD5E-2DF900E204DB}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>
@@ -1394,10 +1395,27 @@
                 <SSIS:Property SSIS:Name="Name">DigitalProductSc Package1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">40</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">41</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{1FD91C9C-4014-4309-937C-949612B9D9FD}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{E54ADF19-9AF8-4EF3-A0E3-79C5D32631A5}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="NamesDigitalProductVerifyAndOperationCRUD.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{2E757827-7AD0-473C-9FFA-1E485A8CE395}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">NamesDigitalProductVerifyAndOperationCRUD</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">51</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{9EE2B80F-4405-4D3B-A143-CDF60184CB07}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

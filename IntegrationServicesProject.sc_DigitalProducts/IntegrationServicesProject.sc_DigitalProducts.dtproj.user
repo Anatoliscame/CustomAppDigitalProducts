@@ -10,7 +10,7 @@
         <WinAuthDomain />
         <ServerName />
         <PathOnServer />
-        <StartObjectID>Dynamics package1.dtsx</StartObjectID>
+        <StartObjectID>NamesDigitalProductVerifyAndOperationCRUD.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

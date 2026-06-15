@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="DigitalProductSc Package1"
   DTS:PackageType="5"
-  DTS:VersionBuild="40"
-  DTS:VersionGUID="{1FD91C9C-4014-4309-937C-949612B9D9FD}">
+  DTS:VersionBuild="41"
+  DTS:VersionGUID="{E54ADF19-9AF8-4EF3-A0E3-79C5D32631A5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -2744,7 +2744,7 @@ where [refTable].[sc_country] = ? and [refTable].[sc_typedigitalproduct] = ?</pr
         <NodeLayout
           Size="185.333333333334,42.6666666666667"
           Id="Package\DigitalProduct\Dynamics CRM Source"
-          TopLeft="164.999992623925,56.549997303486" />
+          TopLeft="165.624992595985,56.549997303486" />
         <NodeLayout
           Size="172,42.6666666666667"
           Id="Package\DigitalProduct\OLE DB Destination"
@@ -2789,30 +2789,30 @@ where [refTable].[sc_country] = ? and [refTable].[sc_typedigitalproduct] = ?</pr
         </EdgeLayout>
         <EdgeLayout
           Id="Package\DigitalProduct.Paths[Primary Output]"
-          TopLeft="257.666659290592,99.2166639701526">
+          TopLeft="258.291659262652,99.2166639701527">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-12.2083334730317,32.7333297379813"
+              EndConnector="-12.8333334450917,32.7333297379813"
               Start="0,0"
-              End="-12.2083334730317,25.2333297379813">
+              End="-12.8333334450917,25.2333297379813">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.3666648689906" />
+                    End="0,12.3666648689907" />
                   <mssgle:CubicBezierSegment
-                    Point1="0,12.3666648689906"
-                    Point2="0,16.3666648689906"
-                    Point3="-4,16.3666648689906" />
+                    Point1="0,12.3666648689907"
+                    Point2="0,16.3666648689907"
+                    Point3="-4,16.3666648689907" />
                   <mssgle:LineSegment
-                    End="-8.2083334730317,16.3666648689906" />
+                    End="-8.83333344509168,16.3666648689907" />
                   <mssgle:CubicBezierSegment
-                    Point1="-8.2083334730317,16.3666648689906"
-                    Point2="-12.2083334730317,16.3666648689906"
-                    Point3="-12.2083334730317,20.3666648689906" />
+                    Point1="-8.83333344509168,16.3666648689907"
+                    Point2="-12.8333334450917,16.3666648689907"
+                    Point3="-12.8333334450917,20.3666648689907" />
                   <mssgle:LineSegment
-                    End="-12.2083334730317,25.2333297379813" />
+                    End="-12.8333334450917,25.2333297379813" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
