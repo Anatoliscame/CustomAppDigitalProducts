@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NamesDigitalProductVerifyAndOperationCRUD"
   DTS:PackageType="5"
-  DTS:VersionBuild="57"
-  DTS:VersionGUID="{34C97AEF-D5B1-4567-9EE7-0FD9A2971C97}">
+  DTS:VersionBuild="59"
+  DTS:VersionGUID="{5396BEC5-E437-41C4-A8C1-25F9B935BC3F}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -637,6 +637,9 @@ WHERE [Key] IN
         &lt;attribute name='sc_privateconfigurationid'/&gt;
         &lt;attribute name='sc_value'/&gt;
         &lt;attribute name='statecode'/&gt;
+    &lt;filter type='and'&gt;
+      &lt;condition attribute='statecode' operator='eq' value='0' /&gt;
+    &lt;/filter&gt;
     &lt;filter type='or'&gt;
       &lt;condition attribute='sc_key' operator='eq' value='NamesForProdottoDigitaleVideoGame' /&gt;
       &lt;condition attribute='sc_key' operator='eq' value='NamesForProdottoDigitaleLicenzaSoftware' /&gt;
@@ -1125,6 +1128,14 @@ WHERE [Key] IN
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
+          Size="162.666666666667,42.6666666666667"
+          Id="Package\Clear Table Temp"
+          TopLeft="193.749991338701,496.016645208201" />
+        <NodeLayout
+          Size="225.333333333334,42.6666666666667"
+          Id="Package\DB import Names su Dynamics"
+          TopLeft="167.777770277527,418.455535602041" />
+        <NodeLayout
           Size="217.333333333334,42.6666666666667"
           Id="Package\Dynamics import Table Temp"
           TopLeft="161.874992763624,68.2499967455862" />
@@ -1140,10 +1151,6 @@ WHERE [Key] IN
           Id="Package\Foreach Loop Container"
           TopLeft="164.374992651865,222.29998939991" />
         <NodeLayout
-          Size="225.333333333334,42.6666666666667"
-          Id="Package\DB import Names su Dynamics"
-          TopLeft="167.777770277527,418.455535602041" />
-        <NodeLayout
           Size="213.333333333334,42.6666666666667"
           Id="Package\Get PrivateConfiguration List"
           TopLeft="156.249993015081,145.783329211076" />
@@ -1153,14 +1160,14 @@ WHERE [Key] IN
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.8666657988233"
+              EndConnector="0,34.8666657988231"
               Start="0,0"
-              End="0,27.3666657988233">
+              End="0,27.3666657988231">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.3666657988233" />
+                    End="0,27.3666657988231" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1175,9 +1182,9 @@ WHERE [Key] IN
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.1249996367844,33.8499935221674"
+              EndConnector="11.124999636784,33.8499935221674"
               Start="0,0"
-              End="11.1249996367844,26.3499935221674">
+              End="11.124999636784,26.3499935221674">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
@@ -1188,13 +1195,13 @@ WHERE [Key] IN
                     Point2="0,16.9249967610837"
                     Point3="4,16.9249967610837" />
                   <mssgle:LineSegment
-                    End="7.12499963678437,16.9249967610837" />
+                    End="7.12499963678403,16.9249967610837" />
                   <mssgle:CubicBezierSegment
-                    Point1="7.12499963678437,16.9249967610837"
-                    Point2="11.1249996367844,16.9249967610837"
-                    Point3="11.1249996367844,20.9249967610837" />
+                    Point1="7.12499963678403,16.9249967610837"
+                    Point2="11.124999636784,16.9249967610837"
+                    Point3="11.124999636784,20.9249967610837" />
                   <mssgle:LineSegment
-                    End="11.1249996367844,26.3499935221674" />
+                    End="11.124999636784,26.3499935221674" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1225,10 +1232,6 @@ WHERE [Key] IN
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="162.666666666667,42.6666666666667"
-          Id="Package\Clear Table Temp"
-          TopLeft="193.749991338701,496.016645208201" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="277.763880808114,461.122202268707">
@@ -1254,6 +1257,54 @@ WHERE [Key] IN
       </GraphLayout>
     </LayoutInfo>
   </Package>
+  <TaskHost
+    design-time-name="Package\DB import Names su Dynamics">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\DB import Names su Dynamics\Dynamics CRM Destination"
+          TopLeft="244.615377325278,190.769225083865" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DB import Names su Dynamics\OLE DB Source"
+          TopLeft="276.999991744757,103.692304602036" />
+        <EdgeLayout
+          Id="Package\DB import Names su Dynamics.Paths[OLE DB Source Output]"
+          TopLeft="349.807684535018,146.358971268703">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,44.410253815162"
+              Start="0,0"
+              End="0,36.910253815162">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,36.910253815162" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DB import Names su Dynamics\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\Dynamics import Table Temp">
     <LayoutInfo>
@@ -1306,51 +1357,5 @@ WHERE [Key] IN
       </GraphLayout>
     </LayoutInfo>
   </TaskHost>
-  <TaskHost
-    design-time-name="Package\DB import Names su Dynamics">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\DB import Names su Dynamics\OLE DB Source"
-          TopLeft="276.999991744757,103.692304602036" />
-        <NodeLayout
-          Size="205.333333333334,42.6666666666667"
-          Id="Package\DB import Names su Dynamics\Dynamics CRM Destination"
-          TopLeft="244.615377325278,190.769225083865" />
-        <EdgeLayout
-          Id="Package\DB import Names su Dynamics.Paths[OLE DB Source Output]"
-          TopLeft="349.807684535018,146.358971268703">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,44.410253815162"
-              Start="0,0"
-              End="0,36.910253815162">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,36.910253815162" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DB import Names su Dynamics\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
 </Objects>]]></DTS:DesignTimeProperties>
 </DTS:Executable>
