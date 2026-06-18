@@ -26,7 +26,7 @@
           <SSIS:Property SSIS:Name="CreatorComputerName">AVAPC-972818717</SSIS:Property>
           <SSIS:Property SSIS:Name="Description">
           </SSIS:Property>
-          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2tjRpWYGbE6XJvGVQ6bvwAAAAAACAAAAAAAQZgAAAAEAACAAAADieNAHPhozrf8RRft5dIa+1oPPBZ8cuAFWLGquUgT15wAAAAAOgAAAAAIAACAAAADCLs3WBR8FPrYkz8/aXm0JYzcpUXAqBi1sD0yYSi/xqZAAAABBSqQSQfohKw7DYMgeJrTQ6eXxIjVoYtP2YaQpO/XuHJbCxfmJoZ+KUpCPAONBiww7sG+EhohDu2ww8ArDPt7bdWGiBGyjF30bLwvsTX2D8BSnefqosWbCEO/uGHRGrygzgTDRyjOlPqAMIbEbwiSDcy5+EXWfJGApLqkvxHSZ4IFXSD6jQh0IRXgGOOjwbcFAAAAA3TRw/GhFIHH/aqTpAtG8P9wzo1zQ5BWDb+AwQARIG12sKFUxF2zHLgy+7NZoHUlyQhJuwP/3zpg27CuYiGsZdA==</SSIS:Property>
+          <SSIS:Property SSIS:Name="PasswordVerifier" SSIS:Sensitive="1">AQAAANCMnd8BFdERjHoAwE/Cl+sBAAAA2tjRpWYGbE6XJvGVQ6bvwAAAAAACAAAAAAAQZgAAAAEAACAAAABJrE63co0rJMsBSUe8wllisfYtFz/j1gSVJwEnkQ4uFgAAAAAOgAAAAAIAACAAAAApKrG1zKYYBKUD2McuaHtwNlI8FrhqA4UFS9SvozoI75AAAADgGv2zEAf/YKDApxPzgodS947Vz1GoRF3OOlWqF1KK+teK8X7TCrPt0znOjgaiwe/a1PRw6EWE1nhajQtOAp/yx6Ao4FpYy+UQuVRsGvRtYdsqaq5ZPRC9NtZImBFJINcjlD7s0ENPZwRuWGJDo7ZkhBU061EM2DESk7JtBb82pHcO2XSvJhJCLvZ373edpg9AAAAAY3ahMk8C3siRNQPo5xbwDtW5rX5yosJqOl2QDBJd+/dMIy1YsJrio+xYRc0eFNARPihBVVXdIRKNha0X0YozXg==</SSIS:Property>
           <SSIS:Property SSIS:Name="FormatVersion">1</SSIS:Property>
         </SSIS:Properties>
         <SSIS:Packages>
@@ -36,6 +36,7 @@
           <SSIS:Package SSIS:Name="Dynamics package1.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="DynamicsMappingDB_DigitProdSc.dtsx" SSIS:EntryPoint="1" />
           <SSIS:Package SSIS:Name="NamesDigitalProductVerifyAndOperationCRUD.dtsx" SSIS:EntryPoint="1" />
+          <SSIS:Package SSIS:Name="Country IVA.dtsx" SSIS:EntryPoint="1" />
         </SSIS:Packages>
         <SSIS:ConnectionManagers>
           <SSIS:ConnectionManager SSIS:Name="(localdb)_mssqllocaldb.SC_DATAHUB1.conmgr" />
@@ -1412,10 +1413,27 @@
                 <SSIS:Property SSIS:Name="Name">NamesDigitalProductVerifyAndOperationCRUD</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionBuild">58</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">67</SSIS:Property>
                 <SSIS:Property SSIS:Name="VersionComments">
                 </SSIS:Property>
-                <SSIS:Property SSIS:Name="VersionGUID">{8417E056-1A38-4374-8859-003C755EF4FD}</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{42DF69E6-5F50-464D-8610-8AF05F711E58}</SSIS:Property>
+                <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
+                <SSIS:Property SSIS:Name="Description">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="ProtectionLevel">1</SSIS:Property>
+              </SSIS:Properties>
+              <SSIS:Parameters />
+            </SSIS:PackageMetaData>
+            <SSIS:PackageMetaData SSIS:Name="Country IVA.dtsx">
+              <SSIS:Properties>
+                <SSIS:Property SSIS:Name="ID">{191BB772-5532-4DE1-B701-CA452A320CBB}</SSIS:Property>
+                <SSIS:Property SSIS:Name="Name">Country IVA</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMajor">1</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionMinor">0</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionBuild">46</SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionComments">
+                </SSIS:Property>
+                <SSIS:Property SSIS:Name="VersionGUID">{01B367EB-5A99-46D7-9D51-6402B9C7B0A9}</SSIS:Property>
                 <SSIS:Property SSIS:Name="PackageFormatVersion">8</SSIS:Property>
                 <SSIS:Property SSIS:Name="Description">
                 </SSIS:Property>

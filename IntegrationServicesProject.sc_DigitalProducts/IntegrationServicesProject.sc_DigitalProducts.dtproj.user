@@ -10,7 +10,7 @@
         <WinAuthDomain />
         <ServerName />
         <PathOnServer />
-        <StartObjectID>NamesDigitalProductVerifyAndOperationCRUD.dtsx</StartObjectID>
+        <StartObjectID>Country IVA.dtsx</StartObjectID>
         <UserIDs />
         <UserPasswords />
         <OfflineMode>false</OfflineMode>

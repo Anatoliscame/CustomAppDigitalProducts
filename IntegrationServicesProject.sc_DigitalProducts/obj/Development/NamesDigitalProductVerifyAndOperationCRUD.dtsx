@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="NamesDigitalProductVerifyAndOperationCRUD"
   DTS:PackageType="5"
-  DTS:VersionBuild="59"
-  DTS:VersionGUID="{5396BEC5-E437-41C4-A8C1-25F9B935BC3F}">
+  DTS:VersionBuild="69"
+  DTS:VersionGUID="{73A39835-446B-4F87-A033-BF2BD9E2F835}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -57,13 +57,31 @@
   </DTS:Variables>
   <DTS:Executables>
     <DTS:Executable
-      DTS:refId="Package\Clear Table Temp"
+      DTS:refId="Package\Clear Table Temp END"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{49A62E37-1051-4271-8893-D5C718518046}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
-      DTS:ObjectName="Clear Table Temp"
+      DTS:ObjectName="Clear Table Temp END"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+          SQLTask:SqlStatementSource="EXEC [SC_DATAHUB].[crm].[ClearPrivateConfigurationTemp];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Clear Table Temp START"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{254c2fcb-6c48-4ea7-816f-ba5a042ad78b}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear Table Temp START"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
       DTS:ThreadHint="0">
       <DTS:Variables />
@@ -1113,7 +1131,15 @@ WHERE [Key] IN
       DTS:From="Package\DB import Names su Dynamics"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 3"
-      DTS:To="Package\Clear Table Temp" />
+      DTS:To="Package\Clear Table Temp END" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{3F45CA2F-7EBE-4364-8A49-C332E5749912}"
+      DTS:From="Package\Clear Table Temp START"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Dynamics import Table Temp" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -1128,17 +1154,21 @@ WHERE [Key] IN
       <GraphLayout
         Capacity="16" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
-          Size="162.666666666667,42.6666666666667"
-          Id="Package\Clear Table Temp"
-          TopLeft="193.749991338701,496.016645208201" />
+          Size="186.666666666667,42.6666666666667"
+          Id="Package\Clear Table Temp END"
+          TopLeft="186.805547204698,519.887014510986" />
+        <NodeLayout
+          Size="197.333333333334,42.6666666666667"
+          Id="Package\Clear Table Temp START"
+          TopLeft="163.055548266404,9.02777734729979" />
         <NodeLayout
           Size="225.333333333334,42.6666666666667"
           Id="Package\DB import Names su Dynamics"
-          TopLeft="167.777770277527,418.455535602041" />
+          TopLeft="167.777770277527,443.04812709261" />
         <NodeLayout
           Size="217.333333333334,42.6666666666667"
           Id="Package\Dynamics import Table Temp"
-          TopLeft="161.874992763624,68.2499967455862" />
+          TopLeft="161.874992763624,92.8425882361552" />
         <NodeLayout
           Size="164,42.6666666666667"
           Id="Package\Foreach Loop Container\Execute SQL Task"
@@ -1146,28 +1176,28 @@ WHERE [Key] IN
         <ContainerLayout
           HeaderHeight="43"
           IsExpanded="True"
-          PanelSize="219.333333333334,125.333333333334"
-          Size="219.333333333334,168"
+          PanelSize="219.333333333334,126"
+          Size="219.333333333334,168.666666666667"
           Id="Package\Foreach Loop Container"
-          TopLeft="164.374992651865,222.29998939991" />
+          TopLeft="164.374992651865,246.892580890479" />
         <NodeLayout
           Size="213.333333333334,42.6666666666667"
           Id="Package\Get PrivateConfiguration List"
-          TopLeft="156.249993015081,145.783329211076" />
+          TopLeft="162.499992735684,162.575921073578" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="266.729159556019,110.916663412253">
+          TopLeft="269.854159416321,135.509254902822">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.8666657988231"
+              EndConnector="0,27.0666661707561"
               Start="0,0"
-              End="0,27.3666657988231">
+              End="0,19.5666661707561">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.3666657988231" />
+                    End="0,19.5666661707561" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1178,30 +1208,18 @@ WHERE [Key] IN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="262.916659681748,188.449995877743">
+          TopLeft="271.604159360441,205.242587740245">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="11.124999636784,33.8499935221674"
+              EndConnector="0,41.6499931502344"
               Start="0,0"
-              End="11.124999636784,26.3499935221674">
+              End="0,34.1499931502344">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,12.9249967610837" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,12.9249967610837"
-                    Point2="0,16.9249967610837"
-                    Point3="4,16.9249967610837" />
-                  <mssgle:LineSegment
-                    End="7.12499963678403,16.9249967610837" />
-                  <mssgle:CubicBezierSegment
-                    Point1="7.12499963678403,16.9249967610837"
-                    Point2="11.124999636784,16.9249967610837"
-                    Point3="11.124999636784,20.9249967610837" />
-                  <mssgle:LineSegment
-                    End="11.124999636784,26.3499935221674" />
+                    End="0,34.1499931502344" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1212,7 +1230,7 @@ WHERE [Key] IN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="277.243048131363,390.29998939991">
+          TopLeft="277.243048131363,414.892580890479">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -1234,18 +1252,52 @@ WHERE [Key] IN
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="277.763880808114,461.122202268707">
+          TopLeft="280.291658741112,485.714793759277">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,34.8944429394933"
+              EndConnector="0,34.1722207517093"
               Start="0,0"
-              End="0,27.3944429394933">
+              End="0,26.6722207517093">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,27.3944429394933" />
+                    End="0,26.6722207517093" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="261.722214933071,51.6944440139665">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="8.81944449721999,41.1481442221887"
+              Start="0,0"
+              End="8.81944449721999,33.6481442221887">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,16.5740721110944" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,16.5740721110944"
+                    Point2="0,20.5740721110944"
+                    Point3="4,20.5740721110944" />
+                  <mssgle:LineSegment
+                    End="4.81944449721999,20.5740721110944" />
+                  <mssgle:CubicBezierSegment
+                    Point1="4.81944449721999,20.5740721110944"
+                    Point2="8.81944449721999,20.5740721110944"
+                    Point3="8.81944449721999,24.5740721110944" />
+                  <mssgle:LineSegment
+                    End="8.81944449721999,33.6481442221887" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -1261,7 +1313,7 @@ WHERE [Key] IN
     design-time-name="Package\DB import Names su Dynamics">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="205.333333333334,42.6666666666667"
           Id="Package\DB import Names su Dynamics\Dynamics CRM Destination"
@@ -1289,9 +1341,7 @@ WHERE [Key] IN
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>

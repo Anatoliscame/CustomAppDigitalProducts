@@ -1,0 +1,2915 @@
+﻿<?xml version="1.0"?>
+<DTS:Executable xmlns:DTS="www.microsoft.com/SqlServer/Dts"
+  DTS:refId="Package"
+  DTS:CreationDate="6/17/2026 12:09:49 PM"
+  DTS:CreationName="Microsoft.Package"
+  DTS:CreatorComputerName="AVAPC-972818717"
+  DTS:CreatorName="AVANADE-CORP\anatoli.scameroni"
+  DTS:DTSID="{191BB772-5532-4DE1-B701-CA452A320CBB}"
+  DTS:ExecutableType="Microsoft.Package"
+  DTS:LastModifiedProductVersion="17.0.1016.0"
+  DTS:LocaleID="1033"
+  DTS:ObjectName="Country IVA"
+  DTS:PackageType="5"
+  DTS:VersionBuild="74"
+  DTS:VersionGUID="{75CB90A6-A3D3-40B6-B17F-CC50244C7E38}">
+  <DTS:Property
+    DTS:Name="PackageFormatVersion">8</DTS:Property>
+  <DTS:Variables />
+  <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\Clear CountryTemp"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{DEE9BCE3-7766-4728-A505-DDC7BDDC714E}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear CountryTemp"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+          SQLTask:SqlStatementSource="EXEC [SC_DATAHUB].[crm].[ClearCountryTemp];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Clear CountryTemp FINE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{87f346ab-60f0-4ed3-a82e-730edabaa046}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear CountryTemp FINE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+          SQLTask:SqlStatementSource="EXEC [SC_DATAHUB].[crm].[ClearCountryTemp];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Clear PriveConfigTemp FINE"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{8087e9d7-d6e4-4da2-b36e-41caa2cfb7a6}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear PriveConfigTemp FINE"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+          SQLTask:SqlStatementSource="EXEC [SC_DATAHUB].[crm].[ClearPrivateConfigurationTemp];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Clear PriveConfigTemp START"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{7554E497-FF1E-4EBB-BC33-456A764F36D5}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Clear PriveConfigTemp START"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+          SQLTask:SqlStatementSource="EXEC [SC_DATAHUB].[crm].[ClearPrivateConfigurationTemp];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\crm_CountryTemp left join and update dbo_Country"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{A72931FD-CAD6-4741-8A0B-D2BD6FF4DB5F}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="crm_CountryTemp left join and update dbo_Country"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+          SQLTask:SqlStatementSource="EXEC [SC_DATAHUB].[crm].[SyncCountryIdFromCountryTemp];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{393ABC72-513E-477E-B603-FB8E36BDA26F}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Country"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">sc_country</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CDS/Dynamics CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">5</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">4</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify whether to bypass synchronous logic, asynchronous logic or, both during writing. "
+                  expressionType="Notify"
+                  name="BypassBusinessLogicExecution"></property>
+                <property
+                  dataType="System.String"
+                  description="Specify the registered plug-in steps that should be bypassed during runtime instead of all synchronous and asynchronous custom logic. "
+                  expressionType="Notify"
+                  name="BypassBusinessLogicExecutionStepIds"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to use those homogeneous batch operation messages (such as CreateMultiple, UpdateMultiple, DeleteMultiple, etc.) for more efficient batch writing (if supported). "
+                  expressionType="Notify"
+                  name="UseHomogeneousBatchOperationMessages">false</property>
+                <property
+                  dataType="System.String"
+                  description="Alternate Key to be used for Upsert or Update action."
+                  expressionType="Notify"
+                  name="AlternateKey">sc_countrynamealternatekey</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Connections[DynamicsCRM]"
+                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].Columns[sc_completename]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="sc_completename"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[sc_completename]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].Columns[sc_completename]" />
+                    <inputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].Columns[sc_name]"
+                      cachedDataType="wstr"
+                      cachedLength="200"
+                      cachedName="sc_name"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[sc_name]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].Columns[sc_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[createdby]"
+                      dataType="guid"
+                      name="createdby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[importsequencenumber]"
+                      dataType="i4"
+                      name="importsequencenumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[overriddencreatedon]"
+                      dataType="dbTimeStamp"
+                      name="overriddencreatedon">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">DateTime</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">false</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Owner</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser;team</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="128"
+                      name="owneridtype">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">EntityName</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[sc_completename]"
+                      dataType="wstr"
+                      length="100"
+                      name="sc_completename">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[sc_countryid]"
+                      dataType="guid"
+                      name="sc_countryid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Createable">true</property>
+                        <property
+                          dataType="System.Boolean"
+                          name="Updateable">true</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM PrivateConfig"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">1</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity"></property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML">&lt;fetch mapping='logical'&gt;
+    &lt;entity name='sc_privateconfiguration'&gt;
+        &lt;attribute name='sc_description'/&gt;
+        &lt;attribute name='sc_name'/&gt;
+        &lt;attribute name='sc_key'/&gt;
+        &lt;attribute name='sc_privateconfigurationid'/&gt;
+        &lt;attribute name='sc_value'/&gt;
+        &lt;attribute name='statecode'/&gt;
+   &lt;filter type='and'&gt;
+      &lt;condition attribute='sc_key' operator='eq' value='CountryConfig' /&gt;   
+    &lt;/filter&gt;
+    &lt;/entity&gt;
+&lt;/fetch&gt;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.String"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Connections[DynamicsCRM]"
+                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_description]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_description]"
+                      length="1000"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_description]"
+                      name="sc_description"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_key]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_key]"
+                      length="100"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_key]"
+                      name="sc_key"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      length="850"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_name]"
+                      name="sc_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_privateconfigurationid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_privateconfigurationid]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_privateconfigurationid]"
+                      name="sc_privateconfigurationid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_value]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_value]"
+                      length="1000"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_value]"
+                      name="sc_value"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[statecode]"
+                      dataType="i4"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[statecode]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[statecode]"
+                      name="statecode"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[statecodename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[statecodename]"
+                      length="255"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[statecodename]"
+                      name="statecodename"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_description]"
+                      dataType="wstr"
+                      length="1000"
+                      name="sc_description" />
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_key]"
+                      dataType="wstr"
+                      length="100"
+                      name="sc_key" />
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name" />
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_privateconfigurationid]"
+                      dataType="guid"
+                      name="sc_privateconfigurationid" />
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[sc_value]"
+                      dataType="wstr"
+                      length="1000"
+                      name="sc_value" />
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode" />
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].ExternalColumns[statecodename]"
+                      dataType="wstr"
+                      length="255"
+                      name="statecodename" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command"
+              componentClassID="Microsoft.OLEDBCommand"
+              contactInfo="OLE DB Command;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;2"
+              description="Runs an SQL statement for each row in a data flow. For example, call a 'new employee setup' stored procedure for each row in the 'new employees' table. Note: running an SQL statement for each row of a large data flow may take a long time."
+              name="OLE DB Command"
+              usesDispositions="true"
+              version="2">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  expressionType="Notify"
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">EXEC [crm].[InsertUpdatePrivateConfiguration]
+    ?, ?, ?, ?, ?, ?;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input]"
+                  errorOrTruncationOperation="Command Execution"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Command Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].Columns[sc_description]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="sc_description"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Description]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_description]" />
+                    <inputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].Columns[statecode]"
+                      cachedDataType="i4"
+                      cachedName="statecode"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@StateCode]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[statecode]" />
+                    <inputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].Columns[sc_value]"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
+                      cachedName="sc_value"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Value]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_value]" />
+                    <inputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].Columns[sc_key]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sc_key"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Key]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_key]" />
+                    <inputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].Columns[sc_name]"
+                      cachedDataType="wstr"
+                      cachedLength="850"
+                      cachedName="sc_name"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Name]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_name]" />
+                    <inputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].Columns[sc_privateconfigurationid]"
+                      cachedDataType="guid"
+                      cachedName="sc_privateconfigurationid"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Id]"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output].Columns[sc_privateconfigurationid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Id]"
+                      dataType="guid"
+                      name="@Id">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Name]"
+                      dataType="wstr"
+                      length="850"
+                      name="@Name">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Key]"
+                      dataType="wstr"
+                      length="400"
+                      name="@Key">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Value]"
+                      dataType="wstr"
+                      length="1000"
+                      name="@Value">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@Description]"
+                      dataType="wstr"
+                      length="850"
+                      name="@Description">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">65</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input].ExternalColumns[@StateCode]"
+                      dataType="i4"
+                      name="@StateCode">
+                      <properties>
+                        <property
+                          dataType="System.Int32"
+                          description="Parameter information.  Matches OLE DB's DBPARAMFLAGSENUM values."
+                          name="DBParamInfoFlags">81</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Outputs[OLE DB Command Output]"
+                  exclusionGroup="1"
+                  name="OLE DB Command Output"
+                  synchronousInputId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Outputs[OLE DB Command Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Command Error Output"
+                  synchronousInputId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Outputs[OLE DB Command Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Country"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    [sc_name],
+    [sc_completename]
+FROM [SC_DATAHUB].[dbo].[Country]</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].Columns[sc_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].ExternalColumns[sc_name]"
+                      length="200"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].Columns[sc_name]"
+                      name="sc_name"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].Columns[sc_completename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].ExternalColumns[sc_completename]"
+                      length="200"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].Columns[sc_completename]"
+                      name="sc_completename"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="200"
+                      name="sc_name" />
+                    <externalMetadataColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output].ExternalColumns[sc_completename]"
+                      dataType="wstr"
+                      length="200"
+                      name="sc_completename" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Error Output].Columns[sc_name]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Error Output].Columns[sc_name]"
+                      name="sc_name" />
+                    <outputColumn
+                      refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Error Output].Columns[sc_completename]"
+                      dataType="wstr"
+                      length="200"
+                      lineageId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Error Output].Columns[sc_completename]"
+                      name="sc_completename" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB.Paths[OLE DB Source Output]"
+              endId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country.Outputs[OLE DB Source Output]" />
+            <path
+              refId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB.Paths[Primary Output]"
+              endId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command.Inputs[OLE DB Command Input]"
+              name="Primary Output"
+              startId="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig.Outputs[Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\DB PriveConfig import Json in Dynamics"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CBE72B6A-9760-4D05-B22D-7E963B0AE1FC}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="DB PriveConfig import Json in Dynamics"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">sc_privateconfiguration</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CDS/Dynamics CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">3</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">1</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify whether to bypass synchronous logic, asynchronous logic or, both during writing. "
+                  expressionType="Notify"
+                  name="BypassBusinessLogicExecution"></property>
+                <property
+                  dataType="System.String"
+                  description="Specify the registered plug-in steps that should be bypassed during runtime instead of all synchronous and asynchronous custom logic. "
+                  expressionType="Notify"
+                  name="BypassBusinessLogicExecutionStepIds"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to use those homogeneous batch operation messages (such as CreateMultiple, UpdateMultiple, DeleteMultiple, etc.) for more efficient batch writing (if supported). "
+                  expressionType="Notify"
+                  name="UseHomogeneousBatchOperationMessages">true</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Connections[DynamicsCRM]"
+                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].Columns[sc_description]"
+                      cachedDataType="nText"
+                      cachedName="sc_description"
+                      externalMetadataColumnId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sc_description]"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].Columns[sc_description]" />
+                    <inputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].Columns[sc_privateconfigurationid]"
+                      cachedDataType="guid"
+                      cachedName="sc_privateconfigurationid"
+                      externalMetadataColumnId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sc_privateconfigurationid]"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].Columns[sc_privateconfigurationid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[modifiedby]"
+                      dataType="guid"
+                      name="modifiedby">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Lookup</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[ownerid]"
+                      dataType="guid"
+                      name="ownerid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Owner</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">systemuser;team</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[owneridtype]"
+                      dataType="wstr"
+                      length="128"
+                      name="owneridtype">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">EntityName</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sc_description]"
+                      dataType="wstr"
+                      length="1000"
+                      name="sc_description">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sc_key]"
+                      dataType="wstr"
+                      length="100"
+                      name="sc_key">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sc_privateconfigurationid]"
+                      dataType="guid"
+                      name="sc_privateconfigurationid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">sc_privateconfiguration</property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sc_value]"
+                      dataType="wstr"
+                      length="1000"
+                      name="sc_value">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">String</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statecode]"
+                      dataType="i4"
+                      name="statecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">State</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[statuscode]"
+                      dataType="i4"
+                      name="statuscode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Status</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[timezoneruleversionnumber]"
+                      dataType="i4"
+                      name="timezoneruleversionnumber">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[utcconversiontimezonecode]"
+                      dataType="i4"
+                      name="utcconversiontimezonecode">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Integer</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes"></property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    privateConfig.[Id] AS [sc_privateconfigurationid],
+    privateConfig.[Description] AS [sc_description]
+FROM [SC_DATAHUB].[crm].[PrivateConfiguration] AS privateConfig
+WHERE privateConfig.[Key] = N'CountryConfig';</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].Columns[sc_privateconfigurationid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sc_privateconfigurationid]"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].Columns[sc_privateconfigurationid]"
+                      name="sc_privateconfigurationid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].Columns[sc_description]"
+                      dataType="nText"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sc_description]"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].Columns[sc_description]"
+                      name="sc_description"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sc_privateconfigurationid]"
+                      dataType="guid"
+                      name="sc_privateconfigurationid" />
+                    <externalMetadataColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sc_description]"
+                      dataType="nText"
+                      name="sc_description" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sc_privateconfigurationid]"
+                      dataType="guid"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sc_privateconfigurationid]"
+                      name="sc_privateconfigurationid" />
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sc_description]"
+                      dataType="nText"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sc_description]"
+                      name="sc_description" />
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\DB PriveConfig import Json in Dynamics.Paths[OLE DB Source Output]"
+              endId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Delete CRM Country not present in DB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{CF71D469-2557-4DBB-8EA0-3DBDEEB01332}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Delete CRM Country not present in DB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Delete CRM Country not present in DB\Country CRM"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Country CRM"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">sc_country</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CDS/Dynamics CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">1</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">10</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify whether to bypass synchronous logic, asynchronous logic or, both during writing. "
+                  expressionType="Notify"
+                  name="BypassBusinessLogicExecution"></property>
+                <property
+                  dataType="System.String"
+                  description="Specify the registered plug-in steps that should be bypassed during runtime instead of all synchronous and asynchronous custom logic. "
+                  expressionType="Notify"
+                  name="BypassBusinessLogicExecutionStepIds"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Delete CRM Country not present in DB\Country CRM.Connections[DynamicsCRM]"
+                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Delete CRM Country not present in DB\Country CRM.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Delete CRM Country not present in DB\Country CRM.Inputs[Input].Columns[sc_countryid]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="sc_countryid"
+                      externalMetadataColumnId="Package\Delete CRM Country not present in DB\Country CRM.Inputs[Input].ExternalColumns[sc_countryid]"
+                      lineageId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Output].Columns[sc_countryid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Delete CRM Country not present in DB\Country CRM.Inputs[Input].ExternalColumns[sc_countryid]"
+                      dataType="guid"
+                      name="sc_countryid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">sc_country</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\Delete CRM Country not present in DB\Country CRM.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\Delete CRM Country not present in DB\Country CRM.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\Delete CRM Country not present in DB\Country CRM.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB crm_CountryTemp"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    CONVERT(UNIQUEIDENTIFIER, REPLACE(REPLACE([sc_countryid], N'{', N''), N'}', N'')) AS [sc_countryid]
+FROM [SC_DATAHUB].[crm].[CountryTemp]
+WHERE [SyncAction] = N'Delete'</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Output].Columns[sc_countryid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Output].ExternalColumns[sc_countryid]"
+                      length="4000"
+                      lineageId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Output].Columns[sc_countryid]"
+                      name="sc_countryid"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Output].ExternalColumns[sc_countryid]"
+                      dataType="guid"
+                      name="sc_countryid" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Error Output].Columns[sc_countryid]"
+                      dataType="guid"
+                      lineageId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Error Output].Columns[sc_countryid]"
+                      name="sc_countryid" />
+                    <outputColumn
+                      refId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Delete CRM Country not present in DB.Paths[OLE DB Source Output]"
+              endId="Package\Delete CRM Country not present in DB\Country CRM.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Dynamics Country import crm_CountryTemp di DB"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{9CED29ED-0F24-4480-9DA6-C9247A540669}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Dynamics Country import crm_CountryTemp di DB"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Inputs[Derived Column Input].Columns[sc_countryid]"
+                      cachedDataType="guid"
+                      cachedName="sc_countryid"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_countryid]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LOWER]((DT_WSTR,38)#{Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_countryid]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LOWER((DT_WSTR,38)sc_countryid)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Country"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">1</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity"></property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML">&lt;fetch mapping='logical'&gt;
+    &lt;entity name='sc_country'&gt;
+        &lt;attribute name='sc_completename'/&gt;
+        &lt;attribute name='sc_countryid'/&gt;
+        &lt;attribute name='sc_name'/&gt;
+     &lt;filter type='and'&gt;
+      &lt;condition attribute='statecode' operator='eq' value='0' /&gt;
+    &lt;/filter&gt;
+    &lt;/entity&gt;
+&lt;/fetch&gt;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.Null"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Connections[DynamicsCRM]"
+                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_completename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].ExternalColumns[sc_completename]"
+                      length="100"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_completename]"
+                      name="sc_completename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_countryid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].ExternalColumns[sc_countryid]"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_countryid]"
+                      name="sc_countryid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      length="850"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_name]"
+                      name="sc_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].ExternalColumns[sc_completename]"
+                      dataType="wstr"
+                      length="100"
+                      name="sc_completename" />
+                    <externalMetadataColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].ExternalColumns[sc_countryid]"
+                      dataType="guid"
+                      name="sc_countryid" />
+                    <externalMetadataColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="OLE DB CountryTemp"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset">[crm].[CountryTemp]</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    [sc_countryid],
+    [sc_name],
+    [sc_completename]
+FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions">TABLOCK,CHECK_CONSTRAINTS</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input].Columns[sc_completename]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sc_completename"
+                      externalMetadataColumnId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input].ExternalColumns[sc_completename]"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_completename]" />
+                    <inputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input].Columns[sc_countryid]"
+                      cachedDataType="guid"
+                      cachedName="sc_countryid"
+                      externalMetadataColumnId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input].ExternalColumns[sc_countryid]"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_countryid]" />
+                    <inputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input].Columns[sc_name]"
+                      cachedDataType="wstr"
+                      cachedLength="850"
+                      cachedName="sc_name"
+                      externalMetadataColumnId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output].Columns[sc_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input].ExternalColumns[sc_countryid]"
+                      dataType="wstr"
+                      length="38"
+                      name="sc_countryid" />
+                    <externalMetadataColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name" />
+                    <externalMetadataColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input].ExternalColumns[sc_completename]"
+                      dataType="wstr"
+                      length="200"
+                      name="sc_completename" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\Dynamics Country import crm_CountryTemp di DB.Paths[Derived Column Output]"
+              endId="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\Dynamics Country import crm_CountryTemp di DB.Paths[Primary Output]"
+              endId="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column.Inputs[Derived Column Input]"
+              name="Primary Output"
+              startId="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country.Outputs[Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\Update file Json Country  crm_PriveConfigTemp DB"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{D1E2A833-9FF0-44CE-9617-220562AD3056}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Update file Json Country  crm_PriveConfigTemp DB"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+          SQLTask:SqlStatementSource="EXEC [SC_DATAHUB].[crm].[SyncCountryConfigToPrivateConfiguration];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
+  </DTS:Executables>
+  <DTS:PrecedenceConstraints>
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint]"
+      DTS:CreationName=""
+      DTS:DTSID="{F803D75C-06F4-4F9E-8B06-D432BD77B018}"
+      DTS:From="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint"
+      DTS:To="Package\Clear CountryTemp" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 1]"
+      DTS:CreationName=""
+      DTS:DTSID="{CF4E976F-009A-427F-A7C1-4E798CDE1E3B}"
+      DTS:From="Package\Clear CountryTemp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 1"
+      DTS:To="Package\Dynamics Country import crm_CountryTemp di DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
+      DTS:CreationName=""
+      DTS:DTSID="{0E3F484C-4D06-43B1-818D-E74AD0ACB7B9}"
+      DTS:From="Package\Clear PriveConfigTemp START"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 2"
+      DTS:To="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
+      DTS:CreationName=""
+      DTS:DTSID="{4B53EE4C-EAB4-4C57-87C7-5C71B9573E6B}"
+      DTS:From="Package\Dynamics Country import crm_CountryTemp di DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 3"
+      DTS:To="Package\crm_CountryTemp left join and update dbo_Country" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 4]"
+      DTS:CreationName=""
+      DTS:DTSID="{D3BEFA51-868A-4956-A46F-AE0E83F4FD2E}"
+      DTS:From="Package\crm_CountryTemp left join and update dbo_Country"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 4"
+      DTS:To="Package\Delete CRM Country not present in DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 5]"
+      DTS:CreationName=""
+      DTS:DTSID="{E988BC2B-1248-4BCC-ADA7-5826C6B77AE2}"
+      DTS:From="Package\Delete CRM Country not present in DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 5"
+      DTS:To="Package\Update file Json Country  crm_PriveConfigTemp DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 6]"
+      DTS:CreationName=""
+      DTS:DTSID="{DF98CC67-904E-411C-95B6-BF53EFF0C717}"
+      DTS:From="Package\Update file Json Country  crm_PriveConfigTemp DB"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 6"
+      DTS:To="Package\DB PriveConfig import Json in Dynamics" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 7]"
+      DTS:CreationName=""
+      DTS:DTSID="{A89032BE-5B10-4E0B-98D9-564B005899D5}"
+      DTS:From="Package\DB PriveConfig import Json in Dynamics"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 7"
+      DTS:To="Package\Clear CountryTemp FINE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 8]"
+      DTS:CreationName=""
+      DTS:DTSID="{AD0B8E81-9DB2-4929-9501-607F5705D569}"
+      DTS:From="Package\Clear CountryTemp FINE"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 8"
+      DTS:To="Package\Clear PriveConfigTemp FINE" />
+  </DTS:PrecedenceConstraints>
+  <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
+<!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
+<!--If you manually edit this section and make a mistake, you can delete it. -->
+<!--The package will still be able to load normally but the previous layout information will be lost and the designer will automatically re-arrange the elements on the design surface.-->
+<Objects
+  Version="8">
+  <!--Each node below will contain properties that do not affect runtime behavior.-->
+  <Package
+    design-time-name="Package">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="170.666666666667,42.6666666666667"
+          Id="Package\Clear CountryTemp"
+          TopLeft="178.749992009252,224.249989306927" />
+        <NodeLayout
+          Size="221.333333333334,42.6666666666667"
+          Id="Package\Clear PriveConfigTemp START"
+          TopLeft="159.374992875382,83.8499960017206" />
+        <NodeLayout
+          Size="421.333333333334,42.6666666666667"
+          Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB"
+          TopLeft="56.8749974574896,151.449992778302" />
+        <NodeLayout
+          Size="317.333333333334,42.6666666666667"
+          Id="Package\Dynamics Country import crm_CountryTemp di DB"
+          TopLeft="107.499995194376,294.44998595953" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint]"
+          TopLeft="265.812494733371,194.116659444969">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,30.1333298619582"
+              Start="0,0"
+              End="0,22.6333298619582">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.6333298619582" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 1]"
+          TopLeft="265.124993601814,266.916655973594">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.5333299859369"
+              Start="0,0"
+              End="0,20.0333299859369">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.0333299859369" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="268.791661833103,126.516662668387">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,24.9333301099147"
+              Start="0,0"
+              End="0,17.4333301099147">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,17.4333301099147" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="325.333333333334,42.6666666666667"
+          Id="Package\crm_CountryTemp left join and update dbo_Country"
+          TopLeft="109.374995110557,371.14998230219" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 3]"
+          TopLeft="269.104161819133,337.116652626197">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,34.0333296759924"
+              Start="0,0"
+              End="0,26.5333296759924">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,26.5333296759924" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="260,42.6666666666667"
+          Id="Package\Delete CRM Country not present in DB"
+          TopLeft="144.444437987275,441.277756736014" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 4]"
+          TopLeft="273.243049882249,413.816648968856">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.4611077671581"
+              Start="0,0"
+              End="0,19.9611077671581">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.9611077671581" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="321.333333333334,42.6666666666667"
+          Id="Package\Update file Json Country  crm_PriveConfigTemp DB"
+          TopLeft="113.194439384259,521.888864850999" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 5]"
+          TopLeft="274.1527720191,483.944423402681">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,37.9444414483181"
+              Start="0,0"
+              End="0,30.4444414483181">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,30.4444414483181" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="268,42.6666666666667"
+          Id="Package\DB PriveConfig import Json in Dynamics"
+          TopLeft="127.777772065666,591.79627277498" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 6]"
+          TopLeft="273.861106050925,564.555531517666">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.0833339852591,27.2407412573141"
+              Start="0,0"
+              End="-12.0833339852591,19.7407412573141">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,9.62037062865704" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,9.62037062865704"
+                    Point2="0,13.620370628657"
+                    Point3="-4,13.620370628657" />
+                  <mssgle:LineSegment
+                    End="-8.08333398525906,13.620370628657" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.08333398525906,13.620370628657"
+                    Point2="-12.0833339852591,13.620370628657"
+                    Point3="-12.0833339852591,17.620370628657" />
+                  <mssgle:LineSegment
+                    End="-12.0833339852591,19.7407412573141" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="196.666666666667,42.6666666666667"
+          Id="Package\Clear CountryTemp FINE"
+          TopLeft="160.416659495483,664.129605626178" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 7]"
+          TopLeft="260.263882447241,634.462939441646">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,29.6666661845314"
+              Start="0,0"
+              End="0,22.1666661845314">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.1666661845314" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="212,42.6666666666667"
+          Id="Package\Clear PriveConfigTemp FINE"
+          TopLeft="159.722215082083,734.037013550159" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 8]"
+          TopLeft="262.23610395545,706.796272292844">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,27.2407412573142"
+              Start="0,0"
+              End="0,19.7407412573142">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,19.7407412573142" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="214.666666666667,42.6666666666667"
+          Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig"
+          TopLeft="439.230756140673,49.230767763578" />
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM Country"
+          TopLeft="140.769226573981,140.769226573981" />
+        <NodeLayout
+          Size="166.666666666667,42.6666666666667"
+          Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Command"
+          TopLeft="469.999985992909,136.923072842451" />
+        <NodeLayout
+          Size="156,42.6666666666667"
+          Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country"
+          TopLeft="157.692302992711,45.3846140320486" />
+        <EdgeLayout
+          Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB.Paths[Primary Output]"
+          TopLeft="549.948704400124,91.8974344302447">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,45.0256384122066"
+              Start="0,0"
+              End="0,37.5256384122066">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,37.5256384122066" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB.Paths[OLE DB Source Output]"
+          TopLeft="235.564098116679,88.0512806987152">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,52.7179458752655"
+              Start="0,0"
+              End="0,45.2179458752655">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,45.2179458752655" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Dynamics Country import crm_CountryTemp di DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="189.333333333334,42.6666666666667"
+          Id="Package\Dynamics Country import crm_CountryTemp di DB\Dynamics CRM Country"
+          TopLeft="185.461532934354,50.2307677337757" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\Dynamics Country import crm_CountryTemp di DB\Derived Column"
+          TopLeft="212.30768598043,130.769226872004" />
+        <NodeLayout
+          Size="182.666666666667,42.6666666666667"
+          Id="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp"
+          TopLeft="194.615378815394,231.538454638078" />
+        <EdgeLayout
+          Id="Package\Dynamics Country import crm_CountryTemp di DB.Paths[Primary Output]"
+          TopLeft="280.128199601021,92.8974344004424">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="9.51281971274278,37.8717924715617"
+              Start="0,0"
+              End="9.51281971274278,30.3717924715617">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,14.9358962357809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,14.9358962357809"
+                    Point2="0,18.9358962357809"
+                    Point3="4,18.9358962357809" />
+                  <mssgle:LineSegment
+                    End="5.51281971274278,18.9358962357809" />
+                  <mssgle:CubicBezierSegment
+                    Point1="5.51281971274278,18.9358962357809"
+                    Point2="9.51281971274278,18.9358962357809"
+                    Point3="9.51281971274278,22.9358962357809" />
+                  <mssgle:LineSegment
+                    End="9.51281971274278,30.3717924715617" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package\Dynamics Country import crm_CountryTemp di DB.Paths[Derived Column Output]"
+          TopLeft="287.794865731246,173.435893538671">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,58.1025610994071"
+              Start="0,0"
+              End="0,50.6025610994071">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,50.6025610994071" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-8,17.3012805497035,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Dynamics Country import crm_CountryTemp di DB\OLE DB CountryTemp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+      <Property>
+        <Name>TableInfoObjectType</Name>
+        <Value
+          type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Delete CRM Country not present in DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp"
+          TopLeft="251.499992504716,112.833329970638" />
+        <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\Delete CRM Country not present in DB\Country CRM"
+          TopLeft="280.833324963848,188.333327720563" />
+        <EdgeLayout
+          Id="Package\Delete CRM Country not present in DB.Paths[OLE DB Source Output]"
+          TopLeft="352.833325400949,155.499996637305">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.833331083258"
+              Start="0,0"
+              End="0,25.333331083258">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.333331083258" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DB PriveConfig import Json in Dynamics">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DB PriveConfig import Json in Dynamics\OLE DB Source"
+          TopLeft="325.999990284443,93.4999972134829" />
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination"
+          TopLeft="285.833324814836,187.499994412065" />
+        <EdgeLayout
+          Id="Package\DB PriveConfig import Json in Dynamics.Paths[OLE DB Source Output]"
+          TopLeft="401.333323617777,136.16666388015">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.8333321362734,51.3333305319151"
+              Start="0,0"
+              End="-12.8333321362734,43.8333305319151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6666652659576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.6666652659576"
+                    Point2="0,25.6666652659576"
+                    Point3="-4,25.6666652659576" />
+                  <mssgle:LineSegment
+                    End="-8.83333213627338,25.6666652659576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.83333213627338,25.6666652659576"
+                    Point2="-12.8333321362734,25.6666652659576"
+                    Point3="-12.8333321362734,29.6666652659576" />
+                  <mssgle:LineSegment
+                    End="-12.8333321362734,43.8333305319151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DB PriveConfig import Json in Dynamics\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+</Objects>]]></DTS:DesignTimeProperties>
+</DTS:Executable>
