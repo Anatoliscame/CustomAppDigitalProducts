@@ -36,6 +36,35 @@ namespace Plugin.sc_DigitalProduct.CorePlugins
                 return null;
             }
         }
+
+
+        public static List<CountryInfoNativa> GetDeserializeCountryConfigNativa(IOrganizationService service,ITracingService trace,string key)
+        {
+            try
+            {
+                var priveConfig = GetPrivateConfig(service, key);
+
+                if (priveConfig == null)
+                {
+                    trace?.Trace($"PriveConfig non trovata.");
+                    return null;
+                }
+                string description = priveConfig.GetAttributeValue<string>("sc_description");
+
+                if (string.IsNullOrWhiteSpace(description))
+                {
+                    trace?.Trace($"Configurazione con chiave '{key}' non trovata o vuota.");
+                    return null;
+                }
+                return JsonConvert.DeserializeObject<CountryConfigNativa>(description)?.Countries;
+            }
+            catch (Exception ex)
+            {
+                trace?.Trace("Formato JSON non valido in sc_description: " + ex.Message);
+                return null;
+            }
+        }
+
         public static Entity GetPrivateConfig(IOrganizationService service, string key)
         {
             QueryExpression queryMessage = new QueryExpression();
@@ -53,14 +82,18 @@ namespace Plugin.sc_DigitalProduct.CorePlugins
             return resultQuery.Entities[0];
         }
 
-        public static bool CheckCountryPrivateConfig(IOrganizationService service, Dictionary<string, CountryInfo> countryConfig, Guid countryTo)
+        public static bool CheckCountryPrivateConfig(IOrganizationService service, List<CountryInfoNativa> countryConfig, Guid countryTo)
         {
-            var foundCountryInConfig = countryConfig.FirstOrDefault(c => c.Value.Id == countryTo.ToString());
+            //var foundCountryInConfig = countryConfig.FirstOrDefault(c => c.Value.Id == countryTo.ToString());
+            //if (foundCountryInConfig.Key != null)
 
-            if (foundCountryInConfig.Key != null)
+            var foundCountryInConfig = countryConfig.FirstOrDefault(c => c.Id == countryTo.ToString());
+
+            if (foundCountryInConfig != null)
             {
                 return true;
             }
+
             return false;
         }
 

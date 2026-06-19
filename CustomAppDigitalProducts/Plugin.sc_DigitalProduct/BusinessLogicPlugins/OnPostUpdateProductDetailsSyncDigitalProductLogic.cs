@@ -167,7 +167,8 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
         }
         public void VerifyCountryProductDetailsWitchPriveConfig(IOrganizationService service, Guid countrid, ITracingService trace)
         {
-            var countryConfig = Utilities.GetDeserializeCountryConfig(service, trace, "CountryConfig");
+            //var countryConfig = Utilities.GetDeserializeCountryConfig(service, trace, "CountryConfig");
+            var countryConfig = Utilities.GetDeserializeCountryConfigNativa(service, trace, "CountryConfig");
             if (countryConfig == null) { return; }
 
             bool isCountry = Utilities.CheckCountryPrivateConfig(service, countryConfig, countrid);

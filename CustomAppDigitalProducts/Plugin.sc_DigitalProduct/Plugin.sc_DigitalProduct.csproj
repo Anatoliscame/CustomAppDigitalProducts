@@ -119,6 +119,7 @@
     <Compile Include="Helper\PurchaseHelper.cs" />
     <Compile Include="Helper\PurchaseOrderlineHelper.cs" />
     <Compile Include="Model\Request\CountryInfo.cs" />
+    <Compile Include="Model\Request\CountryInfoNativa.cs" />
     <Compile Include="OnCreateUpdateDigitalProduct.cs" />
     <Compile Include="OnCreateUpdateStatusPurchaseRegisterPurchaseHistory.cs" />
     <Compile Include="OnPostCreatePurchaseOrderLineProcessDigitalProductPurchase.cs" />

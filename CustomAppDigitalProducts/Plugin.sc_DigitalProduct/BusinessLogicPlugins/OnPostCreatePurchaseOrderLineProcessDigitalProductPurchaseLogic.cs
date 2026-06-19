@@ -50,16 +50,29 @@ namespace Plugin.sc_DigitalProduct.BusinessLogicPlugins
             Entity getPrdDetails = service.Retrieve(ProductDetails.LogicalName, prdPD_Details.Id, new ColumnSet(true));
 
             ////////////////////////////////////////////////
-            
-            var countryConfig = Utilities.GetDeserializeCountryConfig(service, trace, "CountryConfig");
-            if (countryConfig == null) { trace?.Trace($"countryConfig non esiste ");  return; }
+
+            //var countryConfig = Utilities.GetDeserializeCountryConfig(service, trace, "CountryConfig");
+            // if (countryConfig == null) { trace?.Trace($"countryConfig non esiste ");  return; }
+            var countryConfig = Utilities.GetDeserializeCountryConfigNativa(service, trace, "CountryConfig");
+
+            if (countryConfig == null){ trace?.Trace($"countryConfig non esiste ");return; }
             // Se il valore keye_country corisponde a uno di valori CountryConfig, continua il flusso.
 
             var country = getPrdDetails.GetAttributeValue<EntityReference>(ProductDetails.Country);
 
-            var foundCountryInConfig = countryConfig.FirstOrDefault(c => c.Value.Id == country.Id.ToString());
-            trace?.Trace(foundCountryInConfig.Key);
-            decimal thresholdCountry = foundCountryInConfig.Value.Threshold;
+            //var foundCountryInConfig = countryConfig.FirstOrDefault(c => c.Value.Id == country.Id.ToString());
+            var foundCountryInConfig = countryConfig.FirstOrDefault(c => c.Id == country.Id.ToString());
+            if (foundCountryInConfig == null)
+            {
+                trace?.Trace($"Country con Id '{country.Id}' non trovato in CountryConfig.");
+                return;
+            }
+
+            //trace?.Trace(foundCountryInConfig.Key);
+            //decimal thresholdCountry = foundCountryInConfig.Value.Threshold;
+            trace?.Trace(foundCountryInConfig.Name);
+
+            decimal thresholdCountry = foundCountryInConfig.Threshold;
             trace?.Trace($"Threshold Country %: {thresholdCountry}.");
 
 
