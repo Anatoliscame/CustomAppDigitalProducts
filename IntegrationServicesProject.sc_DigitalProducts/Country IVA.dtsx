@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Country IVA"
   DTS:PackageType="5"
-  DTS:VersionBuild="74"
-  DTS:VersionGUID="{75CB90A6-A3D3-40B6-B17F-CC50244C7E38}">
+  DTS:VersionBuild="77"
+  DTS:VersionGUID="{DE3C4740-E383-463C-B421-13DA2FFDF683}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables />
@@ -38,6 +38,7 @@
       DTS:refId="Package\Clear CountryTemp FINE"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{87f346ab-60f0-4ed3-a82e-730edabaa046}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -55,6 +56,7 @@
       DTS:refId="Package\Clear PriveConfigTemp FINE"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
+      DTS:Disabled="True"
       DTS:DTSID="{8087e9d7-d6e4-4da2-b36e-41caa2cfb7a6}"
       DTS:ExecutableType="Microsoft.ExecuteSQLTask"
       DTS:LocaleID="-1"
@@ -1214,7 +1216,8 @@ FROM [SC_DATAHUB].[dbo].[Country]</property>
                   <inputColumns>
                     <inputColumn
                       refId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].Columns[sc_description]"
-                      cachedDataType="nText"
+                      cachedDataType="wstr"
+                      cachedLength="1000"
                       cachedName="sc_description"
                       externalMetadataColumnId="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination.Inputs[Input].ExternalColumns[sc_description]"
                       lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].Columns[sc_description]" />
@@ -1470,8 +1473,7 @@ FROM [SC_DATAHUB].[dbo].[Country]</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
     privateConfig.[Id] AS [sc_privateconfigurationid],
     privateConfig.[Description] AS [sc_description]
-FROM [SC_DATAHUB].[crm].[PrivateConfiguration] AS privateConfig
-WHERE privateConfig.[Key] = N'CountryConfig';</property>
+FROM [SC_DATAHUB].[crm].[PrivateConfiguration] AS privateConfig</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -1518,10 +1520,11 @@ WHERE privateConfig.[Key] = N'CountryConfig';</property>
                       truncationRowDisposition="FailComponent" />
                     <outputColumn
                       refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].Columns[sc_description]"
-                      dataType="nText"
+                      dataType="wstr"
                       errorOrTruncationOperation="Conversion"
                       errorRowDisposition="FailComponent"
                       externalMetadataColumnId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sc_description]"
+                      length="1000"
                       lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].Columns[sc_description]"
                       name="sc_description"
                       truncationRowDisposition="FailComponent" />
@@ -1534,7 +1537,8 @@ WHERE privateConfig.[Key] = N'CountryConfig';</property>
                       name="sc_privateconfigurationid" />
                     <externalMetadataColumn
                       refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Output].ExternalColumns[sc_description]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="1000"
                       name="sc_description" />
                   </externalMetadataColumns>
                 </output>
@@ -1550,7 +1554,8 @@ WHERE privateConfig.[Key] = N'CountryConfig';</property>
                       name="sc_privateconfigurationid" />
                     <outputColumn
                       refId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sc_description]"
-                      dataType="nText"
+                      dataType="wstr"
+                      length="1000"
                       lineageId="Package\DB PriveConfig import Json in Dynamics\OLE DB Source.Outputs[OLE DB Source Error Output].Columns[sc_description]"
                       name="sc_description" />
                     <outputColumn
@@ -2392,17 +2397,41 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
           Id="Package\Clear CountryTemp"
           TopLeft="178.749992009252,224.249989306927" />
         <NodeLayout
+          Size="196.666666666667,42.6666666666667"
+          Id="Package\Clear CountryTemp FINE"
+          TopLeft="160.416659495483,664.129605626178" />
+        <NodeLayout
+          Size="212,42.6666666666667"
+          Id="Package\Clear PriveConfigTemp FINE"
+          TopLeft="159.722215082083,734.037013550159" />
+        <NodeLayout
           Size="221.333333333334,42.6666666666667"
           Id="Package\Clear PriveConfigTemp START"
           TopLeft="159.374992875382,83.8499960017206" />
+        <NodeLayout
+          Size="325.333333333334,42.6666666666667"
+          Id="Package\crm_CountryTemp left join and update dbo_Country"
+          TopLeft="109.374995110557,371.14998230219" />
         <NodeLayout
           Size="421.333333333334,42.6666666666667"
           Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB"
           TopLeft="56.8749974574896,151.449992778302" />
         <NodeLayout
+          Size="268,42.6666666666667"
+          Id="Package\DB PriveConfig import Json in Dynamics"
+          TopLeft="127.777772065666,591.79627277498" />
+        <NodeLayout
+          Size="260,42.6666666666667"
+          Id="Package\Delete CRM Country not present in DB"
+          TopLeft="144.444437987275,441.277756736014" />
+        <NodeLayout
           Size="317.333333333334,42.6666666666667"
           Id="Package\Dynamics Country import crm_CountryTemp di DB"
           TopLeft="107.499995194376,294.44998595953" />
+        <NodeLayout
+          Size="321.333333333334,42.6666666666667"
+          Id="Package\Update file Json Country  crm_PriveConfigTemp DB"
+          TopLeft="113.194439384259,521.888864850999" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
           TopLeft="265.812494733371,194.116659444969">
@@ -2469,10 +2498,6 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="325.333333333334,42.6666666666667"
-          Id="Package\crm_CountryTemp left join and update dbo_Country"
-          TopLeft="109.374995110557,371.14998230219" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
           TopLeft="269.104161819133,337.116652626197">
@@ -2495,10 +2520,6 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="260,42.6666666666667"
-          Id="Package\Delete CRM Country not present in DB"
-          TopLeft="144.444437987275,441.277756736014" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
           TopLeft="273.243049882249,413.816648968856">
@@ -2521,10 +2542,6 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="321.333333333334,42.6666666666667"
-          Id="Package\Update file Json Country  crm_PriveConfigTemp DB"
-          TopLeft="113.194439384259,521.888864850999" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
           TopLeft="274.1527720191,483.944423402681">
@@ -2547,10 +2564,6 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="268,42.6666666666667"
-          Id="Package\DB PriveConfig import Json in Dynamics"
-          TopLeft="127.777772065666,591.79627277498" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
           TopLeft="273.861106050925,564.555531517666">
@@ -2585,10 +2598,6 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="196.666666666667,42.6666666666667"
-          Id="Package\Clear CountryTemp FINE"
-          TopLeft="160.416659495483,664.129605626178" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
           TopLeft="260.263882447241,634.462939441646">
@@ -2611,10 +2620,6 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="212,42.6666666666667"
-          Id="Package\Clear PriveConfigTemp FINE"
-          TopLeft="159.722215082083,734.037013550159" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
           TopLeft="262.23610395545,706.796272292844">
@@ -2644,7 +2649,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
     design-time-name="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="214.666666666667,42.6666666666667"
           Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig"
@@ -2680,7 +2685,9 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2702,7 +2709,9 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <EdgeLabelCollection />
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2710,6 +2719,112 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
   </TaskHost>
   <PipelineComponentMetadata
     design-time-name="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\OLE DB Country">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\DB PriveConfig import Json in Dynamics">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination"
+          TopLeft="285.833324814836,187.499994412065" />
+        <NodeLayout
+          Size="150.666666666667,42.6666666666667"
+          Id="Package\DB PriveConfig import Json in Dynamics\OLE DB Source"
+          TopLeft="325.999990284443,93.4999972134829" />
+        <EdgeLayout
+          Id="Package\DB PriveConfig import Json in Dynamics.Paths[OLE DB Source Output]"
+          TopLeft="401.333323617777,136.16666388015">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-12.8333321362734,51.3333305319151"
+              Start="0,0"
+              End="-12.8333321362734,43.8333305319151">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,21.6666652659576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,21.6666652659576"
+                    Point2="0,25.6666652659576"
+                    Point3="-4,25.6666652659576" />
+                  <mssgle:LineSegment
+                    End="-8.83333213627338,25.6666652659576" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-8.83333213627338,25.6666652659576"
+                    Point2="-12.8333321362734,25.6666652659576"
+                    Point3="-12.8333321362734,29.6666652659576" />
+                  <mssgle:LineSegment
+                    End="-12.8333321362734,43.8333305319151" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\DB PriveConfig import Json in Dynamics\OLE DB Source">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\Delete CRM Country not present in DB">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\Delete CRM Country not present in DB\Country CRM"
+          TopLeft="280.833324963848,188.333327720563" />
+        <NodeLayout
+          Size="205.333333333334,42.6666666666667"
+          Id="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp"
+          TopLeft="251.499992504716,112.833329970638" />
+        <EdgeLayout
+          Id="Package\Delete CRM Country not present in DB.Paths[OLE DB Source Output]"
+          TopLeft="352.833325400949,155.499996637305">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.833331083258"
+              Start="0,0"
+              End="0,25.333331083258">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.333331083258" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="0,0,0,0"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp">
     <Properties>
       <Property>
         <Name>DataSourceViewID</Name>
@@ -2804,110 +2919,6 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\Delete CRM Country not present in DB">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="205.333333333334,42.6666666666667"
-          Id="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp"
-          TopLeft="251.499992504716,112.833329970638" />
-        <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\Delete CRM Country not present in DB\Country CRM"
-          TopLeft="280.833324963848,188.333327720563" />
-        <EdgeLayout
-          Id="Package\Delete CRM Country not present in DB.Paths[OLE DB Source Output]"
-          TopLeft="352.833325400949,155.499996637305">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.833331083258"
-              Start="0,0"
-              End="0,25.333331083258">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.333331083258" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\Delete CRM Country not present in DB\OLE DB crm_CountryTemp">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\DB PriveConfig import Json in Dynamics">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="150.666666666667,42.6666666666667"
-          Id="Package\DB PriveConfig import Json in Dynamics\OLE DB Source"
-          TopLeft="325.999990284443,93.4999972134829" />
-        <NodeLayout
-          Size="205.333333333334,42.6666666666667"
-          Id="Package\DB PriveConfig import Json in Dynamics\Dynamics CRM Destination"
-          TopLeft="285.833324814836,187.499994412065" />
-        <EdgeLayout
-          Id="Package\DB PriveConfig import Json in Dynamics.Paths[OLE DB Source Output]"
-          TopLeft="401.333323617777,136.16666388015">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-12.8333321362734,51.3333305319151"
-              Start="0,0"
-              End="-12.8333321362734,43.8333305319151">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,21.6666652659576" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,21.6666652659576"
-                    Point2="0,25.6666652659576"
-                    Point3="-4,25.6666652659576" />
-                  <mssgle:LineSegment
-                    End="-8.83333213627338,25.6666652659576" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-8.83333213627338,25.6666652659576"
-                    Point2="-12.8333321362734,25.6666652659576"
-                    Point3="-12.8333321362734,29.6666652659576" />
-                  <mssgle:LineSegment
-                    End="-12.8333321362734,43.8333305319151" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\DB PriveConfig import Json in Dynamics\OLE DB Source">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
