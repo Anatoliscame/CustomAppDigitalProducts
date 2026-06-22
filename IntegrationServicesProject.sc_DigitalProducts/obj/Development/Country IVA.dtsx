@@ -11,12 +11,39 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Country IVA"
   DTS:PackageType="5"
-  DTS:VersionBuild="76"
-  DTS:VersionGUID="{4F3E8C13-2B0F-4274-A358-2563C2995F51}">
+  DTS:VersionBuild="90"
+  DTS:VersionGUID="{456DF65F-7FDC-497E-996C-A4B6233FD6B5}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
-  <DTS:Variables />
+  <DTS:Variables>
+    <DTS:Variable
+      DTS:CreationName=""
+      DTS:DTSID="{51FD413A-0DBF-43AD-8315-8DD064A773AC}"
+      DTS:IncludeInDebugDump="6789"
+      DTS:Namespace="User"
+      DTS:ObjectName="CountryTempCount">
+      <DTS:VariableValue
+        DTS:DataType="3">0</DTS:VariableValue>
+    </DTS:Variable>
+  </DTS:Variables>
   <DTS:Executables>
+    <DTS:Executable
+      DTS:refId="Package\CheckCountryTempBeforeCountryImport"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{590FAD26-4CAC-42B4-A658-F0B881D8A06C}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CheckCountryTempBeforeCountryImport"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+          SQLTask:SqlStatementSource="EXEC [SC_DATAHUB].[crm].[CheckCountryTempBeforeCountryImport];" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask" />
+      </DTS:ObjectData>
+    </DTS:Executable>
     <DTS:Executable
       DTS:refId="Package\Clear CountryTemp"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
@@ -26,7 +53,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear CountryTemp"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -44,7 +71,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear CountryTemp FINE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -62,7 +89,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="Clear PriveConfigTemp FINE"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -88,6 +115,733 @@
       </DTS:ObjectData>
     </DTS:Executable>
     <DTS:Executable
+      DTS:refId="Package\Count CountryTemp"
+      DTS:CreationName="Microsoft.ExecuteSQLTask"
+      DTS:Description="Execute SQL Task"
+      DTS:DTSID="{80916290-6272-4E4D-80EC-C234E63465B2}"
+      DTS:ExecutableType="Microsoft.ExecuteSQLTask"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="Count CountryTemp"
+      DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
+      DTS:ThreadHint="0">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <SQLTask:SqlTaskData
+          SQLTask:Connection="{63204EA1-F3A5-48AB-912F-33D405F3D529}"
+          SQLTask:SqlStatementSource="SELECT COUNT(1)&#xA;FROM [SC_DATAHUB].[crm].[CountryTemp]&#xA;WHERE [sc_countryid] IS NOT NULL;"
+          SQLTask:ResultType="ResultSetType_SingleRow" xmlns:SQLTask="www.microsoft.com/sqlserver/dts/tasks/sqltask">
+          <SQLTask:ResultBinding
+            SQLTask:ResultName="0"
+            SQLTask:DtsVariableName="User::CountryTempCount" />
+        </SQLTask:SqlTaskData>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CountryTemp Delete → Dynamics CRM Country Delete"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{0C30BACE-B319-4DFC-9474-580CD2F48CDD}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CountryTemp Delete → Dynamics CRM Country Delete"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
+              description="Populate data into Microsoft Dynamics 365 CE/CRM."
+              name="Dynamics CRM Country Delete"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.String"
+                  description="Destination entity to write data."
+                  expressionType="Notify"
+                  name="DestinationEntity">sc_country</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies how data is written to CDS/Dynamics CRM server."
+                  name="ActionType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.DestinationActionType">4</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether the values of CDS/CRM lookup fields should be removed if the reference records cannot be found. "
+                  expressionType="Notify"
+                  name="RemoveUnresolvableReferences">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether duplicate detection should be enabled when creating or updating CDS/CRM records. Duplicate records are determined by the duplicate detection rules and settings defined in CDS or Microsoft Dynamics CRM server."
+                  expressionType="Notify"
+                  name="EnableSystemDuplicateDetection">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the matching criteria to be used when performing an update or upsert. "
+                  expressionType="Notify"
+                  name="RecordMatchingCriteria"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.RecordMatchingCriteria">1</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the key fields to be used to determine the matching records that exist in CDS/CRM for either Upsert/Update action or source duplicate optimization."
+                  expressionType="Notify"
+                  name="RecordMatchingKeyFields"></property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those NULL-valued fields."
+                  expressionType="Notify"
+                  name="IgnoreNullValuedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether to ignore those fields that have no value changes in the target system. "
+                  expressionType="Notify"
+                  name="IgnoreUnchangedFields">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specify whether to remove those invalid characters before writing to CDS/CRM."
+                  expressionType="Notify"
+                  name="RemoveInvalidCharacters">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify the flag field(s) that are used to track the source of changes. The field(s) will not posted to CDS/CRM server unless there are changes to other fields if specified. &quot;Ignore Unchange Fields&quot; option is required in order for the specified flag field(s) to work. "
+                  expressionType="Notify"
+                  name="ChangeFlagFields"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies what action will be taken when multiple matches are found with Upsert action."
+                  expressionType="Notify"
+                  name="HandlingOfMultipleMatches"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.HandlingOfMultipleMatches">0</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify whether to use optimizations when there are duplicate records form the source system."
+                  expressionType="Notify"
+                  name="OptimizationOnSourceDuplicates"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.OptimizationOnSourceDuplicates">0</property>
+                <property
+                  dataType="System.String"
+                  description="Workflow or action to be executed."
+                  expressionType="Notify"
+                  name="WorkflowAction"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the number of records to be sent to CDS/Dynamics CRM server in each service call."
+                  expressionType="Notify"
+                  name="BatchSize">100</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the total number or concurrent threads to write to CDS/CRM server simultaneously. "
+                  expressionType="Notify"
+                  name="ConcurrentWritingThreadsInTotal">20</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Specifies whether datetime values should be sent to CDS/CRM server in UTC format."
+                  expressionType="Notify"
+                  name="SendDateTimeInUtcFormat">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specify whether to bypass synchronous logic, asynchronous logic or, both during writing. "
+                  expressionType="Notify"
+                  name="BypassBusinessLogicExecution"></property>
+                <property
+                  dataType="System.String"
+                  description="Specify the registered plug-in steps that should be bypassed during runtime instead of all synchronous and asynchronous custom logic. "
+                  expressionType="Notify"
+                  name="BypassBusinessLogicExecutionStepIds"></property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmDestinationComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Connections[DynamicsCRM]"
+                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Inputs[Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Inputs[Input].Columns[sc_countryid]"
+                      cachedDataType="wstr"
+                      cachedLength="4000"
+                      cachedName="sc_countryid"
+                      externalMetadataColumnId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Inputs[Input].ExternalColumns[sc_countryid]"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Output].Columns[sc_countryid]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Inputs[Input].ExternalColumns[sc_countryid]"
+                      dataType="guid"
+                      name="sc_countryid">
+                      <properties>
+                        <property
+                          dataType="System.String"
+                          name="FieldType">Uniqueidentifier</property>
+                        <property
+                          dataType="System.String"
+                          name="LookupTypes">sc_country</property>
+                      </properties>
+                    </externalMetadataColumn>
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Default Output]"
+                  exclusionGroup="1"
+                  name="Default Output"
+                  synchronousInputId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Default Output].Columns[SavedRecordId]"
+                      dataType="guid"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Default Output].Columns[SavedRecordId]"
+                      name="SavedRecordId" />
+                    <outputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Default Output].Columns[IsNew]"
+                      dataType="bool"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Default Output].Columns[IsNew]"
+                      name="IsNew" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True" />
+                </output>
+                <output
+                  refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Error Output"
+                  synchronousInputId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Inputs[Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                    <outputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Error Output].Columns[ErrorMessage]"
+                      dataType="wstr"
+                      length="2048"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Outputs[Error Output].Columns[ErrorMessage]"
+                      name="ErrorMessage" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete"
+              componentClassID="Microsoft.OLEDBSource"
+              contactInfo="OLE DB Source;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;7"
+              description="OLE DB Source"
+              name="OLE DB Source CountryTemp Delete"
+              usesDispositions="true"
+              version="7">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    REPLACE(REPLACE([sc_countryid], N'{', N''), N'}', N'') AS sc_countryid
+FROM [SC_DATAHUB].[crm].[CountryTemp]
+WHERE [SyncAction] = N'Delete'
+  AND [sc_countryid] IS NOT NULL;</property>
+                <property
+                  dataType="System.String"
+                  description="The variable that contains the SQL command to be executed."
+                  name="SqlCommandVariable"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.String"
+                  description="The mappings between the parameters in the SQL command and variables."
+                  name="ParameterMapping"></property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Output]"
+                  name="OLE DB Source Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Output].Columns[sc_countryid]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Output].ExternalColumns[sc_countryid]"
+                      length="4000"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Output].Columns[sc_countryid]"
+                      name="sc_countryid"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Output].ExternalColumns[sc_countryid]"
+                      dataType="wstr"
+                      length="4000"
+                      name="sc_countryid" />
+                  </externalMetadataColumns>
+                </output>
+                <output
+                  refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Error Output]"
+                  isErrorOut="true"
+                  name="OLE DB Source Error Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Error Output].Columns[sc_countryid]"
+                      dataType="wstr"
+                      length="4000"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Error Output].Columns[sc_countryid]"
+                      name="sc_countryid" />
+                    <outputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CountryTemp Delete → Dynamics CRM Country Delete.Paths[OLE DB Source Output]"
+              endId="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete.Inputs[Input]"
+              name="OLE DB Source Output"
+              startId="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete.Outputs[OLE DB Source Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
+      DTS:refId="Package\CRM Country → CountryTemp"
+      DTS:CreationName="Microsoft.Pipeline"
+      DTS:Description="Data Flow Task"
+      DTS:DTSID="{BF2D9DAC-AACE-4793-BCE2-E2289BA9DB99}"
+      DTS:ExecutableType="Microsoft.Pipeline"
+      DTS:LocaleID="-1"
+      DTS:ObjectName="CRM Country → CountryTemp"
+      DTS:TaskContact="Performs high-performance data extraction, transformation and loading;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1">
+      <DTS:Variables />
+      <DTS:ObjectData>
+        <pipeline
+          version="1">
+          <components>
+            <component
+              refId="Package\CRM Country → CountryTemp\CountryTemp Destination"
+              componentClassID="Microsoft.OLEDBDestination"
+              contactInfo="OLE DB Destination;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;4"
+              description="OLE DB Destination"
+              name="CountryTemp Destination"
+              usesDispositions="true"
+              version="4">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="The number of seconds before a command times out.  A value of 0 indicates an infinite time-out."
+                  name="CommandTimeout">0</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the name of the database object used to open a rowset."
+                  name="OpenRowset"></property>
+                <property
+                  dataType="System.String"
+                  description="Specifies the variable that contains the name of the database object used to open a rowset."
+                  name="OpenRowsetVariable"></property>
+                <property
+                  dataType="System.String"
+                  description="The SQL command to be executed."
+                  name="SqlCommand"
+                  UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
+    [sc_countryid],
+    [sc_name],
+    [sc_completename]
+FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the column code page to use when code page information is unavailable from the data source."
+                  name="DefaultCodePage">1252</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Forces the use of the DefaultCodePage property value when describing character data."
+                  name="AlwaysUseDefaultCodePage">false</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the mode used to access the database."
+                  name="AccessMode"
+                  typeConverter="AccessMode">2</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the values supplied for identity columns will be copied to the destination. If false, values for identity columns will be auto-generated at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepIdentity">false</property>
+                <property
+                  dataType="System.Boolean"
+                  description="Indicates whether the columns containing null will have null inserted in the destination. If false, columns containing null will have their default values inserted at the destination. Applies only if fast load is turned on."
+                  name="FastLoadKeepNulls">false</property>
+                <property
+                  dataType="System.String"
+                  description="Specifies options to be used with fast load.  Applies only if fast load is turned on."
+                  name="FastLoadOptions"></property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies when commits are issued during data insertion.  A value of 0 specifies that one commit will be issued at the end of data insertion.  Applies only if fast load is turned on."
+                  name="FastLoadMaxInsertCommitSize">2147483647</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Connections[OleDbConnection]"
+                  connectionManagerID="{63204EA1-F3A5-48AB-912F-33D405F3D529}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[(localdb)_mssqllocaldb.SC_DATAHUB1]"
+                  description="The OLE DB runtime connection used to access the database."
+                  name="OleDbConnection" />
+              </connections>
+              <inputs>
+                <input
+                  refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input]"
+                  errorOrTruncationOperation="Insert"
+                  errorRowDisposition="FailComponent"
+                  hasSideEffects="true"
+                  name="OLE DB Destination Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input].Columns[sc_completename]"
+                      cachedDataType="wstr"
+                      cachedLength="100"
+                      cachedName="sc_completename"
+                      externalMetadataColumnId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_completename]"
+                      lineageId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_completename]" />
+                    <inputColumn
+                      refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input].Columns[sc_countryid]"
+                      cachedDataType="guid"
+                      cachedName="sc_countryid"
+                      externalMetadataColumnId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_countryid]"
+                      lineageId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_countryid]" />
+                    <inputColumn
+                      refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input].Columns[sc_name]"
+                      cachedDataType="wstr"
+                      cachedLength="850"
+                      cachedName="sc_name"
+                      externalMetadataColumnId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      lineageId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_name]" />
+                  </inputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_countryid]"
+                      dataType="wstr"
+                      length="38"
+                      name="sc_countryid" />
+                    <externalMetadataColumn
+                      refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name" />
+                    <externalMetadataColumn
+                      refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input].ExternalColumns[sc_completename]"
+                      dataType="wstr"
+                      length="200"
+                      name="sc_completename" />
+                  </externalMetadataColumns>
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Outputs[OLE DB Destination Error Output]"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="OLE DB Destination Error Output"
+                  synchronousInputId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CRM Country → CountryTemp\CountryTemp Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CRM Country → CountryTemp\CountryTemp Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CRM Country → CountryTemp\CountryTemp Destination.Outputs[OLE DB Destination Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CRM Country → CountryTemp\CRM Country"
+              componentClassID="Microsoft.ManagedComponentHost"
+              contactInfo="KingswaySoft Inc.; http://www.kingswaysoft.com; support@kingswaysoft.com; Copyright (c) 2011-2026 KingswaySoft Inc."
+              description="Extract data from Microsoft Dynamics 365 CE/CRM."
+              name="CRM Country"
+              usesDispositions="true"
+              version="3">
+              <properties>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the type of source data from Microsoft Dynamics CRM."
+                  expressionType="Notify"
+                  name="SourceType"
+                  typeConverter="KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceType">1</property>
+                <property
+                  dataType="System.String"
+                  description="Dynamics CRM entity to retrieve data from."
+                  expressionType="Notify"
+                  name="SourceEntity"></property>
+                <property
+                  dataType="System.String"
+                  description="FetchXML statement."
+                  expressionType="Notify"
+                  name="FetchXML">&lt;fetch mapping='logical'&gt;
+    &lt;entity name='sc_country'&gt;
+        &lt;attribute name='sc_completename'/&gt;
+        &lt;attribute name='sc_countryid'/&gt;
+        &lt;attribute name='sc_name'/&gt;
+     &lt;filter type='and'&gt;
+      &lt;condition attribute='statecode' operator='eq' value='0' /&gt;
+    &lt;/filter&gt;
+    &lt;/entity&gt;
+&lt;/fetch&gt;</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the batch size of the query."
+                  expressionType="Notify"
+                  name="BatchSize">2000</property>
+                <property
+                  dataType="System.Int32"
+                  description="Specify the maximum number of rows to be returned from the Dynamics 365/CRM server (Specify 0 to read all satisfying records)."
+                  expressionType="Notify"
+                  name="MaxRowsReturned">0</property>
+                <property
+                  dataType="System.Null"
+                  description="The caller to be used for CRM impersonation when reading from CRM server."
+                  expressionType="Notify"
+                  name="ImpersonateAs" />
+                <property
+                  dataType="System.Int32"
+                  description="Specifies the output timezone for CRM datetime fields."
+                  expressionType="Notify"
+                  name="OutputTimezone"
+                  typeConverter="KingswaySoft.IntegrationToolkit.Common.DescriptiveEnumTypeConverter`1[[KingswaySoft.IntegrationToolkit.DynamicsCrm.SourceOutputTimezone">0</property>
+                <property
+                  dataType="System.String"
+                  name="UserComponentTypeName">KingswaySoft.IntegrationToolkit.DynamicsCrm.CrmSourceComponent</property>
+              </properties>
+              <connections>
+                <connection
+                  refId="Package\CRM Country → CountryTemp\CRM Country.Connections[DynamicsCRM]"
+                  connectionManagerID="{A55D8DF9-97D9-405A-A87A-3DDA15F0CBFC}:external"
+                  connectionManagerRefId="Project.ConnectionManagers[Dynamics CRM Connection Manager]"
+                  description="Dynamics CRM Connection Manager"
+                  name="DynamicsCRM" />
+              </connections>
+              <outputs>
+                <output
+                  refId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output]"
+                  name="Primary Output">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_completename]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].ExternalColumns[sc_completename]"
+                      length="100"
+                      lineageId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_completename]"
+                      name="sc_completename"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_countryid]"
+                      dataType="guid"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].ExternalColumns[sc_countryid]"
+                      lineageId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_countryid]"
+                      name="sc_countryid"
+                      truncationRowDisposition="FailComponent" />
+                    <outputColumn
+                      refId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_name]"
+                      dataType="wstr"
+                      errorOrTruncationOperation="Conversion"
+                      errorRowDisposition="FailComponent"
+                      externalMetadataColumnId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      length="850"
+                      lineageId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_name]"
+                      name="sc_name"
+                      truncationRowDisposition="FailComponent" />
+                  </outputColumns>
+                  <externalMetadataColumns
+                    isUsed="True">
+                    <externalMetadataColumn
+                      refId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].ExternalColumns[sc_completename]"
+                      dataType="wstr"
+                      length="100"
+                      name="sc_completename" />
+                    <externalMetadataColumn
+                      refId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].ExternalColumns[sc_countryid]"
+                      dataType="guid"
+                      name="sc_countryid" />
+                    <externalMetadataColumn
+                      refId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].ExternalColumns[sc_name]"
+                      dataType="wstr"
+                      length="850"
+                      name="sc_name" />
+                  </externalMetadataColumns>
+                </output>
+              </outputs>
+            </component>
+            <component
+              refId="Package\CRM Country → CountryTemp\Derived Column"
+              componentClassID="Microsoft.DerivedColumn"
+              contactInfo="Derived Column;Microsoft Corporation; Microsoft SQL Server; (C) Microsoft Corporation; All Rights Reserved; http://www.microsoft.com/sql/support;0"
+              description="Creates new column values by applying expressions to transformation input columns. Create new columns or overwrite existing ones. For example, concatenate the values from the 'first name' and 'last name' column to make a 'full name' column."
+              name="Derived Column"
+              usesDispositions="true">
+              <inputs>
+                <input
+                  refId="Package\CRM Country → CountryTemp\Derived Column.Inputs[Derived Column Input]"
+                  description="Input to the Derived Column Transformation"
+                  name="Derived Column Input">
+                  <inputColumns>
+                    <inputColumn
+                      refId="Package\CRM Country → CountryTemp\Derived Column.Inputs[Derived Column Input].Columns[sc_countryid]"
+                      cachedDataType="guid"
+                      cachedName="sc_countryid"
+                      errorOrTruncationOperation="Computation"
+                      errorRowDisposition="FailComponent"
+                      lineageId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_countryid]"
+                      truncationRowDisposition="FailComponent"
+                      usageType="readWrite">
+                      <properties>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Expression"
+                          name="Expression">[LOWER]((DT_WSTR,38)#{Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output].Columns[sc_countryid]})</property>
+                        <property
+                          containsID="true"
+                          dataType="System.String"
+                          description="Derived Column Friendly Expression"
+                          expressionType="Notify"
+                          name="FriendlyExpression">LOWER((DT_WSTR,38)sc_countryid)</property>
+                      </properties>
+                    </inputColumn>
+                  </inputColumns>
+                  <externalMetadataColumns />
+                </input>
+              </inputs>
+              <outputs>
+                <output
+                  refId="Package\CRM Country → CountryTemp\Derived Column.Outputs[Derived Column Output]"
+                  description="Default Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  name="Derived Column Output"
+                  synchronousInputId="Package\CRM Country → CountryTemp\Derived Column.Inputs[Derived Column Input]">
+                  <externalMetadataColumns />
+                </output>
+                <output
+                  refId="Package\CRM Country → CountryTemp\Derived Column.Outputs[Derived Column Error Output]"
+                  description="Error Output of the Derived Column Transformation"
+                  exclusionGroup="1"
+                  isErrorOut="true"
+                  name="Derived Column Error Output"
+                  synchronousInputId="Package\CRM Country → CountryTemp\Derived Column.Inputs[Derived Column Input]">
+                  <outputColumns>
+                    <outputColumn
+                      refId="Package\CRM Country → CountryTemp\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      dataType="i4"
+                      lineageId="Package\CRM Country → CountryTemp\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorCode]"
+                      name="ErrorCode"
+                      specialFlags="1" />
+                    <outputColumn
+                      refId="Package\CRM Country → CountryTemp\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      dataType="i4"
+                      lineageId="Package\CRM Country → CountryTemp\Derived Column.Outputs[Derived Column Error Output].Columns[ErrorColumn]"
+                      name="ErrorColumn"
+                      specialFlags="2" />
+                  </outputColumns>
+                  <externalMetadataColumns />
+                </output>
+              </outputs>
+            </component>
+          </components>
+          <paths>
+            <path
+              refId="Package\CRM Country → CountryTemp.Paths[Derived Column Output]"
+              endId="Package\CRM Country → CountryTemp\CountryTemp Destination.Inputs[OLE DB Destination Input]"
+              name="Derived Column Output"
+              startId="Package\CRM Country → CountryTemp\Derived Column.Outputs[Derived Column Output]" />
+            <path
+              refId="Package\CRM Country → CountryTemp.Paths[Primary Output]"
+              endId="Package\CRM Country → CountryTemp\Derived Column.Inputs[Derived Column Input]"
+              name="Primary Output"
+              startId="Package\CRM Country → CountryTemp\CRM Country.Outputs[Primary Output]" />
+          </paths>
+        </pipeline>
+      </DTS:ObjectData>
+    </DTS:Executable>
+    <DTS:Executable
       DTS:refId="Package\crm_CountryTemp left join and update dbo_Country"
       DTS:CreationName="Microsoft.ExecuteSQLTask"
       DTS:Description="Execute SQL Task"
@@ -96,7 +850,7 @@
       DTS:LocaleID="-1"
       DTS:ObjectName="crm_CountryTemp left join and update dbo_Country"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -1473,8 +2227,7 @@ FROM [SC_DATAHUB].[dbo].[Country]</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
     privateConfig.[Id] AS [sc_privateconfigurationid],
     privateConfig.[Description] AS [sc_description]
-FROM [SC_DATAHUB].[crm].[PrivateConfiguration] AS privateConfig
-WHERE privateConfig.[Key] = N'CountryConfig';</property>
+FROM [SC_DATAHUB].[crm].[PrivateConfiguration] AS privateConfig</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -2298,7 +3051,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
       DTS:LocaleID="-1"
       DTS:ObjectName="Update file Json Country  crm_PriveConfigTemp DB"
       DTS:TaskContact="Execute SQL Task; Microsoft Corporation; SQL Server 2025; © 2025 Microsoft Corporation; All Rights Reserved;http://www.microsoft.com/sql/support/default.asp;1"
-      DTS:ThreadHint="0">
+      DTS:ThreadHint="1">
       <DTS:Variables />
       <DTS:ObjectData>
         <SQLTask:SqlTaskData
@@ -2325,13 +3078,47 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
       DTS:ObjectName="Constraint 1"
       DTS:To="Package\Dynamics Country import crm_CountryTemp di DB" />
     <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 10]"
+      DTS:CreationName=""
+      DTS:DTSID="{3F97DBA3-04AF-4443-A631-F63EB32ECCDB}"
+      DTS:From="Package\CheckCountryTempBeforeCountryImport"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 10"
+      DTS:To="Package\CountryTemp Delete → Dynamics CRM Country Delete" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 11]"
+      DTS:CreationName=""
+      DTS:DTSID="{0F3B2331-1191-47CC-820C-67C70581D2AA}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::CountryTempCount] &gt; 0"
+      DTS:From="Package\Count CountryTemp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 11"
+      DTS:To="Package\CheckCountryTempBeforeCountryImport" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 12]"
+      DTS:CreationName=""
+      DTS:DTSID="{62981B91-9F61-4F30-BA8A-F546C9A3004C}"
+      DTS:EvalOp="3"
+      DTS:Expression="@[User::CountryTempCount] == 0"
+      DTS:From="Package\Count CountryTemp"
+      DTS:ObjectName="Constraint 12"
+      DTS:To="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 13]"
+      DTS:CreationName=""
+      DTS:DTSID="{834A4560-C2E4-4772-A4B5-B39197FDE28C}"
+      DTS:From="Package\CountryTemp Delete → Dynamics CRM Country Delete"
+      DTS:ObjectName="Constraint 13"
+      DTS:To="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB" />
+    <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 2]"
       DTS:CreationName=""
-      DTS:DTSID="{0E3F484C-4D06-43B1-818D-E74AD0ACB7B9}"
+      DTS:DTSID="{AE9EEFA7-7358-439E-93A6-53F0C1AC6F2E}"
       DTS:From="Package\Clear PriveConfigTemp START"
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 2"
-      DTS:To="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB" />
+      DTS:To="Package\CRM Country → CountryTemp" />
     <DTS:PrecedenceConstraint
       DTS:refId="Package.PrecedenceConstraints[Constraint 3]"
       DTS:CreationName=""
@@ -2380,6 +3167,14 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
       DTS:LogicalAnd="True"
       DTS:ObjectName="Constraint 8"
       DTS:To="Package\Clear PriveConfigTemp FINE" />
+    <DTS:PrecedenceConstraint
+      DTS:refId="Package.PrecedenceConstraints[Constraint 9]"
+      DTS:CreationName=""
+      DTS:DTSID="{1EC4FE19-FDE7-415D-8B5B-56C94CBC5CEA}"
+      DTS:From="Package\CRM Country → CountryTemp"
+      DTS:LogicalAnd="True"
+      DTS:ObjectName="Constraint 9"
+      DTS:To="Package\Count CountryTemp" />
   </DTS:PrecedenceConstraints>
   <DTS:DesignTimeProperties><![CDATA[<?xml version="1.0"?>
 <!--This CDATA section contains the layout information of the package. The section includes information such as (x,y) coordinates, width, and height.-->
@@ -2392,61 +3187,61 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
     design-time-name="Package">
     <LayoutInfo>
       <GraphLayout
-        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
           Size="170.666666666667,42.6666666666667"
           Id="Package\Clear CountryTemp"
-          TopLeft="178.749992009252,224.249989306927" />
+          TopLeft="280.312487469055,277.274988113642" />
         <NodeLayout
           Size="196.666666666667,42.6666666666667"
           Id="Package\Clear CountryTemp FINE"
-          TopLeft="160.416659495483,664.129605626178" />
+          TopLeft="508.854143919113,641.321274715575" />
         <NodeLayout
           Size="212,42.6666666666667"
           Id="Package\Clear PriveConfigTemp FINE"
-          TopLeft="159.722215082083,734.037013550159" />
+          TopLeft="712.326357045419,640.812019330617" />
         <NodeLayout
           Size="221.333333333334,42.6666666666667"
           Id="Package\Clear PriveConfigTemp START"
-          TopLeft="159.374992875382,83.8499960017206" />
+          TopLeft="25.3124988684425,16.6250005424022" />
         <NodeLayout
           Size="325.333333333334,42.6666666666667"
           Id="Package\crm_CountryTemp left join and update dbo_Country"
-          TopLeft="109.374995110557,371.14998230219" />
+          TopLeft="210.93749057036,424.174981108905" />
         <NodeLayout
           Size="421.333333333334,42.6666666666667"
           Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB"
-          TopLeft="56.8749974574896,151.449992778302" />
+          TopLeft="158.437492917292,204.474991585017" />
         <NodeLayout
           Size="268,42.6666666666667"
           Id="Package\DB PriveConfig import Json in Dynamics"
-          TopLeft="127.777772065666,591.79627277498" />
+          TopLeft="229.340267525469,644.821271581695" />
         <NodeLayout
           Size="260,42.6666666666667"
           Id="Package\Delete CRM Country not present in DB"
-          TopLeft="144.444437987275,441.277756736014" />
+          TopLeft="246.006933447078,494.302755542729" />
         <NodeLayout
           Size="317.333333333334,42.6666666666667"
           Id="Package\Dynamics Country import crm_CountryTemp di DB"
-          TopLeft="107.499995194376,294.44998595953" />
+          TopLeft="209.062490654179,347.474984766245" />
         <NodeLayout
           Size="321.333333333334,42.6666666666667"
           Id="Package\Update file Json Country  crm_PriveConfigTemp DB"
-          TopLeft="113.194439384259,521.888864850999" />
+          TopLeft="214.756934844062,574.913863657714" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint]"
-          TopLeft="265.812494733371,194.116659444969">
+          TopLeft="367.374990193173,247.141658251684">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,30.1333298619582"
+              EndConnector="0,30.1333298619583"
               Start="0,0"
-              End="0,22.6333298619582">
+              End="0,22.6333298619583">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.6333298619582" />
+                    End="0,22.6333298619583" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2457,7 +3252,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 1]"
-          TopLeft="265.124993601814,266.916655973594">
+          TopLeft="366.687489061617,319.941654780309">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2478,30 +3273,8 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="268.791661833103,126.516662668387">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,24.9333301099147"
-              Start="0,0"
-              End="0,17.4333301099147">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,17.4333301099147" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 3]"
-          TopLeft="269.104161819133,337.116652626197">
+          TopLeft="370.666657278936,390.141651432912">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2523,7 +3296,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 4]"
-          TopLeft="273.243049882249,413.816648968856">
+          TopLeft="374.805545342052,466.841647775571">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2545,7 +3318,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 5]"
-          TopLeft="274.1527720191,483.944423402681">
+          TopLeft="375.715267478902,536.969422209396">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2567,7 +3340,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 6]"
-          TopLeft="273.861106050925,564.555531517666">
+          TopLeft="375.423601510728,617.580530324381">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
@@ -2601,18 +3374,30 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 7]"
-          TopLeft="260.263882447241,634.462939441646">
+          TopLeft="363.340267525469,687.487938248362">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,29.6666661845314"
+              EndConnector="212.402765282534,-3.49999686612034"
               Start="0,0"
-              End="0,22.1666661845314">
+              End="212.402765282534,4.00000313387966">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,22.1666661845314" />
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="208.402765282534,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="208.402765282534,22.5"
+                    Point2="212.402765282534,22.5"
+                    Point3="212.402765282534,18.5" />
+                  <mssgle:LineSegment
+                    End="212.402765282534,4.00000313387966" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -2623,24 +3408,242 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         </EdgeLayout>
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 8]"
-          TopLeft="262.23610395545,706.796272292844">
+          TopLeft="638.631921696891,683.987941382242">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="0,27.2407412573142"
+              EndConnector="179.694435348528,-0.509255384957669"
               Start="0,0"
-              End="0,19.7407412573142">
+              End="179.694435348528,6.99074461504233">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,19.7407412573142" />
+                    End="0,18.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,18.5"
+                    Point2="0,22.5"
+                    Point3="4,22.5" />
+                  <mssgle:LineSegment
+                    End="175.694435348528,22.5" />
+                  <mssgle:CubicBezierSegment
+                    Point1="175.694435348528,22.5"
+                    Point2="179.694435348528,22.5"
+                    Point3="179.694435348528,18.5" />
+                  <mssgle:LineSegment
+                    End="179.694435348528,6.99074461504233" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="221.333333333334,42.6666666666667"
+          Id="Package\CRM Country → CountryTemp"
+          TopLeft="299.53123660991,19.5500004029274" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="246.645832201776,39.4208338059981">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.8854044081343,0"
+              Start="0,0"
+              End="45.3854044081343,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.3854044081343,0" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="270.666666666667,42.6666666666667"
+          Id="Package\CheckCountryTempBeforeCountryImport"
+          TopLeft="593.334471543855,53.6861088054711" />
+        <NodeLayout
+          Size="337.333333333334,42.6666666666667"
+          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete"
+          TopLeft="528.395814152745,145.358326561054" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="772.445582654966,96.3527754721378">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-75.383101835554,49.0055510889161"
+              Start="0,0"
+              End="-75.383101835554,41.5055510889161">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,15.7750118008163" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,15.7750118008163"
+                    Point2="0,19.7750118008163"
+                    Point3="-4,19.7750118008163" />
+                  <mssgle:LineSegment
+                    End="-71.383101835554,19.7750118008163" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-71.383101835554,19.7750118008163"
+                    Point2="-75.383101835554,19.7750118008163"
+                    Point3="-75.383101835554,23.7750118008163" />
+                  <mssgle:LineSegment
+                    End="-75.383101835554,41.5055510889161" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Count CountryTemp"
+          TopLeft="261.71873830026,115.374994498491" />
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 9]"
+          TopLeft="410.197903276577,62.2166670695941">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-61.1458316429831,53.1583274288974"
+              Start="0,0"
+              End="-61.1458316429831,45.6583274288974">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,22.5791637144487" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,22.5791637144487"
+                    Point2="0,26.5791637144487"
+                    Point3="-4,26.5791637144487" />
+                  <mssgle:LineSegment
+                    End="-57.1458316429831,26.5791637144487" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-57.1458316429831,26.5791637144487"
+                    Point2="-61.1458316429831,26.5791637144487"
+                    Point3="-61.1458316429831,30.5791637144487" />
+                  <mssgle:LineSegment
+                    End="-61.1458316429831,45.6583274288974" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="349.052071633594,158.041661165158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48.8368009385239,46.4333304198589"
+              Start="0,0"
+              End="-48.8368009385239,38.9333304198589">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7546010328034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7546010328034"
+                    Point2="0,27.7546010328034"
+                    Point3="-4,27.7546010328034" />
+                  <mssgle:LineSegment
+                    End="-44.8368009385239,27.7546010328034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-44.8368009385239,27.7546010328034"
+                    Point2="-48.8368009385239,27.7546010328034"
+                    Point3="-48.8368009385239,31.7546010328034" />
+                  <mssgle:LineSegment
+                    End="-48.8368009385239,38.9333304198589" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.4184004692619,32.7546010328034,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="528.395814152745,166.691659894387">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90.4027656798977,37.7833316906298"
+              Start="0,0"
+              End="-90.4027656798977,30.2833316906298">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-86.4027656798977,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86.4027656798977,0"
+                    Point2="-90.4027656798977,0"
+                    Point3="-90.4027656798977,4" />
+                  <mssgle:LineSegment
+                    End="-90.4027656798977,30.2833316906298" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="436.385404966927,136.708327831825">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.949066576928,-61.6888856930204"
+              Start="0,0"
+              End="149.449066576928,-61.6888856930204">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="74.4745332884638,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74.4745332884638,0"
+                    Point2="78.4745332884638,0"
+                    Point3="78.4745332884638,-4" />
+                  <mssgle:LineSegment
+                    End="78.4745332884638,-57.6888856930204" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.4745332884638,-57.6888856930204"
+                    Point2="78.4745332884638,-61.6888856930204"
+                    Point3="82.4745332884638,-61.6888856930204" />
+                  <mssgle:LineSegment
+                    End="149.449066576928,-61.6888856930204" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="70.4745332884638,1,16,16"
+              RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2650,7 +3653,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
     design-time-name="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="214.666666666667,42.6666666666667"
           Id="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB\Dynamics CRM PrivateConfig"
@@ -2686,9 +3689,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2710,9 +3711,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2788,7 +3787,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
     design-time-name="Package\Delete CRM Country not present in DB">
     <LayoutInfo>
       <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
         <NodeLayout
           Size="141.333333333334,42.6666666666667"
           Id="Package\Delete CRM Country not present in DB\Country CRM"
@@ -2816,9 +3815,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
@@ -2880,9 +3877,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="0,0,0,0"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
@@ -2922,6 +3917,150 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CRM Country → CountryTemp">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\CRM Country → CountryTemp\CRM Country"
+          TopLeft="230.999993115664,79.9999976158143" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\CRM Country → CountryTemp\Derived Column"
+          TopLeft="221.538454936101,155.384610753793" />
+        <EdgeLayout
+          Id="Package\CRM Country → CountryTemp.Paths[Primary Output]"
+          TopLeft="300.269224025882,122.666664282481">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="0,32.7179464713121"
+              Start="0,0"
+              End="0,25.2179464713121">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,25.2179464713121" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <NodeLayout
+          Size="200,42.6666666666667"
+          Id="Package\CRM Country → CountryTemp\CountryTemp Destination"
+          TopLeft="212.30768598043,229.23076239916" />
+        <EdgeLayout
+          Id="Package\CRM Country → CountryTemp.Paths[Derived Column Output]"
+          TopLeft="298.871788269434,198.05127742046">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="13.4358977109959,31.1794849787004"
+              Start="0,0"
+              End="13.4358977109959,23.6794849787004">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,11.5897424893502" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,11.5897424893502"
+                    Point2="0,15.5897424893502"
+                    Point3="4,15.5897424893502" />
+                  <mssgle:LineSegment
+                    End="9.4358977109959,15.5897424893502" />
+                  <mssgle:CubicBezierSegment
+                    Point1="9.4358977109959,15.5897424893502"
+                    Point2="13.4358977109959,15.5897424893502"
+                    Point3="13.4358977109959,19.5897424893502" />
+                  <mssgle:LineSegment
+                    End="13.4358977109959,23.6794849787004" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CRM Country → CountryTemp\CountryTemp Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CountryTemp Delete → Dynamics CRM Country Delete">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="250.666666666667,42.6666666666667"
+          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete"
+          TopLeft="228.461531652854,73.3846131975835" />
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete"
+          TopLeft="264.615376729232,165.38461045577" />
+        <EdgeLayout
+          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete.Paths[OLE DB Source Output]"
+          TopLeft="353.794864986188,116.05127986425">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="22.1538450763776,49.3333305915197"
+              Start="0,0"
+              End="22.1538450763776,41.8333305915197">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.6666652957599" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.6666652957599"
+                    Point2="0,24.6666652957599"
+                    Point3="4,24.6666652957599" />
+                  <mssgle:LineSegment
+                    End="18.1538450763776,24.6666652957599" />
+                  <mssgle:CubicBezierSegment
+                    Point1="18.1538450763776,24.6666652957599"
+                    Point2="22.1538450763776,24.6666652957599"
+                    Point3="22.1538450763776,28.6666652957599" />
+                  <mssgle:LineSegment
+                    End="22.1538450763776,41.8333305915197" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="3.0769225381888,29.6666652957599,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>
