@@ -2,7 +2,7 @@
 <BuildLog xmlns:xsd="http://www.w3.org/2001/XMLSchema" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
   <ProjectInfo>
     <Name>IntegrationServicesProject.sc_DigitalProducts</Name>
-    <LastWriteTime>2026-06-18T09:19:14.4276161Z</LastWriteTime>
+    <LastWriteTime>2026-06-24T07:40:55.9980866Z</LastWriteTime>
     <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
   </ProjectInfo>
   <LastBuildInfos>
@@ -18,7 +18,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Basic Exel package.dtsx</Name>
-      <LastWriteTime>2026-06-05T10:31:33.9690699Z</LastWriteTime>
+      <LastWriteTime>2026-06-23T14:40:29.3611763Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
@@ -38,7 +38,7 @@
     </ProjectBuildItemInfo>
     <ProjectBuildItemInfo>
       <Name>Country IVA.dtsx</Name>
-      <LastWriteTime>2026-06-22T11:16:42.999462Z</LastWriteTime>
+      <LastWriteTime>2026-06-24T07:40:36.4181673Z</LastWriteTime>
       <LastKnownProtectionLevel>EncryptSensitiveWithUserKey</LastKnownProtectionLevel>
     </ProjectBuildItemInfo>
   </LastBuildInfos>

@@ -11,8 +11,8 @@
   DTS:LocaleID="1033"
   DTS:ObjectName="Country IVA"
   DTS:PackageType="5"
-  DTS:VersionBuild="90"
-  DTS:VersionGUID="{456DF65F-7FDC-497E-996C-A4B6233FD6B5}">
+  DTS:VersionBuild="93"
+  DTS:VersionGUID="{480F4200-32F3-4A5F-83C2-EBE9119AE577}">
   <DTS:Property
     DTS:Name="PackageFormatVersion">8</DTS:Property>
   <DTS:Variables>
@@ -1340,6 +1340,7 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         &lt;attribute name='statecode'/&gt;
    &lt;filter type='and'&gt;
       &lt;condition attribute='sc_key' operator='eq' value='CountryConfig' /&gt;   
+      &lt;condition attribute='statecode' operator='eq' value='0' /&gt;
     &lt;/filter&gt;
     &lt;/entity&gt;
 &lt;/fetch&gt;</property>
@@ -2227,7 +2228,8 @@ FROM [SC_DATAHUB].[dbo].[Country]</property>
                   UITypeEditor="Microsoft.DataTransformationServices.Controls.ModalMultilineStringEditor">SELECT
     privateConfig.[Id] AS [sc_privateconfigurationid],
     privateConfig.[Description] AS [sc_description]
-FROM [SC_DATAHUB].[crm].[PrivateConfiguration] AS privateConfig</property>
+FROM [SC_DATAHUB].[crm].[PrivateConfiguration] AS privateConfig
+WHERE  [Key]  = 'CountryConfig'</property>
                 <property
                   dataType="System.String"
                   description="The variable that contains the SQL command to be executed."
@@ -3189,6 +3191,10 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
       <GraphLayout
         Capacity="32" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
         <NodeLayout
+          Size="270.666666666667,42.6666666666667"
+          Id="Package\CheckCountryTempBeforeCountryImport"
+          TopLeft="593.334471543855,53.6861088054711" />
+        <NodeLayout
           Size="170.666666666667,42.6666666666667"
           Id="Package\Clear CountryTemp"
           TopLeft="280.312487469055,277.274988113642" />
@@ -3204,6 +3210,18 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
           Size="221.333333333334,42.6666666666667"
           Id="Package\Clear PriveConfigTemp START"
           TopLeft="25.3124988684425,16.6250005424022" />
+        <NodeLayout
+          Size="174.666666666667,42.6666666666667"
+          Id="Package\Count CountryTemp"
+          TopLeft="261.71873830026,115.374994498491" />
+        <NodeLayout
+          Size="337.333333333334,42.6666666666667"
+          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete"
+          TopLeft="528.395814152745,145.358326561054" />
+        <NodeLayout
+          Size="221.333333333334,42.6666666666667"
+          Id="Package\CRM Country → CountryTemp"
+          TopLeft="299.53123660991,19.5500004029274" />
         <NodeLayout
           Size="325.333333333334,42.6666666666667"
           Id="Package\crm_CountryTemp left join and update dbo_Country"
@@ -3264,6 +3282,162 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
                   Capacity="5">
                   <mssgle:LineSegment
                     End="0,20.0333299859369" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 10]"
+          TopLeft="728.667804877188,96.3527754721378">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-31.6053240577763,49.0055510889161"
+              Start="0,0"
+              End="-31.6053240577763,41.5055510889161">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,20.502775544458" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,20.502775544458"
+                    Point2="0,24.502775544458"
+                    Point3="-4,24.502775544458" />
+                  <mssgle:LineSegment
+                    End="-27.6053240577763,24.502775544458" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-27.6053240577763,24.502775544458"
+                    Point2="-31.6053240577763,24.502775544458"
+                    Point3="-31.6053240577763,28.502775544458" />
+                  <mssgle:LineSegment
+                    End="-31.6053240577763,41.5055510889161" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 11]"
+          TopLeft="436.385404966927,136.708327831825">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="156.949066576928,-61.6888856930204"
+              Start="0,0"
+              End="149.449066576928,-61.6888856930204">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="74.4745332884639,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="74.4745332884639,0"
+                    Point2="78.4745332884639,0"
+                    Point3="78.4745332884639,-4" />
+                  <mssgle:LineSegment
+                    End="78.4745332884639,-57.6888856930204" />
+                  <mssgle:CubicBezierSegment
+                    Point1="78.4745332884639,-57.6888856930204"
+                    Point2="78.4745332884639,-61.6888856930204"
+                    Point3="82.4745332884639,-61.6888856930204" />
+                  <mssgle:LineSegment
+                    End="149.449066576928,-61.6888856930204" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="70.4745332884639,1,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 12]"
+          TopLeft="349.052071633594,158.041661165158">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-48.8368009385239,46.4333304198589"
+              Start="0,0"
+              End="-48.8368009385239,38.9333304198589">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="0,23.7546010328034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="0,23.7546010328034"
+                    Point2="0,27.7546010328034"
+                    Point3="-4,27.7546010328034" />
+                  <mssgle:LineSegment
+                    End="-44.8368009385239,27.7546010328034" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-44.8368009385239,27.7546010328034"
+                    Point2="-48.8368009385239,27.7546010328034"
+                    Point3="-48.8368009385239,31.7546010328034" />
+                  <mssgle:LineSegment
+                    End="-48.8368009385239,38.9333304198589" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <mssgm:EdgeLabel
+              BoundingBox="-32.4184004692619,32.7546010328034,16,16"
+              RelativePosition="Any" />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 13]"
+          TopLeft="528.395814152745,166.691659894387">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="-90.4027656798977,37.7833316906298"
+              Start="0,0"
+              End="-90.4027656798977,30.2833316906298">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="-86.4027656798977,0" />
+                  <mssgle:CubicBezierSegment
+                    Point1="-86.4027656798977,0"
+                    Point2="-90.4027656798977,0"
+                    Point3="-90.4027656798977,4" />
+                  <mssgle:LineSegment
+                    End="-90.4027656798977,30.2833316906298" />
+                </mssgle:SegmentCollection>
+              </mssgle:Curve.Segments>
+            </mssgle:Curve>
+          </EdgeLayout.Curve>
+          <EdgeLayout.Labels>
+            <EdgeLabelCollection />
+          </EdgeLayout.Labels>
+        </EdgeLayout>
+        <EdgeLayout
+          Id="Package.PrecedenceConstraints[Constraint 2]"
+          TopLeft="246.645832201776,39.4208338059981">
+          <EdgeLayout.Curve>
+            <mssgle:Curve
+              StartConnector="{assembly:Null}"
+              EndConnector="52.8854044081343,0"
+              Start="0,0"
+              End="45.3854044081343,0">
+              <mssgle:Curve.Segments>
+                <mssgle:SegmentCollection
+                  Capacity="5">
+                  <mssgle:LineSegment
+                    End="45.3854044081343,0" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3440,78 +3614,6 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
-        <NodeLayout
-          Size="221.333333333334,42.6666666666667"
-          Id="Package\CRM Country → CountryTemp"
-          TopLeft="299.53123660991,19.5500004029274" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 2]"
-          TopLeft="246.645832201776,39.4208338059981">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="52.8854044081343,0"
-              Start="0,0"
-              End="45.3854044081343,0">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="45.3854044081343,0" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="270.666666666667,42.6666666666667"
-          Id="Package\CheckCountryTempBeforeCountryImport"
-          TopLeft="593.334471543855,53.6861088054711" />
-        <NodeLayout
-          Size="337.333333333334,42.6666666666667"
-          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete"
-          TopLeft="528.395814152745,145.358326561054" />
-        <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 10]"
-          TopLeft="772.445582654966,96.3527754721378">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="-75.383101835554,49.0055510889161"
-              Start="0,0"
-              End="-75.383101835554,41.5055510889161">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,15.7750118008163" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,15.7750118008163"
-                    Point2="0,19.7750118008163"
-                    Point3="-4,19.7750118008163" />
-                  <mssgle:LineSegment
-                    End="-71.383101835554,19.7750118008163" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-71.383101835554,19.7750118008163"
-                    Point2="-75.383101835554,19.7750118008163"
-                    Point3="-75.383101835554,23.7750118008163" />
-                  <mssgle:LineSegment
-                    End="-75.383101835554,41.5055510889161" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="174.666666666667,42.6666666666667"
-          Id="Package\Count CountryTemp"
-          TopLeft="261.71873830026,115.374994498491" />
         <EdgeLayout
           Id="Package.PrecedenceConstraints[Constraint 9]"
           TopLeft="410.197903276577,62.2166670695941">
@@ -3546,62 +3648,88 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
             <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </Package>
+  <TaskHost
+    design-time-name="Package\CountryTemp Delete → Dynamics CRM Country Delete">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
+        <NodeLayout
+          Size="222.666666666667,42.6666666666667"
+          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete"
+          TopLeft="264.615376729232,165.38461045577" />
+        <NodeLayout
+          Size="250.666666666667,42.6666666666667"
+          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete"
+          TopLeft="251.538454042032,71.0769209586658" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 12]"
-          TopLeft="349.052071633594,158.041661165158">
+          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete.Paths[OLE DB Source Output]"
+          TopLeft="376.410248718965,113.743587625332">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-48.8368009385239,46.4333304198589"
+              EndConnector="0,51.6410228304375"
               Start="0,0"
-              End="-48.8368009385239,38.9333304198589">
+              End="0,44.1410228304375">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="0,23.7546010328034" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,23.7546010328034"
-                    Point2="0,27.7546010328034"
-                    Point3="-4,27.7546010328034" />
-                  <mssgle:LineSegment
-                    End="-44.8368009385239,27.7546010328034" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-44.8368009385239,27.7546010328034"
-                    Point2="-48.8368009385239,27.7546010328034"
-                    Point3="-48.8368009385239,31.7546010328034" />
-                  <mssgle:LineSegment
-                    End="-48.8368009385239,38.9333304198589" />
+                    End="0,44.1410228304375" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
             <mssgm:EdgeLabel
-              BoundingBox="-32.4184004692619,32.7546010328034,16,16"
+              BoundingBox="-8,14.0705114152187,16,16"
               RelativePosition="Any" />
           </EdgeLayout.Labels>
         </EdgeLayout>
+      </GraphLayout>
+    </LayoutInfo>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
+  <TaskHost
+    design-time-name="Package\CRM Country → CountryTemp">
+    <LayoutInfo>
+      <GraphLayout
+        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
+        <NodeLayout
+          Size="141.333333333334,42.6666666666667"
+          Id="Package\CRM Country → CountryTemp\CRM Country"
+          TopLeft="230.999993115664,79.9999976158143" />
+        <NodeLayout
+          Size="200,42.6666666666667"
+          Id="Package\CRM Country → CountryTemp\CountryTemp Destination"
+          TopLeft="212.30768598043,229.23076239916" />
+        <NodeLayout
+          Size="154.666666666667,42.6666666666667"
+          Id="Package\CRM Country → CountryTemp\Derived Column"
+          TopLeft="221.538454936101,155.384610753793" />
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 13]"
-          TopLeft="528.395814152745,166.691659894387">
+          Id="Package\CRM Country → CountryTemp.Paths[Primary Output]"
+          TopLeft="300.269224025882,122.666664282481">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="-90.4027656798977,37.7833316906298"
+              EndConnector="0,32.7179464713121"
               Start="0,0"
-              End="-90.4027656798977,30.2833316906298">
+              End="0,25.2179464713121">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="-86.4027656798977,0" />
-                  <mssgle:CubicBezierSegment
-                    Point1="-86.4027656798977,0"
-                    Point2="-90.4027656798977,0"
-                    Point3="-90.4027656798977,4" />
-                  <mssgle:LineSegment
-                    End="-90.4027656798977,30.2833316906298" />
+                    End="0,25.2179464713121" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
@@ -3611,44 +3739,50 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
           </EdgeLayout.Labels>
         </EdgeLayout>
         <EdgeLayout
-          Id="Package.PrecedenceConstraints[Constraint 11]"
-          TopLeft="436.385404966927,136.708327831825">
+          Id="Package\CRM Country → CountryTemp.Paths[Derived Column Output]"
+          TopLeft="298.871788269434,198.05127742046">
           <EdgeLayout.Curve>
             <mssgle:Curve
               StartConnector="{assembly:Null}"
-              EndConnector="156.949066576928,-61.6888856930204"
+              EndConnector="13.4358977109959,31.1794849787004"
               Start="0,0"
-              End="149.449066576928,-61.6888856930204">
+              End="13.4358977109959,23.6794849787004">
               <mssgle:Curve.Segments>
                 <mssgle:SegmentCollection
                   Capacity="5">
                   <mssgle:LineSegment
-                    End="74.4745332884638,0" />
+                    End="0,11.5897424893502" />
                   <mssgle:CubicBezierSegment
-                    Point1="74.4745332884638,0"
-                    Point2="78.4745332884638,0"
-                    Point3="78.4745332884638,-4" />
+                    Point1="0,11.5897424893502"
+                    Point2="0,15.5897424893502"
+                    Point3="4,15.5897424893502" />
                   <mssgle:LineSegment
-                    End="78.4745332884638,-57.6888856930204" />
+                    End="9.4358977109959,15.5897424893502" />
                   <mssgle:CubicBezierSegment
-                    Point1="78.4745332884638,-57.6888856930204"
-                    Point2="78.4745332884638,-61.6888856930204"
-                    Point3="82.4745332884638,-61.6888856930204" />
+                    Point1="9.4358977109959,15.5897424893502"
+                    Point2="13.4358977109959,15.5897424893502"
+                    Point3="13.4358977109959,19.5897424893502" />
                   <mssgle:LineSegment
-                    End="149.449066576928,-61.6888856930204" />
+                    End="13.4358977109959,23.6794849787004" />
                 </mssgle:SegmentCollection>
               </mssgle:Curve.Segments>
             </mssgle:Curve>
           </EdgeLayout.Curve>
           <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="70.4745332884638,1,16,16"
-              RelativePosition="Any" />
+            <EdgeLabelCollection />
           </EdgeLayout.Labels>
         </EdgeLayout>
       </GraphLayout>
     </LayoutInfo>
-  </Package>
+  </TaskHost>
+  <PipelineComponentMetadata
+    design-time-name="Package\CRM Country → CountryTemp\CountryTemp Destination">
+    <Properties>
+      <Property>
+        <Name>DataSourceViewID</Name>
+      </Property>
+    </Properties>
+  </PipelineComponentMetadata>
   <TaskHost
     design-time-name="Package\DB dbo_Country import Dynamincs and Dynamics PriveConfig import DB">
     <LayoutInfo>
@@ -3917,150 +4051,6 @@ FROM [SC_DATAHUB].[crm].[CountryTemp];</property>
         <Name>TableInfoObjectType</Name>
         <Value
           type="q2:string">Table</Value>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\CRM Country → CountryTemp">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="8" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml">
-        <NodeLayout
-          Size="141.333333333334,42.6666666666667"
-          Id="Package\CRM Country → CountryTemp\CRM Country"
-          TopLeft="230.999993115664,79.9999976158143" />
-        <NodeLayout
-          Size="154.666666666667,42.6666666666667"
-          Id="Package\CRM Country → CountryTemp\Derived Column"
-          TopLeft="221.538454936101,155.384610753793" />
-        <EdgeLayout
-          Id="Package\CRM Country → CountryTemp.Paths[Primary Output]"
-          TopLeft="300.269224025882,122.666664282481">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="0,32.7179464713121"
-              Start="0,0"
-              End="0,25.2179464713121">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,25.2179464713121" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-        <NodeLayout
-          Size="200,42.6666666666667"
-          Id="Package\CRM Country → CountryTemp\CountryTemp Destination"
-          TopLeft="212.30768598043,229.23076239916" />
-        <EdgeLayout
-          Id="Package\CRM Country → CountryTemp.Paths[Derived Column Output]"
-          TopLeft="298.871788269434,198.05127742046">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="13.4358977109959,31.1794849787004"
-              Start="0,0"
-              End="13.4358977109959,23.6794849787004">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,11.5897424893502" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,11.5897424893502"
-                    Point2="0,15.5897424893502"
-                    Point3="4,15.5897424893502" />
-                  <mssgle:LineSegment
-                    End="9.4358977109959,15.5897424893502" />
-                  <mssgle:CubicBezierSegment
-                    Point1="9.4358977109959,15.5897424893502"
-                    Point2="13.4358977109959,15.5897424893502"
-                    Point3="13.4358977109959,19.5897424893502" />
-                  <mssgle:LineSegment
-                    End="13.4358977109959,23.6794849787004" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <EdgeLabelCollection />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\CRM Country → CountryTemp\CountryTemp Destination">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
-      </Property>
-    </Properties>
-  </PipelineComponentMetadata>
-  <TaskHost
-    design-time-name="Package\CountryTemp Delete → Dynamics CRM Country Delete">
-    <LayoutInfo>
-      <GraphLayout
-        Capacity="4" xmlns="clr-namespace:Microsoft.SqlServer.IntegrationServices.Designer.Model.Serialization;assembly=Microsoft.SqlServer.IntegrationServices.Graph" xmlns:mssgle="clr-namespace:Microsoft.SqlServer.Graph.LayoutEngine;assembly=Microsoft.SqlServer.Graph" xmlns:assembly="http://schemas.microsoft.com/winfx/2006/xaml" xmlns:mssgm="clr-namespace:Microsoft.SqlServer.Graph.Model;assembly=Microsoft.SqlServer.Graph">
-        <NodeLayout
-          Size="250.666666666667,42.6666666666667"
-          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete"
-          TopLeft="228.461531652854,73.3846131975835" />
-        <NodeLayout
-          Size="222.666666666667,42.6666666666667"
-          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete\Dynamics CRM Country Delete"
-          TopLeft="264.615376729232,165.38461045577" />
-        <EdgeLayout
-          Id="Package\CountryTemp Delete → Dynamics CRM Country Delete.Paths[OLE DB Source Output]"
-          TopLeft="353.794864986188,116.05127986425">
-          <EdgeLayout.Curve>
-            <mssgle:Curve
-              StartConnector="{assembly:Null}"
-              EndConnector="22.1538450763776,49.3333305915197"
-              Start="0,0"
-              End="22.1538450763776,41.8333305915197">
-              <mssgle:Curve.Segments>
-                <mssgle:SegmentCollection
-                  Capacity="5">
-                  <mssgle:LineSegment
-                    End="0,20.6666652957599" />
-                  <mssgle:CubicBezierSegment
-                    Point1="0,20.6666652957599"
-                    Point2="0,24.6666652957599"
-                    Point3="4,24.6666652957599" />
-                  <mssgle:LineSegment
-                    End="18.1538450763776,24.6666652957599" />
-                  <mssgle:CubicBezierSegment
-                    Point1="18.1538450763776,24.6666652957599"
-                    Point2="22.1538450763776,24.6666652957599"
-                    Point3="22.1538450763776,28.6666652957599" />
-                  <mssgle:LineSegment
-                    End="22.1538450763776,41.8333305915197" />
-                </mssgle:SegmentCollection>
-              </mssgle:Curve.Segments>
-            </mssgle:Curve>
-          </EdgeLayout.Curve>
-          <EdgeLayout.Labels>
-            <mssgm:EdgeLabel
-              BoundingBox="3.0769225381888,29.6666652957599,16,16"
-              RelativePosition="Any" />
-          </EdgeLayout.Labels>
-        </EdgeLayout>
-      </GraphLayout>
-    </LayoutInfo>
-  </TaskHost>
-  <PipelineComponentMetadata
-    design-time-name="Package\CountryTemp Delete → Dynamics CRM Country Delete\OLE DB Source CountryTemp Delete">
-    <Properties>
-      <Property>
-        <Name>DataSourceViewID</Name>
       </Property>
     </Properties>
   </PipelineComponentMetadata>

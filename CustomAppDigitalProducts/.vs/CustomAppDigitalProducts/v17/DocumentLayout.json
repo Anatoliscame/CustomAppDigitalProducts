@@ -11,11 +11,11 @@
       "RelativeMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|solutionrelative:plugin.sc_digitalproduct\\coreplugins\\utilities.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproduct\\businesslogicplugins\\onpostupdateproductdetailssyncdigitalproductlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\plugin.sc_digitalproduct\\businesslogicplugins\\onpostupdateproductdetailssyncdigitalproductlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|solutionrelative:plugin.sc_digitalproduct\\businesslogicplugins\\onpostupdateproductdetailssyncdigitalproductlogic.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|c:\\kepersonale\\customappdigitalproducts2026\\customappdigitalproducts\\plugin.sc_digitalproduct\\model\\request\\countryinfonativa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "AbsoluteMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|C:\\KePersonale\\CustomAppDigitalProducts2026\\CustomAppDigitalProducts\\plugin.sc_digitalproduct\\model\\request\\countryinfonativa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
       "RelativeMoniker": "D:0:0:{5ECB1052-57C0-4CB7-A728-49808D278CE4}|Plugin.sc_DigitalProduct\\Plugin.sc_DigitalProduct.csproj|solutionrelative:plugin.sc_digitalproduct\\model\\request\\countryinfonativa.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
@@ -25,7 +25,7 @@
       "VerticalTabListWidth": 100,
       "DocumentGroups": [
         {
-          "DockedHeight": 885,
+          "DockedHeight": 1009,
           "SelectedChildIndex": 51,
           "Children": [
             {
@@ -255,8 +255,7 @@
               "RelativeToolTip": "Plugin.sc_DigitalProduct\\BusinessLogicPlugins\\OnPostUpdateProductDetailsSyncDigitalProductLogic.cs",
               "ViewState": "AgIAAJkAAAAAAAAAAAAMwK0AAABAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T10:42:28.139Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-19T10:42:28.139Z"
             },
             {
               "$type": "Document",
@@ -268,8 +267,7 @@
               "RelativeToolTip": "Plugin.sc_DigitalProduct\\Model\\Request\\CountryInfoNativa.cs",
               "ViewState": "AgIAAAAAAAAAAAAAAAAAABIAAAAFAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T10:36:17.351Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-19T10:36:17.351Z"
             },
             {
               "$type": "Document",
@@ -281,13 +279,12 @@
               "RelativeToolTip": "Plugin.sc_DigitalProduct\\CorePlugins\\Utilities.cs",
               "ViewState": "AgIAAEUAAAAAAAAAAAAWwF0AAAAcAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2026-06-19T10:24:36.647Z",
-              "EditorCaption": ""
+              "WhenOpened": "2026-06-19T10:24:36.647Z"
             }
           ]
         },
         {
-          "DockedHeight": 177,
+          "DockedHeight": 53,
           "SelectedChildIndex": -1,
           "Children": [
             {
